@@ -8,6 +8,7 @@ import { useGetPublicServicesQuery } from "@/redux/features/landing/landingApi";
 import { useAppSelector } from "@/redux/hooks";
 import { useGetSavedServicesQuery, useToggleSavedServiceMutation } from "@/redux/features/admin/user";
 import { toast } from "sonner";
+import { formatImageUrl } from "@/lib/utils";
 
 
 // ─── Color pairs for cards (cycling) ────────────────────────────────────────
@@ -208,7 +209,7 @@ export default function TopServices() {
                   {service.image ? (
                     <div className="relative h-48 md:h-52 overflow-hidden">
                       <img
-                        src={service.image}
+                        src={formatImageUrl(service.image)}
                         alt={service.name}
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                       />

@@ -4,6 +4,7 @@ import React from "react";
 import { Layers, Wrench, DollarSign, Edit2, Trash2, Eye } from "lucide-react";
 import { CustomTable } from "@/components/ui/table";
 import Link from "next/link";
+import { formatImageUrl } from "@/lib/utils";
 import { NestedService } from "@/redux/features/admin/service";
 
 interface NestedServiceTableProps {
@@ -25,7 +26,7 @@ export default function NestedServiceTable({
         <div className="flex items-center gap-3">
           <div className="w-12 h-12 bg-indigo-50 text-indigo-500 font-bold rounded-2xl flex items-center justify-center overflow-hidden shrink-0 border border-indigo-100/40">
             {item.image ? (
-              <img src={item.image} alt={item.name} className="w-full h-full object-cover" />
+              <img src={formatImageUrl(item.image)} alt={item.name} className="w-full h-full object-cover" />
             ) : (
               <Layers size={20} />
             )}

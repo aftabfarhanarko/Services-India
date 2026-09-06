@@ -3,6 +3,7 @@
 import React from "react";
 import { Folder } from "lucide-react";
 import { CustomTable } from "@/components/ui/table";
+import { formatImageUrl } from "@/lib/utils";
 import { Category } from "@/redux/features/admin/category";
 
 interface CategoryTableProps {
@@ -21,7 +22,7 @@ export default function CategoryTable({ categories, openEditModal, openDeleteMod
           <div className="w-10 h-10 bg-[#FFF8F4] text-[#FF6014] font-bold rounded-xl flex items-center justify-center overflow-hidden shrink-0">
             {cat.icon ? (
               cat.icon.startsWith("http") || cat.icon.startsWith("/") ? (
-                <img src={cat.icon} alt={cat.name} className="w-full h-full object-cover" />
+                <img src={formatImageUrl(cat.icon)} alt={cat.name} className="w-full h-full object-cover" />
               ) : (
                 <span className="text-base">{cat.icon}</span>
               )

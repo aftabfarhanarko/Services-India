@@ -16,6 +16,7 @@ import {
 } from "react-icons/fa";
 import { MdOutlineCleaningServices, MdLocalLaundryService } from "react-icons/md";
 import { LayoutGrid, Loader2 } from "lucide-react";
+import { formatImageUrl } from "@/lib/utils";
 import { useGetPublicCategoriesQuery } from "@/redux/features/landing/landingApi";
 
 // ─── Named export kept for Navbar.tsx dropdown ───────────────────────────────
@@ -215,7 +216,7 @@ const ExploreCategories = () => {
                         {/* If category has an image from backend, show it; else show manually-mapped vector icon with matching orange color */}
                         {cat.image ? (
                           <img
-                            src={cat.image}
+                            src={formatImageUrl(cat.image)}
                             alt={cat.name}
                             className="relative w-6 h-6 md:w-10 md:h-10 object-contain rounded-full drop-shadow-sm transition-all duration-500"
                           />

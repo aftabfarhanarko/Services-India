@@ -3,6 +3,7 @@
 import React from "react";
 import { X, Folder } from "lucide-react";
 import { Category } from "@/redux/features/admin/category";
+import { formatImageUrl } from "@/lib/utils";
 
 interface DeleteCategoryModalProps {
   isDeleteModalOpen: boolean;
@@ -45,7 +46,7 @@ export default function DeleteCategoryModal({
             <div className="w-16 h-16 bg-white border border-slate-200 rounded-2xl flex items-center justify-center overflow-hidden shadow-sm">
               {categoryToDelete.icon ? (
                 categoryToDelete.icon.startsWith("http") || categoryToDelete.icon.startsWith("/") ? (
-                  <img src={categoryToDelete.icon} alt={categoryToDelete.name} className="w-full h-full object-cover" />
+                  <img src={formatImageUrl(categoryToDelete.icon)} alt={categoryToDelete.name} className="w-full h-full object-cover" />
                 ) : (
                   <span className="text-2xl">{categoryToDelete.icon}</span>
                 )

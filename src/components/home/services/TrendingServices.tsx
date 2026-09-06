@@ -1,11 +1,12 @@
 "use client";
 
 import React, { useMemo } from "react";
+import { motion } from "framer-motion";
 import { ArrowRight, Star, Clock, CheckCircle } from "lucide-react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { useGetPublicServicesQuery } from "@/redux/features/landing/landingApi";
-import { motion } from "framer-motion";
+import { formatImageUrl } from "@/lib/utils";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -222,7 +223,7 @@ export default function TrendingServices() {
                 {/* Image Section */}
                 <div className="relative aspect-[16/10] w-full bg-slate-50 overflow-hidden">
                   <img
-                    src={service.image}
+                    src={formatImageUrl(service.image)}
                     alt={service.title}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />

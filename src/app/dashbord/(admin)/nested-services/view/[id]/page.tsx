@@ -6,6 +6,7 @@ import { useGetAllNestedServicesQuery } from "@/redux/features/admin/service";
 import { useAppSelector } from "@/redux/hooks";
 import { ArrowLeft, Layers, Image as ImageIcon, Wrench, DollarSign, HelpCircle } from "lucide-react";
 import Link from "next/link";
+import { formatImageUrl } from "@/lib/utils";
 
 export default function ViewNestedServicePage() {
   const router = useRouter();
@@ -111,7 +112,7 @@ export default function ViewNestedServicePage() {
           <div className="space-y-4">
             <label className="block text-xs font-semibold text-slate-500 uppercase mb-1">প্রচ্ছদ ছবি</label>
             {nested.image ? (
-              <img src={nested.image} alt={nested.name} className="w-full h-48 object-cover rounded-xl border border-slate-200" />
+              <img src={formatImageUrl(nested.image)} alt={nested.name} className="w-full h-48 object-cover rounded-xl border border-slate-200" />
             ) : (
               <div className="w-full h-48 bg-slate-50 rounded-xl border border-dashed border-slate-200 flex flex-col items-center justify-center text-slate-400">
                 <ImageIcon size={32} className="mb-2 opacity-50" />
@@ -176,8 +177,8 @@ export default function ViewNestedServicePage() {
                   <div>
                     <label className="block text-xs font-semibold text-slate-500 uppercase mb-2">Images</label>
                     <div className="flex gap-4">
-                      {sub.image1 && <img src={sub.image1} alt="Image 1" className="h-24 w-32 object-cover rounded-xl border border-slate-200" />}
-                      {sub.image2 && <img src={sub.image2} alt="Image 2" className="h-24 w-32 object-cover rounded-xl border border-slate-200" />}
+                      {sub.image1 && <img src={formatImageUrl(sub.image1)} alt="Image 1" className="h-24 w-32 object-cover rounded-xl border border-slate-200" />}
+                      {sub.image2 && <img src={formatImageUrl(sub.image2)} alt="Image 2" className="h-24 w-32 object-cover rounded-xl border border-slate-200" />}
                     </div>
                   </div>
                 )}

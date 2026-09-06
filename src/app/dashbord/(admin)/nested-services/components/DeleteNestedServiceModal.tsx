@@ -3,6 +3,7 @@
 import React from "react";
 import { X, Layers } from "lucide-react";
 import { NestedService } from "@/redux/features/admin/service";
+import { formatImageUrl } from "@/lib/utils";
 
 interface DeleteNestedServiceModalProps {
   isDeleteModalOpen: boolean;
@@ -43,7 +44,7 @@ export default function DeleteNestedServiceModal({
           <div className="flex flex-col items-center gap-3 bg-slate-50 p-5 rounded-2xl border border-slate-100">
             <div className="w-16 h-16 bg-white border border-slate-200 rounded-2xl flex items-center justify-center overflow-hidden shadow-sm">
               {itemToDelete.image ? (
-                <img src={itemToDelete.image} alt={itemToDelete.name} className="w-full h-full object-cover" />
+                <img src={formatImageUrl(itemToDelete.image)} alt={itemToDelete.name} className="w-full h-full object-cover" />
               ) : (
                 <Layers className="text-slate-400" size={28} />
               )}

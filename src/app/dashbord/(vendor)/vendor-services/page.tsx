@@ -14,6 +14,7 @@ import { CustomTable } from "@/components/ui/table";
 import type { TableAction } from "@/components/ui/table";
 import { Service } from "@/redux/features/admin/service";
 import { useVendorServicesState } from "./hooks/useVendorServicesState";
+import { formatImageUrl } from "@/lib/utils";
 import DeleteServiceModal from "./components/DeleteServiceModal";
 
 export default function VendorServicesPage() {
@@ -39,7 +40,7 @@ export default function VendorServicesPage() {
         <div className="flex items-center gap-3">
           <div className="w-12 h-12 bg-[#FFF8F4] text-[#FF6014] rounded-2xl flex items-center justify-center overflow-hidden shrink-0 border border-[#FFF0EB]/40">
             {item.image ? (
-              <img src={item.image} alt={item.name} className="w-full h-full object-cover" />
+              <img src={formatImageUrl(item.image)} alt={item.name} className="w-full h-full object-cover" />
             ) : (
               <Wrench size={20} />
             )}

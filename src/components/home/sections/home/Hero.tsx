@@ -8,8 +8,9 @@ import { useRouter } from "next/navigation";
 import { useSearchPublicServicesQuery } from "@/redux/features/landing/landingApi";
 import { useGetAllHeroesQuery } from "@/redux/features/admin/hero";
 
+import { formatImageUrl } from "@/lib/utils";
+
 const HERO_CONTENT = {
-  titleText: "Expert Home",
   accentTitleText: "Services,",
   subtitleText: "Simplified.",
   description: "Premium marketplace for all your household needs in Kolkata, West Bengal, India.",
@@ -216,7 +217,7 @@ const Hero = () => {
               <AnimatePresence initial={false} custom={direction}>
                 <motion.img
                   key={currentSlideIndex}
-                  src={activeImage}
+                  src={formatImageUrl(activeImage)}
                   alt="Hero Slide Background"
                   custom={direction}
                   variants={slideVariants}

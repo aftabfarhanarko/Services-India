@@ -3,6 +3,7 @@
 import React from "react";
 import { Image as ImageIcon, Edit2, Trash2 } from "lucide-react";
 import { CustomTable } from "@/components/ui/table";
+import { formatImageUrl } from "@/lib/utils";
 import { Blog } from "@/redux/features/admin/blog";
 
 interface BlogTableProps {
@@ -40,7 +41,7 @@ export default function BlogTable({ blogs, openEditModal, openDeleteModal }: Blo
               {imgs.slice(0, 3).map((img, i) => (
                 <div key={i} className="inline-block h-9 w-12 rounded-lg ring-2 ring-white overflow-hidden shadow-sm border border-slate-200/50 shrink-0">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={img} alt="" className="h-full w-full object-cover" />
+                  <img src={formatImageUrl(img)} alt="" className="h-full w-full object-cover" />
                 </div>
               ))}
             </div>

@@ -8,6 +8,7 @@ import {
   useGetPublicCategoriesQuery,
   useGetPublicServicesQuery,
 } from "@/redux/features/landing/landingApi";
+import { formatImageUrl } from "@/lib/utils";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -160,7 +161,7 @@ export default function CategorizedSections() {
                   >
                     <div className="relative h-40 bg-slate-50 shrink-0">
                       <img
-                        src={serviceImage}
+                        src={formatImageUrl(serviceImage)}
                         alt={item.name}
                         className="w-full h-full object-cover"
                       />

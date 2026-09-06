@@ -4,6 +4,7 @@ import React from "react";
 import { Component, Wrench, DollarSign, Edit2, Trash2 } from "lucide-react";
 import { CustomTable } from "@/components/ui/table";
 import { SubService } from "@/redux/features/admin/service";
+import { formatImageUrl } from "@/lib/utils";
 
 interface SubServiceTableProps {
   subServices: SubService[];
@@ -24,9 +25,9 @@ export default function SubServiceTable({
         <div className="flex items-center gap-3">
           <div className="w-12 h-12 bg-indigo-50 text-indigo-500 font-bold rounded-2xl flex items-center justify-center overflow-hidden shrink-0 border border-indigo-100/40">
             {item.image1 ? (
-              <img src={item.image1} alt={item.name} className="w-full h-full object-cover" />
+              <img src={formatImageUrl(item.image1)} alt={item.name} className="w-full h-full object-cover" />
             ) : item.image2 ? (
-              <img src={item.image2} alt={item.name} className="w-full h-full object-cover" />
+              <img src={formatImageUrl(item.image2)} alt={item.name} className="w-full h-full object-cover" />
             ) : (
               <Component size={20} />
             )}

@@ -17,6 +17,8 @@ const itemVariants = {
   },
 } as const;
 
+import { formatImageUrl } from "@/lib/utils";
+
 export function PackageOfferCard({
   pkg,
   index = 0,
@@ -53,7 +55,7 @@ export function PackageOfferCard({
       {pkg.image ? (
         <div className="relative h-44 w-full overflow-hidden flex-shrink-0">
           <img
-            src={pkg.image}
+            src={formatImageUrl(pkg.image)}
             alt={pkg.title}
             className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
           />

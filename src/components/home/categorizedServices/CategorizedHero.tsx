@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import { useRouter } from "next/navigation";
 import {
   Zap,
   ShieldCheck,
@@ -16,7 +17,7 @@ import {
   useToggleSavedServiceMutation,
 } from "@/redux/features/admin/user";
 import { toast } from "sonner";
-import { useRouter } from "next/navigation";
+import { formatImageUrl } from "@/lib/utils";
 
 interface CategorizedHeroProps {
   id?: number;
@@ -245,7 +246,7 @@ export function CategorizedHero({
               <div className="w-full h-56 sm:h-64 md:h-[320px] lg:h-[380px] rounded-[28px] overflow-hidden border-4 border-white shadow-xl">
                 {image ? (
                   <img
-                    src={image}
+                    src={formatImageUrl(image)}
                     alt={displayName}
                     className="w-full h-full object-cover"
                   />

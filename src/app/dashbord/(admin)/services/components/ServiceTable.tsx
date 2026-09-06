@@ -5,6 +5,7 @@ import { Wrench, Globe, Tag, User, Sparkles, Eye, Edit2, Trash2 } from "lucide-r
 import { CustomTable } from "@/components/ui/table";
 import type { TableAction } from "@/components/ui/table";
 import { useRouter } from "next/navigation";
+import { formatImageUrl } from "@/lib/utils";
 import { Service } from "@/redux/features/admin/service";
 
 interface ServiceTableProps {
@@ -30,7 +31,7 @@ export default function ServiceTable({
         <div className="flex items-center gap-3">
           <div className="w-12 h-12 bg-rose-50 text-rose-500 rounded-2xl flex items-center justify-center overflow-hidden shrink-0 border border-rose-100/40">
             {item.image ? (
-              <img src={item.image} alt={item.name} className="w-full h-full object-cover" />
+              <img src={formatImageUrl(item.image)} alt={item.name} className="w-full h-full object-cover" />
             ) : (
               <Wrench size={20} />
             )}

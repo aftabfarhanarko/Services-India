@@ -2,10 +2,11 @@
 
 import React, { useCallback, useEffect, useState } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
+import Link from "next/link";
 import ServiceListing from "@/components/home/services/ServiceListing";
 import { useGetPublicCategoryByIdQuery } from "@/redux/features/landing/landingApi";
 import { ArrowLeft, LayoutGrid } from "lucide-react";
-import Link from "next/link";
+import { formatImageUrl } from "@/lib/utils";
 
 interface FilterState {
   activeCategory: string;
@@ -92,7 +93,7 @@ export default function CategoryServicesPage({ categoryId }: { categoryId: strin
                   <div className="w-10 h-10 md:w-12 md:h-12 rounded-xl overflow-hidden bg-gradient-to-br from-white to-[#FFF4EE] border border-[#FF6014]/15 flex items-center justify-center shrink-0 shadow-sm p-0.5">
                     {!isCatLoading && category?.icon ? (
                       <img
-                        src={category.icon}
+                        src={formatImageUrl(category.icon)}
                         alt={category?.name}
                         className="w-full h-full object-cover rounded-lg"
                       />

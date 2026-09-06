@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import { toast } from "sonner";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Droplet,
@@ -24,7 +25,7 @@ import Link from "next/link";
 import { useAppSelector } from "@/redux/hooks";
 import { useCreateCustomRequestMutation } from "@/redux/features/admin/customRequestApi";
 import { useCreateBookingMutation } from "@/redux/features/admin/booking";
-import { toast } from "sonner";
+import { formatImageUrl } from "@/lib/utils";
 
 interface SubService {
   id: number;
@@ -341,7 +342,7 @@ export function SpecializedServices({
                 <div className="flex flex-col sm:flex-row items-start gap-5 sm:gap-6 min-w-0 flex-1">
                   {service.image ? (
                     <img
-                      src={service.image}
+                      src={formatImageUrl(service.image)}
                       alt={service.title}
                       className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 rounded-[24px] object-cover shadow-xs border border-slate-100 flex-shrink-0"
                     />

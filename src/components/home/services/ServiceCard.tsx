@@ -23,6 +23,8 @@ interface ServiceListing {
   bookingsCount?: number;
 }
 
+import { formatImageUrl } from "@/lib/utils";
+
 export default function ServiceCard({ service }: { service: ServiceListing }) {
   const { isAuthenticated } = useAppSelector((s) => s.auth);
 
@@ -66,7 +68,7 @@ export default function ServiceCard({ service }: { service: ServiceListing }) {
     >
       <div className="relative h-48 overflow-hidden">
         <img
-          src={service.image}
+          src={formatImageUrl(service.image)}
           alt={service.title}
           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
         />

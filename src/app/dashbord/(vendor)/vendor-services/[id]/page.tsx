@@ -4,6 +4,7 @@ import { useParams, useRouter } from "next/navigation";
 import { useGetServiceByIdQuery } from "@/redux/features/admin/service";
 import { ArrowLeft, Tag, Globe, User, Users, Briefcase, Wrench, Package } from "lucide-react";
 import Image from "next/image";
+import { formatImageUrl } from "@/lib/utils";
 
 export default function ServiceDetailsPage() {
   const params = useParams();
@@ -65,7 +66,7 @@ export default function ServiceDetailsPage() {
           <div className="bg-white rounded-3xl shadow-sm border border-slate-100 overflow-hidden">
             <div className="h-48 w-full bg-slate-100 relative">
               {service.image ? (
-                <img src={service.image} alt={service.name} className="w-full h-full object-cover" />
+                <img src={formatImageUrl(service.image)} alt={service.name} className="w-full h-full object-cover" />
               ) : (
                 <div className="w-full h-full flex items-center justify-center text-slate-300">
                   <Wrench size={48} />
@@ -204,7 +205,7 @@ export default function ServiceDetailsPage() {
                   <div key={ns.id} className="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all hover:border-brand-primary/30 group flex flex-col">
                     <div className="h-32 w-full bg-slate-100 relative overflow-hidden">
                       {ns.image ? (
-                        <img src={ns.image} alt={ns.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                        <img src={formatImageUrl(ns.image)} alt={ns.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                       ) : (
                         <div className="w-full h-full flex items-center justify-center text-slate-300">
                           <Briefcase size={32} />
