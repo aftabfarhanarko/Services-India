@@ -287,7 +287,7 @@ export default function HomeShiftingClientPage() {
     const loadingToast = toast.loading("Submitting shifting request...");
     try {
       const urls = files.length
-        ? (await Promise.allSettled(files.map(uploadImage)))
+        ? (await Promise.allSettled(files.map((file) => uploadImage(file))))
           .filter((r): r is PromiseFulfilledResult<string> => r.status === "fulfilled")
           .map((r) => r.value)
           .filter(Boolean)
