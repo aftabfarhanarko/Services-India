@@ -1,10 +1,13 @@
+import { formatImageUrl } from "./utils";
+
 /**
- * Uploads an image to SquadLog CDN (High-Performance Image CDN) with automatic HTTPS/HTTP & ImgBB fallbacks.
+ * SquadLog CDN (High-Performance Image & Asset CDN Service) Integration.
+ * Uploads, compresses, and optimizes images on-the-fly using Sharp engine.
+ * Target Endpoint: POST /upload/image?w=1200&q=80&format=webp
  */
 
-const CDN_HTTPS_URL = "https://ys5u1ge5eguiimbv9s2bkxrg.200.141.14.181.sslip.io";
-const CDN_HTTP_URL = "http://ys5u1ge5eguiimbv9s2bkxrg.200.141.14.181.sslip.io";
-const IMGBB_API_KEY = "a6c948ab64f7987bbf9e5477cde3a1cb";
+const CDN_BASE_URL = (process.env.NEXT_PUBLIC_CDN_URL || "http://ys5u1ge5eguiimbv9s2bkxrg.200.141.14.181.sslip.io").replace(/\/+$/, "");
+const API_BASE_URL = (process.env.NEXT_PUBLIC_API_URL || "https://api.rajseba.in").replace(/\/+$/, "");
 
 export const uploadImage = async (
   file: File,
@@ -14,54 +17,78 @@ export const uploadImage = async (
     format: options?.format || "webp",
     q: (options?.quality || 80).toString(),
   });
-  if (options?.width) params.append("w", options.width.toString());
+  if (options?.width) {
+    params.append("w", options.width.toString());
+  } else {
+    params.append("w", "1200");
+  }
 
-  // 1. Try SquadLog CDN via HTTPS
+  const formData = new FormData();
+  formData.append("file", file);
+
+  // 1. Primary: SquadLog CDN High-Performance Image Optimization
   try {
-    const cdnFormData = new FormData();
-    cdnFormData.append("file", file);
+    let cdnUrl = CDN_BASE_URL;
+    if (typeof window !== "undefined" && window.location.protocol === "https:" && cdnUrl.startsWith("http://")) {
+      cdnUrl = cdnUrl.replace(/^http:\/\//i, "https://");
+    }
 
-    const response = await fetch(`${CDN_HTTPS_URL}/upload/image?${params.toString()}`, {
+    const response = await fetch(`${cdnUrl}/upload/image?${params.toString()}`, {
       method: "POST",
-      body: cdnFormData,
+      body: formData,
     });
 
     if (response.ok) {
       const data = await response.json();
-      if (data && data.success && data.url) {
-        return data.url;
+      if (data?.url) {
+        return formatImageUrl(data.url);
       }
     }
   } catch (err) {
-    console.warn("CDN HTTPS upload failed, attempting HTTP endpoint...", err);
+    console.warn("SquadLog CDN HTTPS upload failed, attempting direct HTTP endpoint...", err);
   }
 
-  // 2. Try SquadLog CDN via HTTP (in case SSL certificate is not configured on VPS port)
+  // 2. Direct SquadLog CDN HTTP Endpoint
   try {
-    const cdnFormData = new FormData();
-    cdnFormData.append("file", file);
-
-    const response = await fetch(`${CDN_HTTP_URL}/upload/image?${params.toString()}`, {
+    const response = await fetch(`${CDN_BASE_URL}/upload/image?${params.toString()}`, {
       method: "POST",
-      body: cdnFormData,
+      body: formData,
     });
 
     if (response.ok) {
       const data = await response.json();
-      if (data && data.success && data.url) {
-        return data.url;
+      if (data?.url) {
+        return formatImageUrl(data.url);
       }
     }
   } catch (err) {
-    console.warn("CDN HTTP upload failed, falling back to ImgBB...", err);
+    console.warn("SquadLog CDN HTTP upload failed, falling back to Backend API...", err);
   }
 
-  // 3. Fallback to ImgBB if CDN Host is temporarily unreachable
+  // 3. Fallback: Backend API (/upload)
+  try {
+    const response = await fetch(`${API_BASE_URL}/upload`, {
+      method: "POST",
+      body: formData,
+    });
+
+    if (response.ok) {
+      const data = await response.json();
+      const rawUrl = data?.url || data?.data?.url;
+      if (rawUrl) {
+        return formatImageUrl(rawUrl);
+      }
+    }
+  } catch (err) {
+    console.warn("Backend API upload fallback failed, trying ImgBB...", err);
+  }
+
+  // 4. Fallback: ImgBB API
   try {
     const imgbbFormData = new FormData();
     imgbbFormData.append("image", file);
 
-    const imgbbResponse = await fetch(`https://api.imgbb.com/1/upload?key=${IMGBB_API_KEY}`, {
+    const imgbbResponse = await fetch("https://api.imgbb.com/1/upload?key=6d207e02198a847aa98d0a2a901485a5", {
       method: "POST",
       body: imgbbFormData,
     });
@@ -69,15 +96,17 @@ export const uploadImage = async (
     if (imgbbResponse.ok) {
       const imgbbData = await imgbbResponse.json();
       if (imgbbData?.data?.url) {
-        return imgbbData.data.url;
+        return formatImageUrl(imgbbData.data.url);
       }
     }
   } catch (imgbbErr) {
-    console.error("ImgBB fallback upload error:", imgbbErr);
+    console.warn("ImgBB fallback upload error:", imgbbErr);
   }
 
-  throw new Error("Failed to upload image via SquadLog CDN or fallback service");
+  throw new Error("Failed to upload image via SquadLog CDN or fallback services");
 };
+
+
 
 
 

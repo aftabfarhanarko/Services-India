@@ -5,31 +5,43 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
 }
 
-const DEFAULT_API_URL = process.env.NEXT_PUBLIC_API_URL || "https://api.rajseba.in";
-const CDN_URL = process.env.NEXT_PUBLIC_CDN_URL || "http://ys5u1ge5eguiimbv9s2bkxrg.200.141.14.181.sslip.io";
+const DEFAULT_API_URL = (process.env.NEXT_PUBLIC_API_URL || "https://api.rajseba.in").replace(/\/+$/, "");
+const DEFAULT_CDN_URL = (process.env.NEXT_PUBLIC_CDN_URL || "http://ys5u1ge5eguiimbv9s2bkxrg.200.141.14.181.sslip.io").replace(/\/+$/, "");
 
 /**
  * Formats image URLs for display across the application.
- * Fixes HTTP mixed content issues for HTTPS production site.
+ * Preserves SquadLog CDN high-performance links while converting legacy backend upload links to HTTPS.
  */
 export function formatImageUrl(url?: string): string {
   if (!url) return "";
 
   let formatted = url.trim();
 
-  // Force HTTPS on CDN links to prevent Mixed Content blocking in Production
-  if (formatted.startsWith("http://ys5u1ge5eguiimbv9s2bkxrg") || formatted.includes(".sslip.io")) {
-    formatted = formatted.replace(/^http:\/\//i, "https://");
-  }
-
-  // If it's a full CDN or absolute URL, return formatted
-  if (formatted.startsWith("https://") || formatted.startsWith("http://")) {
+  // 1. Preserve SquadLog CDN High-Performance URLs
+  if (formatted.includes("ys5u1ge5eguiimbv9s2bkxrg") || formatted.startsWith(DEFAULT_CDN_URL)) {
+    if (typeof window !== "undefined" && window.location.protocol === "https:" && formatted.startsWith("http://")) {
+      return formatted.replace(/^http:\/\//i, "https://");
+    }
     return formatted;
   }
 
-  // If it's a relative backend path like /uploads/... rewrite to absolute API URL
-  if (formatted.startsWith("/uploads/") || formatted.startsWith("/static/")) {
+  // 2. If the URL contains /uploads/ from backend, map to live production API URL
+  if (formatted.includes("/uploads/")) {
+    const uploadPath = formatted.substring(formatted.indexOf("/uploads/"));
+    return `${DEFAULT_API_URL}${uploadPath}`;
+  }
+
+  // 3. If it's a relative path like /static/..., append backend API domain
+  if (formatted.startsWith("/")) {
     return `${DEFAULT_API_URL}${formatted}`;
+  }
+
+  // 4. Force HTTPS on any external http:// image links to prevent Mixed Content blocking
+  if (formatted.startsWith("http://")) {
+    if (typeof window !== "undefined" && window.location.hostname === "localhost") {
+      return formatted;
+    }
+    return formatted.replace(/^http:\/\//i, "https://");
   }
 
   return formatted;
