@@ -1,59 +1,42 @@
 /**
- * Uploads an image using ImgBB API with fallback to local NestJS backend upload.
- * 
- * API Key: a6c948ab64f7987bbf9e5477cde3a1cb
- * @param file - The Image file to upload.
+ * Uploads an image directly to SquadLog CDN (High-Performance Image CDN).
+ * Returns the CDN image URL which will be saved in the database.
+ *
+ * CDN Base URL: http://ys5u1ge5eguiimbv9s2bkxrg.200.141.14.181.sslip.io
  */
-import { formatImageUrl } from "@/lib/utils";
 
-const IMGBB_API_KEY = process.env.NEXT_PUBLIC_IMGBB_API_KEY || "a6c948ab64f7987bbf9e5477cde3a1cb";
-const API_URL = process.env.NEXT_PUBLIC_API_URL || "https://api.rajseba.in";
+const CDN_URL = process.env.NEXT_PUBLIC_CDN_URL || "http://ys5u1ge5eguiimbv9s2bkxrg.200.141.14.181.sslip.io";
 
-export const uploadImage = async (file: File): Promise<string> => {
-  // 1. Try uploading to ImgBB first
-  try {
-    const formData = new FormData();
-    formData.append("image", file);
+export const uploadImage = async (
+  file: File,
+  options?: { width?: number; quality?: number; format?: string }
+): Promise<string> => {
+  const cdnFormData = new FormData();
+  cdnFormData.append("file", file);
 
-    const imgbbResponse = await fetch(`https://api.imgbb.com/1/upload?key=${IMGBB_API_KEY}`, {
-      method: "POST",
-      body: formData,
-    });
+  const params = new URLSearchParams({
+    format: options?.format || "webp",
+    q: (options?.quality || 80).toString(),
+  });
+  if (options?.width) params.append("w", options.width.toString());
 
-    if (imgbbResponse.ok) {
-      const imgbbData = await imgbbResponse.json();
-      if (imgbbData && imgbbData.data && imgbbData.data.url) {
-        return imgbbData.data.url;
-      }
-    }
-  } catch (imgbbError) {
-    console.warn("ImgBB upload failed, attempting fallback to backend upload server:", imgbbError);
+  const response = await fetch(`${CDN_URL}/upload/image?${params.toString()}`, {
+    method: "POST",
+    body: cdnFormData,
+  });
+
+  if (!response.ok) {
+    const errorData = await response.json().catch(() => ({}));
+    throw new Error(errorData.message || `CDN upload failed with status ${response.status}`);
   }
 
-  // 2. Fallback to NestJS backend /upload endpoint
-  try {
-    const backendFormData = new FormData();
-    backendFormData.append("file", file);
+  const data = await response.json();
 
-    const response = await fetch(`${API_URL}/upload`, {
-      method: "POST",
-      body: backendFormData,
-    });
-
-    if (!response.ok) {
-      throw new Error(`Failed to upload image: ${response.statusText}`);
-    }
-
-    const result = await response.json();
-
-    if (result && (result.url || result.data?.url)) {
-      const rawUrl = result.url || result.data?.url;
-      return formatImageUrl(rawUrl);
-    } else {
-      throw new Error(result?.message || "Failed to upload image to server");
-    }
-  } catch (error: any) {
-    console.error("Server upload error:", error);
-    throw new Error(error.message || "Image upload failed");
+  if (data && data.success && data.url) {
+    return data.url; // This CDN URL will be saved to your database
   }
+
+  throw new Error(data?.message || "Failed to retrieve CDN URL from upload response");
 };
+
+
