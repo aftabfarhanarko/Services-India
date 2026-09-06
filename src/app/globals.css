@@ -611,19 +611,27 @@ table::-webkit-scrollbar-thumb:hover,
   background: rgba(255, 96, 20, 0.6) !important;
 }
 
-/* Mobile & Web App Ultra-Fast Performance Enhancements */
+/* Mobile & Web App Ultra-Fast Performance & Lag Free Enhancements */
 html {
   -webkit-tap-highlight-color: transparent;
   scroll-behavior: smooth;
   text-rendering: optimizeLegibility;
+  transform: translateZ(0);
 }
 
 body {
   touch-action: manipulation;
-  overScroll-behavior-y: none;
+  overscroll-behavior-y: none;
+  -webkit-overflow-scrolling: touch;
 }
 
-/* Hardware accelerated smooth scrolling for mobile devices */
+/* GPU Hardware acceleration for silky 60fps transitions & zero lag */
+button, a, input, select, textarea, .card-3d, .hover-card-premium {
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
 * {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
