@@ -437,32 +437,60 @@ export function Navbar() {
                                       ))}
                                     </div>
                                   ) : (
-                                    <div className="grid grid-cols-3 gap-2.5 max-h-[390px] overflow-y-auto pr-1.5 custom-sidebar-scrollbar">
+                                    <motion.div
+                                      initial="hidden"
+                                      animate="show"
+                                      variants={{
+                                        hidden: { opacity: 0 },
+                                        show: {
+                                          opacity: 1,
+                                          transition: {
+                                            staggerChildren: 0.035,
+                                            delayChildren: 0.05,
+                                          },
+                                        },
+                                      }}
+                                      className="grid grid-cols-3 gap-2.5 max-h-[390px] overflow-y-auto pr-1.5 custom-sidebar-scrollbar"
+                                    >
                                       {apiCategories.map((cat: any) => {
                                         const CatIcon = getCategoryIcon(cat.name);
                                         const subtitle = getCategorySubtitle(cat.name);
                                         return (
-                                          <Link
+                                          <motion.div
                                             key={cat.id}
-                                            href={`/categories/${cat.id}`}
-                                            className="flex items-start gap-3 p-2.5 rounded-2xl border border-slate-100/80 bg-slate-50/40 hover:border-[#FF6014]/35 hover:bg-[#FFF8F4] group/item transition-all duration-200 hover:shadow-md hover:-translate-y-0.5"
-                                            onClick={() => setShowServicesDropdown(false)}
+                                            variants={{
+                                              hidden: { opacity: 0, y: 10, scale: 0.95 },
+                                              show: {
+                                                opacity: 1,
+                                                y: 0,
+                                                scale: 1,
+                                                transition: { type: "spring", stiffness: 350, damping: 25 },
+                                              },
+                                            }}
+                                            whileHover={{ scale: 1.02 }}
+                                            whileTap={{ scale: 0.98 }}
                                           >
-                                            <div className="w-10 h-10 rounded-xl bg-white border border-slate-200/90 flex items-center justify-center group-hover/item:bg-[#FF6014] group-hover/item:border-[#FF6014] transition-all duration-200 shrink-0 shadow-2xs group-hover/item:shadow-[#FF6014]/30 mt-0.5">
-                                              <CatIcon className="w-5 h-5 text-slate-700 group-hover/item:text-white transition-colors duration-200" />
-                                            </div>
-                                            <div className="min-w-0 flex-1">
-                                              <p className="font-extrabold text-[12px] text-slate-900 group-hover/item:text-[#FF6014] transition-colors leading-snug truncate">
-                                                {cat.name}
-                                              </p>
-                                              <p className="text-[10px] text-slate-400 group-hover/item:text-slate-600 font-medium truncate mt-0.5">
-                                                {subtitle}
-                                              </p>
-                                            </div>
-                                          </Link>
+                                            <Link
+                                              href={`/categories/${cat.id}`}
+                                              className="flex items-start gap-3 p-2.5 rounded-2xl border border-slate-100/80 bg-slate-50/40 hover:border-[#FF6014]/40 hover:bg-[#FFF8F4] group/item transition-all duration-200 hover:shadow-md h-full"
+                                              onClick={() => setShowServicesDropdown(false)}
+                                            >
+                                              <div className="w-10 h-10 rounded-xl bg-white border border-slate-200/90 flex items-center justify-center group-hover/item:bg-[#FF6014] group-hover/item:border-[#FF6014] transition-all duration-200 shrink-0 shadow-2xs group-hover/item:shadow-[#FF6014]/30 mt-0.5">
+                                                <CatIcon className="w-5 h-5 text-slate-700 group-hover/item:text-white transition-colors duration-200" />
+                                              </div>
+                                              <div className="min-w-0 flex-1">
+                                                <p className="font-extrabold text-[12px] text-slate-900 group-hover/item:text-[#FF6014] transition-colors leading-snug truncate">
+                                                  {cat.name}
+                                                </p>
+                                                <p className="text-[10px] text-slate-400 group-hover/item:text-slate-600 font-medium truncate mt-0.5">
+                                                  {subtitle}
+                                                </p>
+                                              </div>
+                                            </Link>
+                                          </motion.div>
                                         );
                                       })}
-                                    </div>
+                                    </motion.div>
                                   )}
                                 </div>
 
