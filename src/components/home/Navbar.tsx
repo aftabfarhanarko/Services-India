@@ -11,6 +11,7 @@ import {
   Briefcase,
   Map as MapIcon,
   Calendar,
+  CalendarCheck,
   Search,
   ChevronDown,
   Home as HomeIcon,
@@ -23,14 +24,19 @@ import {
   Settings,
   LogIn,
   UserPlus,
+  ShieldCheck,
+  UserCheck,
+  KeyRound,
   PhoneCall,
   MapPin,
   TrendingUp,
   Truck,
   Sparkles,
+  Rocket,
   ArrowRight,
   Heart,
   Loader2,
+  Users,
 } from "lucide-react";
 import { TbAirConditioning, TbTruck } from "react-icons/tb";
 import {
@@ -109,18 +115,15 @@ function getCategorySubtitle(name: string): string {
 }
 
 // ─── Top navbar links ────────────────────────────────────────────────────
-// Shifting, Booking, About Us, Contact, Opportunity — removed from the top
-// navbar (both desktop/laptop and mobile). Only Home + Services (with its
-// category dropdown) remain here. Other pages are still reachable via the
-// mobile bottom nav / footer / direct links elsewhere in the app.
+// Professional icon choices aligned with titles & premium aesthetics
 const LEFT_NAV_LINKS: NavLink[] = [
   { label: "Home", href: "/", icon: HomeIcon },
-  { label: "Services", href: "/services", icon: Briefcase, hasDropdown: true },
-  { label: "Bookings", href: "/bookings", icon: Calendar },
-  { label: " Map", href: "/map", icon: MapPin },
-  { label: "About Us", href: "/about", icon: Info },
+  { label: "Services", href: "/services", icon: LayoutGrid, hasDropdown: true },
+  { label: "Bookings", href: "/bookings", icon: CalendarCheck },
+  { label: "Map", href: "/map", icon: MapPin },
+  { label: "About Us", href: "/about", icon: Users },
   { label: "Contact", href: "/contact", icon: PhoneCall },
-  { label: "Opportunity", href: "/opportunity", icon: TrendingUp },
+  { label: "Opportunity", href: "/opportunity", icon: Rocket },
 ];
 
 const RIGHT_NAV_LINKS: NavLink[] = [];
@@ -129,10 +132,10 @@ const ALL_NAV_LINKS: NavLink[] = [...LEFT_NAV_LINKS, ...RIGHT_NAV_LINKS];
 
 const MOBILE_BOTTOM_LINKS: NavLink[] = [
   { label: "Home", href: "/", icon: HomeIcon },
-  { label: "Services", href: "/services", icon: Briefcase },
-  { label: "Booking", href: "/bookings", icon: Calendar },
-  { label: "Opportunity", href: "/opportunity", icon: TrendingUp },
-  { label: "Login", href: "/login", icon: User },
+  { label: "Services", href: "/services", icon: LayoutGrid },
+  { label: "Booking", href: "/bookings", icon: CalendarCheck },
+  { label: "Opportunity", href: "/opportunity", icon: Rocket },
+  { label: "Profile", href: "/profile", icon: User },
 ];
 
 const mobileDrawerVariants = {
@@ -888,7 +891,7 @@ export function Navbar() {
                       href="/login"
                       className="flex items-center gap-1.5 font-bold text-[#FF6014] bg-rose-50/50 hover:bg-rose-50 border border-rose-100/60 hover:border-[#FF6014]/30 py-2 px-4 rounded-xl text-xs lg:text-sm transition-all duration-200"
                     >
-                      <LogIn className="w-4 h-4 text-[#FF6014]" />
+                      <ShieldCheck className="w-4 h-4 text-[#FF6014]" />
                       Login
                     </Link>
                   </motion.div>
@@ -902,7 +905,7 @@ export function Navbar() {
                       href="/signup"
                       className="flex items-center gap-1.5 bg-gradient-to-r from-[#FF6014] to-[#ff7b36] hover:from-[#e55610] hover:to-[#ff6c21] text-white font-bold py-2 px-4.5 rounded-xl text-xs lg:text-sm transition-all duration-200 shadow-[0_4px_14px_-3px_rgba(255,96,20,0.22)] hover:shadow-[0_6px_20px_-3px_rgba(255,96,20,0.35)]"
                     >
-                      <UserPlus className="w-4 h-4 text-white" />
+                      <UserCheck className="w-4 h-4 text-white" />
                       Signup
                     </Link>
                   </motion.div>
@@ -1209,7 +1212,7 @@ export function Navbar() {
                       className="flex items-center justify-center gap-1.5 py-2.5 text-slate-700 font-bold text-xs border border-slate-200 bg-white rounded-xl hover:border-[#FF6014] hover:text-[#FF6014] transition-all cursor-pointer"
                       onClick={() => setIsOpen(false)}
                     >
-                      <LogIn className="w-3.5 h-3.5" />
+                      <ShieldCheck className="w-3.5 h-3.5 text-[#FF6014]" />
                       Login
                     </Link>
                     <Link
@@ -1217,7 +1220,7 @@ export function Navbar() {
                       className="flex items-center justify-center gap-1.5 py-2.5 bg-gradient-to-r from-[#FF6014] to-[#FF7A37] text-white font-bold text-xs rounded-xl shadow-sm hover:shadow hover:shadow-orange-500/10 transition-all active:scale-[0.98] cursor-pointer"
                       onClick={() => setIsOpen(false)}
                     >
-                      <UserPlus className="w-3.5 h-3.5" />
+                      <UserCheck className="w-3.5 h-3.5 text-white" />
                       Signup
                     </Link>
                   </motion.div>

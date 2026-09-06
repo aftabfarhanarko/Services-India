@@ -11,6 +11,17 @@ import {
   MapPin,
   ChevronRight,
   Loader2,
+  Home as HomeIcon,
+  LayoutGrid,
+  CalendarCheck,
+  Rocket,
+  Truck,
+  PhoneCall,
+  Users,
+  HelpCircle,
+  ShieldCheck,
+  FileText,
+  Rss,
 } from "lucide-react";
 import { motion } from "framer-motion";
 import { toast } from "sonner";
@@ -30,11 +41,11 @@ const QUICK_LINKS = [
 ];
 
 const COMPANY_LINKS = [
-  { label: "About Us", href: "/about" },
-  { label: "Help Center", href: "/help" },
-  { label: "Privacy Policy", href: "/privacy" },
-  { label: "Terms of Service", href: "/terms" },
-  { label: "Blog", href: "/blog" },
+  { label: "About Us", href: "/about", icon: Users },
+  { label: "Help Center", href: "/help", icon: HelpCircle },
+  { label: "Privacy Policy", href: "/privacy", icon: ShieldCheck },
+  { label: "Terms of Service", href: "/terms", icon: FileText },
+  { label: "Blog", href: "/blog", icon: Rss },
 ];
 
 const FacebookIcon = () => (
@@ -77,26 +88,43 @@ const itemVariants: any = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: "easeOut" } }
 };
 
-function FooterLinkColumn({ title, links }: { title: string; links: { label: string; href: string }[] }) {
+function FooterLinkColumn({ title, links }: { title: string; links: { label: string; href: string; icon?: any }[] }) {
   return (
     <div className="space-y-4">
-      <h3 className="text-[13px] font-bold tracking-wider text-slate-800 uppercase flex items-center gap-1.5">
-        <span className="w-1.5 h-1.5 rounded-full bg-[#FF6014]" />
+      <h3 className="text-[13px] font-extrabold tracking-wider text-slate-800 uppercase flex items-center gap-1.5">
+        <span className="w-1.5 h-1.5 rounded-full bg-[#FF6014] animate-pulse" />
         {title}
       </h3>
       <ul className="space-y-2.5">
         {links.map((l) => {
           const isExternal = l.href.startsWith("http");
+          const LinkIcon = l.icon;
           return (
             <li key={l.label}>
               <Link
                 href={l.href}
                 target={isExternal ? "_blank" : undefined}
                 rel={isExternal ? "noopener noreferrer" : undefined}
-                className="flex items-center gap-1.5 text-[13px] font-medium text-slate-700 hover:text-[#FF6014] transition-all duration-200 group/link"
+                className="flex items-center gap-2.5 text-[13px] font-medium text-slate-700 hover:text-[#FF6014] transition-all duration-200 group/link"
               >
-                <ChevronRight className="w-4 h-4 text-[#FF6014] group-hover/link:translate-x-1 flex-shrink-0 transition-all duration-200" />
-                <span>{l.label}</span>
+                {LinkIcon ? (
+                  <motion.span
+                    whileHover={{ scale: 1.22, rotate: 8 }}
+                    whileTap={{ scale: 0.92 }}
+                    transition={{ type: "spring", stiffness: 450, damping: 17 }}
+                    className="w-7 h-7 rounded-xl bg-slate-100/90 border border-slate-200/70 flex items-center justify-center text-slate-500 group-hover/link:bg-[#FF6014] group-hover/link:border-[#FF6014] group-hover/link:text-white transition-all duration-300 shrink-0 shadow-2xs group-hover/link:shadow-[0_4px_12px_rgba(255,96,20,0.35)]"
+                  >
+                    <LinkIcon className="w-3.5 h-3.5 transition-transform duration-300 group-hover/link:scale-110" />
+                  </motion.span>
+                ) : (
+                  <motion.span
+                    whileHover={{ x: 4 }}
+                    transition={{ type: "spring", stiffness: 400, damping: 20 }}
+                  >
+                    <ChevronRight className="w-4 h-4 text-[#FF6014] flex-shrink-0 transition-all duration-200" />
+                  </motion.span>
+                )}
+                <span className="font-semibold tracking-tight transition-transform duration-200 group-hover/link:translate-x-1">{l.label}</span>
               </Link>
             </li>
           );
@@ -123,13 +151,13 @@ export default function Footer() {
     : "https://maps.google.com/?q=Kolkata+West+Bengal+India";
 
   const dynamicQuickLinks = [
-    { label: "Home", href: "/" },
-    { label: "Services", href: "/services" },
-    { label: "Book History", href: "/bookings" },
-    { label: "Coverage Area Map", href: mapUrl },
-    { label: "Opportunity", href: "/opportunity" },
-    { label: "Custom Shifting", href: "/home-shifting" },
-    { label: "Contact Us", href: "/contact" },
+    { label: "Home", href: "/", icon: HomeIcon },
+    { label: "Services", href: "/services", icon: LayoutGrid },
+    { label: "Book History", href: "/bookings", icon: CalendarCheck },
+    { label: "Coverage Area Map", href: mapUrl, icon: MapPin },
+    { label: "Opportunity", href: "/opportunity", icon: Rocket },
+    { label: "Custom Shifting", href: "/home-shifting", icon: Truck },
+    { label: "Contact Us", href: "/contact", icon: PhoneCall },
   ];
 
   const dynamicContactInfo = [
@@ -305,10 +333,12 @@ export default function Footer() {
                     className="flex items-center gap-3 text-[13px] font-medium text-slate-700 hover:text-[#FF6014] transition-all duration-200 group/item"
                   >
                     <motion.span
-                      whileHover={{ scale: 1.1, rotate: 5 }}
-                      className="w-9 h-9 rounded-xl bg-white border border-slate-100 flex items-center justify-center flex-shrink-0 group-hover/item:border-[#FF6014]/20 group-hover/item:bg-[#FF6014]/5 text-slate-400 group-hover/item:text-[#FF6014] transition-all duration-300"
+                      whileHover={{ scale: 1.2, rotate: 10 }}
+                      whileTap={{ scale: 0.9 }}
+                      transition={{ type: "spring", stiffness: 450, damping: 17 }}
+                      className="w-8.5 h-8.5 rounded-xl bg-slate-100/90 border border-slate-200/70 flex items-center justify-center flex-shrink-0 group-hover/item:border-[#FF6014] group-hover/item:bg-[#FF6014] text-slate-500 group-hover/item:text-white transition-all duration-300 shadow-2xs group-hover/item:shadow-[0_4px_12px_rgba(255,96,20,0.35)]"
                     >
-                      <Icon className="w-4 h-4" />
+                      <Icon className="w-4 h-4 transition-transform duration-300 group-hover/item:scale-110" />
                     </motion.span>
                     <span className="font-semibold">{label}</span>
                   </a>
