@@ -3,6 +3,7 @@
 import React from "react";
 import { Camera, Loader2, Mail, Phone, MapPin } from "lucide-react";
 import { getRoleName } from "@/redux/features/auth/authSlice";
+import { cleanAddress } from "@/lib/utils";
 
 interface ProfileCardProps {
   name: string;
@@ -77,8 +78,8 @@ export default function ProfileCard({
           <span>{phone}</span>
         </div>
         <div className="flex items-center gap-2">
-          <MapPin size={14} className="text-slate-400" />
-          <span>{address}</span>
+          <MapPin size={14} className="text-slate-400 shrink-0" />
+          <span>{cleanAddress(address)}</span>
         </div>
       </div>
     </div>

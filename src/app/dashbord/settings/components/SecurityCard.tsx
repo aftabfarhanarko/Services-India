@@ -54,7 +54,7 @@ export default function SecurityCard({ twoFactor, onTwoFactorChange, Switch, lan
               {lang === "bn" ? "সাম্প্রতিক লগইনসমূহ" : "Recent Logins"}
             </h4>
             <p className="text-xs text-slate-400 mt-1 font-semibold">
-              {lang === "bn" ? "ক্রোম ম্যাকওএস • ঢাকা, বাংলাদেশ" : "Chrome on MacOS • Dhaka, BD"}
+              {lang === "bn" ? "ক্রোম ম্যাকওএস • কলকাতা, পশ্চিমবঙ্গ" : "Chrome on MacOS • Kolkata, WB"}
             </p>
           </div>
           <button className="bg-slate-50 hover:bg-slate-100 text-slate-600 text-xs font-bold px-4 py-2 rounded-xl border border-slate-100 transition-colors">

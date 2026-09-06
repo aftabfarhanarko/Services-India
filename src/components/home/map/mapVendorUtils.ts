@@ -46,7 +46,7 @@ function cleanAddress(locationText: string, district: string, division: string, 
     if (area && namesMatch(part, area)) return false;
     if (district && namesMatch(part, district)) return false;
     if (division && namesMatch(part, division)) return false;
-    if (normalizeName(part) === "bangladesh") return false;
+    if (["bangladesh", "india"].includes(normalizeName(part))) return false;
     return true;
   });
   return filtered.join(", ");

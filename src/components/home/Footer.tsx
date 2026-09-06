@@ -28,7 +28,7 @@ import { toast } from "sonner";
 import { useState } from "react";
 
 import { useGetPublicCompanyBrandingQuery } from "@/redux/features/landing/landingApi";
-import { formatImageUrl } from "@/lib/utils";
+import { formatImageUrl, cleanAddress } from "@/lib/utils";
 
 const QUICK_LINKS = [
   { label: "Home", href: "/" },
@@ -162,7 +162,7 @@ export default function Footer() {
   const dynamicContactInfo = [
     ...(branding?.phone ? [{ icon: Phone, label: branding.phone, href: `tel:${branding.phone.replace(/[^0-9+]/g, "")}` }] : []),
     ...(branding?.email ? [{ icon: Mail, label: branding.email, href: `mailto:${branding.email}` }] : []),
-    ...(branding?.address ? [{ icon: MapPin, label: `${branding.address}${branding.cityLocation ? `, ${branding.cityLocation}` : ""}`, href: `https://maps.google.com/?q=${encodeURIComponent(branding.address)}` }] : []),
+    ...(branding?.address ? [{ icon: MapPin, label: cleanAddress(`${branding.address}${branding.cityLocation ? `, ${branding.cityLocation}` : ""}`), href: `https://maps.google.com/?q=${encodeURIComponent(branding.address)}` }] : []),
   ];
 
   const dynamicSocials = [

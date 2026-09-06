@@ -337,7 +337,7 @@ export default function HomeShiftingClientPage() {
                 </h1>
                 <p className="text-sm text-slate-600 mt-3 max-w-md mx-auto lg:mx-0 leading-relaxed font-semibold animate-[fadeInUp_0.8s_ease-out]">
                   From a single-bedroom flat to a full office floor, our verified crews handle packing,
-                  loading, and delivery across Dhaka — so moving day feels like any other day.
+                  loading, and delivery across Kolkata (North Kolkata, New Town & Rajarhat) — so moving day feels like any other day.
                 </p>
                 <div className="flex flex-wrap gap-3 mt-6 justify-center lg:justify-start animate-[fadeInUp_0.9s_ease-out]">
                   {["Fully Insured", "On-Time Delivery", "Verified Vendors"].map((t) => (
@@ -359,7 +359,7 @@ export default function HomeShiftingClientPage() {
               </div>
               <div className="flex-shrink-0 w-full max-w-xs lg:max-w-sm">
                 <div className="relative rounded-3xl overflow-hidden shadow-2xl aspect-[4/3] border border-slate-100 group">
-                  <Image src="/rajseba_about_banner.png" alt="Rajseba movers carrying boxes during a home shifting job in Dhaka" fill className="object-cover transition-transform duration-700 group-hover:scale-105" priority />
+                  <Image src="/rajseba_about_banner.png" alt="Rajseba movers carrying boxes during a home shifting job in Kolkata" fill className="object-cover transition-transform duration-700 group-hover:scale-105" priority />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
                   <div className="absolute bottom-4 left-4 right-4 flex gap-3">
                     {[{ n: "10K+", l: "Moves Done" }, { n: "4.9★", l: "Avg Rating" }, { n: "24/7", l: "Support" }].map((s) => (

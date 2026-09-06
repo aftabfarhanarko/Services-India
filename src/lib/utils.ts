@@ -35,4 +35,32 @@ export function formatImageUrl(url?: string): string {
   return formatted;
 }
 
+/**
+ * Formats and cleans address string to remove repeated duplicate parts (e.g. duplicate pincodes, city names).
+ */
+export function cleanAddress(address?: string): string {
+  if (!address) return "";
+
+  // Split by comma and trim each segment
+  const parts = address
+    .split(",")
+    .map((p) => p.trim())
+    .filter(Boolean);
+
+  const seen = new Set<string>();
+  const uniqueParts: string[] = [];
+
+  for (const part of parts) {
+    const lower = part.toLowerCase();
+    // Prevent duplicated terms like 'Kolkata', '700052', 'West Bengal', 'India' repeating
+    if (!seen.has(lower)) {
+      seen.add(lower);
+      uniqueParts.push(part);
+    }
+  }
+
+  return uniqueParts.join(", ");
+}
+
+
 

@@ -7,6 +7,7 @@ import {
 } from "lucide-react";
 import { FaFacebookF, FaInstagram, FaLinkedinIn, FaWhatsapp } from "react-icons/fa";
 import { useGetPublicCompanyBrandingQuery } from "@/redux/features/landing/landingApi";
+import { cleanAddress } from "@/lib/utils";
 
 export const TRUST_BARS = [
   { icon: Shield, text: "100% Encrypted Enquiry" },
@@ -26,9 +27,10 @@ export function ContactChannelsList() {
   const { data: brandingRes } = useGetPublicCompanyBrandingQuery();
   const branding = brandingRes?.data;
 
-  const phone = branding?.phone || "01813-333373";
+  const phone = branding?.phone || "+91 6290257347";
   const email = branding?.email || "info@rajseba.com";
-  const address = branding?.address || "Kolkata, West Bengal, India";
+  const rawAddress = branding?.address || "Ground floor, Seven Sky Apartment, Bimannagar, Kaikhali, Kolkata, West Bengal 700052";
+  const address = cleanAddress(rawAddress);
 
   const channels = [
     { icon: Phone, label: "Call Support", primary: phone, href: `tel:${phone.replace(/[^0-9+]/g, '')}`, secondary: `Hotline: ${phone}`, badge: "24/7 Hotline" },

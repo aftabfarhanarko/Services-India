@@ -32,7 +32,7 @@ export function ServiceDeliveryDetails() {
         </div>
         <div>
           <h4 className="text-xs font-bold text-slate-800 leading-snug">Service Operating Hours</h4>
-          <p className="text-[11px] font-semibold text-slate-500 mt-0.5">Daily: 08:00 AM - 10:00 PM (Dhaka City)</p>
+          <p className="text-[11px] font-semibold text-slate-500 mt-0.5">Daily: 08:00 AM - 10:00 PM (Kolkata City)</p>
         </div>
       </div>
 

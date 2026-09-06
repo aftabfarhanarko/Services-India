@@ -210,7 +210,7 @@ export default function SuperAdminDashboard() {
               </span>
               <span className="text-[10px] text-slate-400 font-bold mt-0.5 flex items-center gap-1">
                 <Clock size={10} className="text-slate-400" />
-                Bangladesh Standard Time
+                India Standard Time (IST)
               </span>
             </div>
             <div className="w-px h-8 bg-slate-100 hidden sm:block" />

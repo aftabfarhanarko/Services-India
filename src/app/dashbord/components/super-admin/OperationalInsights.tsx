@@ -91,7 +91,7 @@ export default function OperationalInsights({
                     </p>
                     <p className="text-[10px] text-slate-400 font-medium truncate mt-0.5 flex items-center gap-1">
                       <MapPin size={10} className="text-slate-400" />
-                      {vendor.serviceArea || "Dhaka Division"}
+                      {vendor.serviceArea || "Kolkata Region"}
                     </p>
                   </div>
                   <div className="text-right shrink-0">

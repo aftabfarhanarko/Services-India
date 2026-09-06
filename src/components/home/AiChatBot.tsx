@@ -57,7 +57,7 @@ export function AiChatBot() {
   const pathname = usePathname();
   const { user, isAuthenticated } = useAppSelector((state) => state.auth);
   const { data: brandingRes } = useGetPublicCompanyBrandingQuery();
-  const companyPhone = brandingRes?.data?.phone || "01813-333373";
+  const companyPhone = brandingRes?.data?.phone || "+91 6290257347";
   const cleanPhone = companyPhone.replace(/[^0-9+]/g, '');
 
   const isDashboard = pathname?.startsWith("/dashbord") || pathname?.startsWith("/dashboard");

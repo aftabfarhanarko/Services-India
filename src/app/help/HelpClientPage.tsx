@@ -479,12 +479,14 @@ export default function HelpClientPage() {
                 Speak directly to our Customer happiness agents.
               </p>
               <a
-                href="tel:01813333373"
-                className="text-[10px] font-bold text-[#FF6014] hover:underline flex items-center gap-0.5 mt-auto"
+                href="tel:+916290257347"
+                className="inline-flex items-center gap-2 bg-[#FF6014] text-white text-xs font-bold px-4 py-2 rounded-xl hover:bg-[#e0530a] transition-colors shadow-xs"
               >
-                01813-333373
-                <ExternalLink className="w-2 h-2" />
+                <Phone size={13} /> Call Support Hotline
               </a>
+              <span className="text-[11px] font-bold text-slate-500 mt-2">
+                +91 6290257347
+              </span>
             </div>
 
             {/* Support Card 2: Live Chat */}

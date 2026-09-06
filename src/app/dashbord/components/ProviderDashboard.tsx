@@ -676,7 +676,7 @@ export default function ProviderDashboard() {
                       <input
                         name="location"
                         type="text"
-                        placeholder="e.g. Mirpur, Dhaka"
+                        placeholder="e.g. Rajarhat, Kolkata"
                         defaultValue={myProfile?.location}
                         className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-xs text-slate-850 focus:outline-none focus:border-[#FF6014]/40"
                         required

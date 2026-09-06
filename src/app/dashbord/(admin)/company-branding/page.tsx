@@ -385,7 +385,7 @@ export default function CompanyBrandingPage() {
                   name="address"
                   value={formData.address}
                   onChange={handleChange}
-                  placeholder="Mirpur 10, Dhaka, Bangladesh"
+                  placeholder="Salt Lake, Kolkata, West Bengal"
                   className="w-full px-4 py-3 rounded-2xl border border-slate-200/90 bg-slate-50/50 text-slate-800 text-xs font-semibold outline-none focus:border-[#FF6014] focus:bg-white transition"
                 />
               </div>
@@ -398,7 +398,7 @@ export default function CompanyBrandingPage() {
                   name="cityLocation"
                   value={formData.cityLocation}
                   onChange={handleChange}
-                  placeholder="Dhaka"
+                  placeholder="Kolkata"
                   className="w-full px-4 py-3 rounded-2xl border border-slate-200/90 bg-slate-50/50 text-slate-800 text-xs font-semibold outline-none focus:border-[#FF6014] focus:bg-white transition"
                 />
               </div>

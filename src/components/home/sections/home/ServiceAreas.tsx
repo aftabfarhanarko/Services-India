@@ -54,7 +54,7 @@ export default function ServiceAreas() {
         city: division.name,
         zones: districts.map((district: any) => district.name),
         active: districts.length > 0,
-        highlight: division.name?.toLowerCase() === "dhaka",
+        highlight: division.name?.toLowerCase() === "kolkata",
       };
     });
   }, [divisions, allDistricts]);

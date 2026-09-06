@@ -330,7 +330,7 @@ export default function PrivacyClientPage() {
                     </p>
                     <div className="bg-[#FFFDFB] border border-rose-100/30 rounded-xl p-3 text-[11px] font-semibold text-slate-600 space-y-1">
                       <p>📧 Email: <span className="text-[#FF6014]">info@rajseba.com</span></p>
-                      <p>📞 Hotline: <span className="text-[#FF6014]">01813-333373</span></p>
+                      <p>📞 Hotline: <span className="text-[#FF6014]">+91 6290257347</span></p>
                       <p>📍 Address: Kolkata, West Bengal, India</p>
                     </div>
                   </div>

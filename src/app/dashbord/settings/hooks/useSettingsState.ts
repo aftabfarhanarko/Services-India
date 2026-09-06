@@ -17,7 +17,7 @@ export function useSettingsState() {
     fullName: "Zayed Mansoor",
     email: "zayed.mansoor@example.com",
     phone: "+880 1712-345678",
-    location: "Gulshan-2, Dhaka",
+    location: "Salt Lake, Kolkata",
   });
 
   // Toggles State

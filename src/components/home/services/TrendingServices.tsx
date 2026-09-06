@@ -199,7 +199,7 @@ export default function TrendingServices() {
               Trending Services
             </h2>
             <p className="text-xs font-semibold text-slate-400 mt-2 uppercase tracking-wider">
-              Highly requested by residents in Dhaka this month
+              Highly requested by residents in Kolkata this month
             </p>
           </div>
         </div>

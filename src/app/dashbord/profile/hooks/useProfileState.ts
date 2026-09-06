@@ -8,7 +8,7 @@ import { useUpdateUserMutation } from "@/redux/features/admin/user";
 import { useCreateProfileMutation, useUpdateProfileMutation } from "@/redux/features/admin/profile";
 import { useGetAllCategoriesQuery } from "@/redux/features/admin/category";
 import { uploadImage } from "@/lib/upload";
-import { formatImageUrl } from "@/lib/utils";
+import { formatImageUrl, cleanAddress } from "@/lib/utils";
 
 export function useProfileState() {
   const role = useAppSelector((state) => state.auth.role) || "client";
@@ -110,10 +110,8 @@ export function useProfileState() {
 
     const primaryAddress = formData.get("address")?.toString().trim() || "";
     const specificLocation = formData.get("location")?.toString().trim() || "";
-    const locationParts = [primaryAddress, specificLocation].filter(
-      (part, index, arr) => part && arr.indexOf(part) === index
-    );
-    const combinedLocation = locationParts.join(", ");
+    const rawLocation = [primaryAddress, specificLocation].filter(Boolean).join(", ");
+    const combinedLocation = cleanAddress(rawLocation);
 
     const profileData = {
       user_id: user.id || user._id,

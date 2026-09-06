@@ -42,7 +42,7 @@ function OpportunityPageContent() {
           </div>
           <div className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
             {[
-              { role: "Vendor" as const, icon: Briefcase, title: "Become a Vendor", desc: "List your professional services, manage custom bookings, and reach thousands of daily active customers in Dhaka.", label: "Apply as Vendor" },
+              { role: "Vendor" as const, icon: Briefcase, title: "Become a Vendor", desc: "List your professional services, manage custom bookings, and reach thousands of daily active customers across Kolkata (North Kolkata, New Town & Rajarhat).", label: "Apply as Vendor" },
               { role: "Agent" as const, icon: UserCheck, title: "Become an Agent", desc: "Manage vendor networks, oversee service dispatch in your designated territory, and earn competitive commissions.", label: "Apply as Agent" },
             ].map(({ role, icon: Icon, title, desc, label }) => (
               <button key={role} onClick={() => handleSelectRole(role)} className="bg-white border border-slate-100/90 rounded-3xl p-8 hover:border-[#FF6014]/20 hover:shadow-[0_12px_40px_rgba(255,96,20,0.06)] hover:-translate-y-1 transition-all duration-300 text-left group cursor-pointer relative overflow-hidden">

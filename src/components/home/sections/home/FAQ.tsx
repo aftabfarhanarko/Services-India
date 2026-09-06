@@ -73,7 +73,7 @@ export default function FAQ() {
               </p>
               <p className="flex items-start gap-2 text-left">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#FF6014] mt-1.5 shrink-0" />
-                <span>Our background-checked professionals are available 24/7 across Dhaka and major districts.</span>
+                <span>Our background-checked professionals are available 24/7 across Kolkata, prioritizing North Kolkata, New Town, and Rajarhat.</span>
               </p>
               <p className="flex items-start gap-2 text-left">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#FF6014] mt-1.5 shrink-0" />

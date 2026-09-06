@@ -15,22 +15,23 @@ const baiJamjuree = Bai_Jamjuree({
 export const metadata: Metadata = {
   metadataBase: new URL("https://rajseba.in"),
   title: {
-    default: "Rajseba — India's Premier Household Services in Kolkata | Trusted Home Experts",
+    default: "Rajseba — Trusted Home Services in Kolkata (North Kolkata, New Town & Rajarhat)",
     template: "%s | Rajseba Kolkata",
   },
   description:
-    "Rajseba is India's leading household service provider in Kolkata, West Bengal. Book verified experts for AC repair, deep house cleaning, home shifting, plumbing, electrical maintenance & appliance repair in Kolkata.",
+    "Kolkata's trusted household service platform. Serving North Kolkata, New Town, Rajarhat & across Kolkata. Book verified experts for AC repair, deep house cleaning, home shifting, plumbing & electrician services.",
   keywords: [
-    "Rajseba",
-    "India best household services Kolkata",
-    "top home service provider Kolkata",
-    "AC repair Kolkata",
-    "deep house cleaning Kolkata",
-    "packers and movers Kolkata",
+    "Rajseba Kolkata",
+    "home services North Kolkata",
+    "home services New Town",
+    "home services Rajarhat",
+    "AC repair North Kolkata",
+    "deep house cleaning New Town",
+    "packers and movers Rajarhat",
     "electrician Kolkata",
     "plumbing services Kolkata",
-    "verified home experts West Bengal India",
-    "household maintenance Kolkata",
+    "Kaikhali household services Kolkata",
+    "verified home experts Kolkata West Bengal",
   ],
   authors: [{ name: "Rajseba", url: "https://rajseba.in" }],
   creator: "Rajseba India",
@@ -44,16 +45,16 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_IN",
     url: "https://rajseba.in",
-    siteName: "Rajseba — India's Premier Household Services in Kolkata",
-    title: "Rajseba — India's Premier Household Services in Kolkata, West Bengal",
-    description: "Kolkata's most trusted household service provider! Book verified experts in Kolkata for AC repair, house cleaning, home shifting, plumbing & electrician services.",
+    siteName: "Rajseba — Trusted Home Services in Kolkata",
+    title: "Rajseba — Trusted Home Services in Kolkata (North Kolkata, New Town & Rajarhat)",
+    description: "Kolkata's trusted household service platform serving North Kolkata, New Town, Rajarhat & across Kolkata. Book verified experts for AC repair, cleaning, shifting & electrical services.",
     images: [
       {
         url: "/og-image.png?v=2",
         width: 1200,
         height: 630,
         type: "image/png",
-        alt: "Rajseba — India's Premier Household Services in Kolkata",
+        alt: "Rajseba — Trusted Home Services in Kolkata (North Kolkata, New Town & Rajarhat)",
       },
     ],
   },
@@ -82,8 +83,50 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "HomeAndConstructionBusiness",
+    "name": "Rajseba",
+    "image": "https://rajseba.in/og-image.png",
+    "@id": "https://rajseba.in/#organization",
+    "url": "https://rajseba.in",
+    "telephone": "+916290257347",
+    "priceRange": "₹₹",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Ground floor, Seven Sky Apartment, Bimannagar, Kaikhali",
+      "addressLocality": "Kolkata",
+      "addressRegion": "West Bengal",
+      "postalCode": "700052",
+      "addressCountry": "IN"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 22.6318,
+      "longitude": 88.4357
+    },
+    "areaServed": [
+      { "@type": "AdministrativeArea", "name": "North Kolkata" },
+      { "@type": "AdministrativeArea", "name": "New Town" },
+      { "@type": "AdministrativeArea", "name": "Rajarhat" },
+      { "@type": "City", "name": "Kolkata" }
+    ],
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+      "opens": "08:00",
+      "closes": "22:00"
+    }
+  };
+
   return (
     <html lang="en" className={`${baiJamjuree.variable} antialiased`}>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body className={`min-h-screen flex flex-col bg-white text-slate-900 ${baiJamjuree.className} antialiased`}>
         <StoreProvider>
           <LayoutWrapper>

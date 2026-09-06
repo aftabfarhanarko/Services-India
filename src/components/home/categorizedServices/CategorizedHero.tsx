@@ -41,7 +41,7 @@ export function CategorizedHero({
 }: CategorizedHeroProps) {
   const router = useRouter();
 
-  const displayName = name || "Certified Electrical Experts in Dhaka";
+  const displayName = name || "Certified Electrical Experts in Kolkata";
   const displayDesc =
     description ||
     "From flickering lights to full-house wiring, our certified technicians ensure your home's safety with premium electrical solutions.";
