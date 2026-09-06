@@ -194,7 +194,7 @@ export function AiChatBot() {
   return (
     <>
       {/* Floating Action Button Group */}
-      <div className="fixed bottom-[88px] right-3.5 md:bottom-6 md:right-6 z-[999] flex flex-col items-center gap-2.5">
+      <div className="fixed bottom-[88px] right-3.5 md:bottom-10 md:right-8 z-[999] flex flex-col items-center gap-3">
 
         {/* 📞 Call Option (Above) */}
         {!isOpen && (
@@ -291,7 +291,7 @@ export function AiChatBot() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 50, scale: 0.9 }}
             transition={{ type: "spring", stiffness: 300, damping: 25 }}
-            className="fixed bottom-[150px] right-3 md:bottom-24 md:right-6 w-[340px] sm:w-[380px] h-[480px] bg-white/95 backdrop-blur-md rounded-3xl border border-slate-100 shadow-2xl z-[998] flex flex-col overflow-hidden"
+            className="fixed bottom-[150px] right-3 md:bottom-28 md:right-8 w-[340px] sm:w-[380px] h-[480px] bg-white/95 backdrop-blur-md rounded-3xl border border-slate-100 shadow-2xl z-[998] flex flex-col overflow-hidden"
           >
             {/* Header */}
             <div className="bg-gradient-to-r from-[#FF6014] to-[#FF7C71] p-4 text-white flex items-center justify-between shadow-sm">
