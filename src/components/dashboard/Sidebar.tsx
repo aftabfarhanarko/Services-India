@@ -44,8 +44,16 @@ import {
   Sparkles,
   BookOpen,
   UserCheck,
-  ShoppingBag,
-  Building2
+  Building2,
+  ShieldCheck,
+  Store,
+  KeyRound,
+  Megaphone,
+  Headphones,
+  Contact,
+  CheckSquare,
+  Settings,
+  ShoppingBag
 } from "lucide-react";
 import { useState, useEffect, useMemo } from "react";
 import { useAppSelector, useAppDispatch } from "@/redux/hooks";
@@ -123,17 +131,17 @@ export function Sidebar({ open, onClose }: { open?: boolean; onClose?: () => voi
             label: getLabel("ইউজার ডিরেক্টরি", "उपयोगकर्ता निर्देशिका", "User Directory"),
             icon: Users,
             children: [
-              { label: getLabel("সুপার অ্যাডমিন", "सुपर एडमिन", "Super Admins"), href: "/dashbord/superadmins", icon: Shield },
-              { label: getLabel("ক্লায়েন্ট ম্যানেজ করুন", "ग्राहक प्रबंधित करें", "Manage Clients"), href: "/dashbord/users", icon: Users },
-              { label: getLabel("ভেন্ডর ম্যানেজ করুন", "विक्रेता प्रबंधित करें", "Manage Vendors"), href: "/dashbord/vendors", icon: Briefcase },
+              { label: getLabel("সুপার অ্যাডমিন", "सुपर एडमिन", "Super Admins"), href: "/dashbord/superadmins", icon: ShieldCheck },
+              { label: getLabel("ক্লায়েন্ট ম্যানেজ করুন", "ग्राहक प्रबंधित करें", "Manage Clients"), href: "/dashbord/users", icon: UserCheck },
+              { label: getLabel("ভেন্ডর ম্যানেজ করুন", "विक्रेता प्रबंधित करें", "Manage Vendors"), href: "/dashbord/vendors", icon: Store },
               { label: getLabel("এজেন্ট ম্যানেজ করুন", "एजेंट प्रबंधित करें", "Manage Agents"), href: "/dashbord/agents", icon: Zap },
               { label: getLabel("কর্মচারী ম্যানেজ করুন", "कर्मचारी प्रबंधित करें", "Manage Employees"), href: "/dashbord/employees", icon: UserPlus },
-              { label: getLabel("রোল ম্যানেজমেন্ট", "भूमिका प्रबंधन", "Role Management"), href: "/dashbord/role", icon: Briefcase }
+              { label: getLabel("রোল ম্যানেজমেন্ট", "भूमिका प्रबंधन", "Role Management"), href: "/dashbord/role", icon: KeyRound }
             ]
           },
           {
             label: getLabel("সার্ভিস ক্যাটালগ", "सेवा सूची", "Service Catalog"),
-            icon: Wrench,
+            icon: Layers,
             children: [
               { label: getLabel("ক্যাটাগরিস", "श्रेणियां", "Categories"), href: "/dashbord/category", icon: ClipboardList },
               { label: getLabel("লোকেশনসমূহ", "स्थान", "Locations"), href: "/dashbord/locations", icon: MapPin },
@@ -153,7 +161,7 @@ export function Sidebar({ open, onClose }: { open?: boolean; onClose?: () => voi
           },
           {
             label: getLabel("মার্কেটিং", "मार्केटिंग", "Marketing"),
-            icon: Percent,
+            icon: Megaphone,
             children: [
               { label: getLabel("কুপনসমূহ", "कूपन", "Coupons"), href: "/dashbord/coupons", icon: Percent }
             ]
