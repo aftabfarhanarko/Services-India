@@ -15,11 +15,6 @@ import {
   Mail,
   Eye,
   EyeOff,
-  Zap,
-  Store,
-  Briefcase,
-  User,
-  Users,
 } from "lucide-react";
 import { useLoginState } from "@/app/login/hooks/useLoginState";
 import LoginLeftPanel from "@/app/login/components/LoginLeftPanel";
