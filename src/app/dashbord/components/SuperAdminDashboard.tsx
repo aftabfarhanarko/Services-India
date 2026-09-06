@@ -32,6 +32,14 @@ import {
 
 export default function SuperAdminDashboard() {
   const authUser = useAppSelector((state) => state.auth.user);
+  const lang = useAppSelector((state) => state.lang.value);
+
+  const getLabel = (bn: string, hi: string, en: string) => {
+    if (lang === "bn") return bn;
+    if (lang === "hi") return hi;
+    return en;
+  };
+
   const { data: bookingsRes } = useGetAllBookingsQuery(undefined);
   const { data: overviewRes } = useGetOverviewStatsQuery();
   const { data: profilesRes } = useGetAllProfilesQuery(undefined);
@@ -183,14 +191,14 @@ export default function SuperAdminDashboard() {
           <div>
             <div className="inline-flex items-center gap-1.5 bg-emerald-50 border border-emerald-200/60 text-emerald-600 text-[10px] font-black uppercase tracking-widest px-3 py-1 rounded-full mb-3 shadow-2xs">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-ping inline-block" />
-              Live System Overview
+              {getLabel("লাইভ সিস্টেম ওভারভিউ", "लाइव सिस्टम अवलोकन", "Live System Overview")}
             </div>
             <h1 className="text-3xl font-extrabold text-slate-900 tracking-tight leading-tight flex items-center gap-2">
-              Hello, <span className="text-[#FF6014]">{authUser?.name || "Admin"}</span>!
+              {getLabel("হ্যালো", "नमस्ते", "Hello")}, <span className="text-[#FF6014]">{authUser?.name || "Admin"}</span>!
             </h1>
             <p className="text-slate-400 mt-1.5 text-sm font-semibold flex items-center gap-1.5">
               <Activity size={14} className="text-[#FF6014]" />
-              Real-time statistics and administrative insights for Rajseba.
+              {getLabel("রাজসেবার রিয়েল-টাইম পরিসংখ্যান এবং অ্যাডমিন ইনসাইট।", "राजसेबा के लिए वास्तविक समय के आंकड़े और प्रशासनिक अंतर्दृष्टि।", "Real-time statistics and administrative insights for Rajseba.")}
             </p>
           </div>
 

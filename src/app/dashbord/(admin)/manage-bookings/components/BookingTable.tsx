@@ -8,10 +8,12 @@ import { Calendar, User, Phone, Package as PkgIcon, MapPin, Clock, Trash2, Brief
 import AssignEmployeeModal from "./AssignEmployeeModal";
 import { printBookingInvoice } from "@/utils/invoicePrint";
 
+import { Language } from "@/redux/features/shared/langSlice";
+
 interface BookingTableProps {
   filteredBookings: any[];
   setDeleteModalBookingId: (id: number) => void;
-  lang: "bn" | "en";
+  lang: Language | string;
   handleStatusChange: (id: number, status: string) => void;
   roleName?: string;
 }
@@ -62,13 +64,37 @@ const translations = {
     noNotes: "No notes",
     address: "Address",
     assignedVendor: "Assigned Vendor"
+  },
+  hi: {
+    schedule: "अनुसूची",
+    clientLocation: "ग्राहक और स्थान",
+    serviceDetails: "सेवा विवरण",
+    totalPrice: "कुल मूल्य",
+    status: "स्थिति",
+    actions: "कार्रवाई",
+    na: "लागू नहीं",
+    unknown: "अज्ञात",
+    noService: "कोई सेवा नहीं चुनी गई",
+    viewDetails: "विवरण देखें",
+    updateStatus: "स्थिति अपडेट करें",
+    markPending: "लंबित",
+    markAssigned: "आवंटित",
+    markOnTheWay: "रास्ते में",
+    markCompleted: "पूरा हुआ",
+    markCancelled: "रद्द किया गया",
+    phone: "फोन",
+    notes: "नोट्स",
+    noNotes: "कोई नोट नहीं",
+    address: "पता",
+    assignedVendor: "आवंटित विक्रेता"
   }
 };
 
 import { useGetAllNestedServicesQuery } from '@/redux/features/admin/service';
 
 export default function BookingTable({ filteredBookings, setDeleteModalBookingId, lang, handleStatusChange, roleName }: BookingTableProps) {
-  const t = translations[lang];
+  const currentLang = (lang === 'bn' || lang === 'hi' ? lang : 'en') as keyof typeof translations;
+  const t = translations[currentLang] || translations.en;
   const router = useRouter();
   const [assignBooking, setAssignBooking] = useState<any>(null);
 

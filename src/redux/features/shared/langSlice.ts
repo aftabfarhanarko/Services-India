@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-type Language = 'bn' | 'en';
+export type Language = 'bn' | 'en' | 'hi';
 
 interface LangState {
   value: Language;
@@ -9,7 +9,7 @@ interface LangState {
 const getInitialLanguage = (): Language => {
   if (typeof window !== 'undefined') {
     const saved = localStorage.getItem('rajseba_lang') as Language;
-    if (saved === 'bn' || saved === 'en') {
+    if (saved === 'bn' || saved === 'en' || saved === 'hi') {
       return saved;
     }
   }
@@ -31,7 +31,11 @@ const langSlice = createSlice({
       }
     },
     toggleLanguage: (state) => {
-      const nextLang: Language = state.value === 'bn' ? 'en' : 'bn';
+      let nextLang: Language = 'bn';
+      if (state.value === 'bn') nextLang = 'en';
+      else if (state.value === 'en') nextLang = 'hi';
+      else nextLang = 'bn';
+
       state.value = nextLang;
       if (typeof window !== 'undefined') {
         localStorage.setItem('rajseba_lang', nextLang);

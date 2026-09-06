@@ -4,12 +4,14 @@ import { useAssignEmployeeToBookingMutation } from '@/redux/features/admin/booki
 import { useGetEmployeesByVendorQuery } from '@/redux/features/admin/user';
 import { toast } from 'sonner';
 
+import { Language } from '@/redux/features/shared/langSlice';
+
 interface AssignEmployeeModalProps {
   isOpen: boolean;
   onClose: () => void;
   booking: any;
   handleStatusChange: (id: number, status: string) => void;
-  lang: 'en' | 'bn';
+  lang: Language | string;
 }
 
 const translations = {
@@ -42,6 +44,21 @@ const translations = {
     successMsg: "Employees assigned successfully!",
     failMsg: "Failed to assign employees.",
     errorMsg: "Something went wrong during assignment."
+  },
+  hi: {
+    assignEmployees: "कर्मचारी आवंटित करें",
+    selectEmployeesFor: "इस बुकिंग के लिए उन कर्मचारियों का चयन करें",
+    service: "जो सेवा",
+    willPerform: "पूरा करेंगे।",
+    noEmployees: "इस विक्रेता के तहत कोई कर्मचारी उपलब्ध नहीं है।",
+    noPhone: "कोई फोन नंबर नहीं",
+    cancel: "रद्द करें",
+    assigning: "आवंटित किया जा रहा है...",
+    confirmAssignment: "पुष्टि करें",
+    selectAtLeastOne: "कृपया कम से कम एक कर्मचारी का चयन करें।",
+    successMsg: "कर्मचारियों को सफलतापूर्वक आवंटित किया गया!",
+    failMsg: "कर्मचारियों को आवंटित करने में विफल।",
+    errorMsg: "आवंटन के दौरान कुछ त्रुटि हुई।"
   }
 };
 
@@ -54,7 +71,8 @@ export default function AssignEmployeeModal({ isOpen, onClose, booking, handleSt
     skip: !isOpen || (!booking?.vendor?.id && !booking?.vendor_id)
   });
   
-  const t = translations[lang];
+  const currentLang = (lang === 'bn' || lang === 'hi' ? lang : 'en') as keyof typeof translations;
+  const t = translations[currentLang] || translations.en;
 
   useEffect(() => {
     if (isOpen) {

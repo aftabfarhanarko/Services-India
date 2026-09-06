@@ -51,7 +51,7 @@ import { useState, useEffect, useMemo } from "react";
 import { useAppSelector, useAppDispatch } from "@/redux/hooks";
 import { UserRole, getRoleName, logout as authLogout } from "@/redux/features/auth/authSlice";
 import { motion, AnimatePresence } from "framer-motion";
-import { toggleLanguage } from "@/redux/features/shared/langSlice";
+import { setLanguage, toggleLanguage } from "@/redux/features/shared/langSlice";
 import { useGetPublicCompanyBrandingQuery } from "@/redux/features/landing/landingApi";
 import { formatImageUrl } from "@/lib/utils";
 import { Loader2 } from "lucide-react";
@@ -85,192 +85,207 @@ export function Sidebar({ open, onClose }: { open?: boolean; onClose?: () => voi
 
   const lang = useAppSelector((state) => state.lang.value);
 
+  // Helper for 3-way language label translation
+  const getLabel = (bn: string, hi: string, en: string) => {
+    if (lang === "bn") return bn;
+    if (lang === "hi") return hi;
+    return en;
+  };
+
   // Dynamic grouped menu items based on role (Accordion Tree structure)
   const getSidebarGroups = (userRole: UserRole): SidebarGroup[] => {
-    const homeItem = { label: lang === "bn" ? "হোম পেজ" : "Home Page", icon: Home, href: "/" };
+    const homeItem = { label: getLabel("হোম পেজ", "होम पेज", "Home Page"), icon: Home, href: "/" };
 
     switch (userRole) {
       case "superadmin":
         return [
           homeItem,
-          { label: lang === "bn" ? "ওভারভিউ" : "Overview", icon: LayoutGrid, href: "/dashbord" },
-          { label: lang === "bn" ? "এআই অ্যাডভাইজর" : "AI Advisor", icon: Bot, href: "/dashbord/analytics" },
+          { label: getLabel("ওভারভিউ", "अवलोकन", "Overview"), icon: LayoutGrid, href: "/dashbord" },
+          { label: getLabel("এআই অ্যাডভাইজর", "एआई सलाहकार", "AI Advisor"), icon: Bot, href: "/dashbord/analytics" },
           {
-            label: lang === "bn" ? "অপারেশনস" : "Operations",
+            label: getLabel("অপারেশনস", "संचालन", "Operations"),
             icon: Calendar,
             children: [
-              { label: lang === "bn" ? "বুকিং ম্যানেজ করুন" : "Manage Bookings", href: "/dashbord/manage-bookings", icon: ClipboardList },
-              { label: lang === "bn" ? "কুইক বুকিং" : "Quick Booking", href: "/dashbord/quick-booking", icon: Zap },
-              { label: lang === "bn" ? "উত্তোলনের অনুরোধসমূহ" : "Withdraw Requests", href: "/dashbord/withdraw", icon: Wallet }
+              { label: getLabel("বুকিং ম্যানেজ করুন", "बुकिंग प्रबंधित करें", "Manage Bookings"), href: "/dashbord/manage-bookings", icon: ClipboardList },
+              { label: getLabel("কুইক বুকিং", "त्वरित बुकिंग", "Quick Booking"), href: "/dashbord/quick-booking", icon: Zap },
+              { label: getLabel("উত্তোলনের অনুরোধসমূহ", "निकासी अनुरोध", "Withdraw Requests"), href: "/dashbord/withdraw", icon: Wallet }
             ]
           },
           {
-            label: lang === "bn" ? "কাস্টম রিকোয়েস্ট" : "Custom Requests",
+            label: getLabel("কাস্টম রিকোয়েস্ট", "कस्टम अनुरोध", "Custom Requests"),
             icon: FileText,
             children: [
-              { label: lang === "bn" ? "সার্ভিসেস রিকোয়েস্ট" : "Service Requests", href: "/dashbord/custom-requests", icon: Wrench },
-              { label: lang === "bn" ? "হোম শিফটিং" : "Home Shifting", href: "/dashbord/custom-shifting", icon: Truck }
+              { label: getLabel("সার্ভিসেস রিকোয়েস্ট", "सेवा अनुरोध", "Service Requests"), href: "/dashbord/custom-requests", icon: Wrench },
+              { label: getLabel("হোম শিফটিং", "होम शिफ्टिंग", "Home Shifting"), href: "/dashbord/custom-shifting", icon: Truck }
             ]
           },
           {
-            label: lang === "bn" ? "ইউজার ডিরেক্টরি" : "User Directory",
+            label: getLabel("ইউজার ডিরেক্টরি", "उपयोगकर्ता निर्देशिका", "User Directory"),
             icon: Users,
             children: [
-              { label: lang === "bn" ? "সুপার অ্যাডমিন" : "Super Admins", href: "/dashbord/superadmins", icon: Shield },
-              { label: lang === "bn" ? "ক্লায়েন্ট ম্যানেজ করুন" : "Manage Clients", href: "/dashbord/users", icon: Users },
-              { label: lang === "bn" ? "ভেন্ডর ম্যানেজ করুন" : "Manage Vendors", href: "/dashbord/vendors", icon: Briefcase },
-              { label: lang === "bn" ? "এজেন্ট ম্যানেজ করুন" : "Manage Agents", href: "/dashbord/agents", icon: Zap },
-              { label: lang === "bn" ? "কর্মচারী ম্যানেজ করুন" : "Manage Employees", href: "/dashbord/employees", icon: UserPlus },
-              { label: lang === "bn" ? "রোল ম্যানেজমেন্ট" : "Role Management", href: "/dashbord/role", icon: Briefcase }
+              { label: getLabel("সুপার অ্যাডমিন", "सुपर एडमिन", "Super Admins"), href: "/dashbord/superadmins", icon: Shield },
+              { label: getLabel("ক্লায়েন্ট ম্যানেজ করুন", "ग्राहक प्रबंधित करें", "Manage Clients"), href: "/dashbord/users", icon: Users },
+              { label: getLabel("ভেন্ডর ম্যানেজ করুন", "विक्रेता प्रबंधित करें", "Manage Vendors"), href: "/dashbord/vendors", icon: Briefcase },
+              { label: getLabel("এজেন্ট ম্যানেজ করুন", "एजेंट प्रबंधित करें", "Manage Agents"), href: "/dashbord/agents", icon: Zap },
+              { label: getLabel("কর্মচারী ম্যানেজ করুন", "कर्मचारी प्रबंधित करें", "Manage Employees"), href: "/dashbord/employees", icon: UserPlus },
+              { label: getLabel("রোল ম্যানেজমেন্ট", "भूमिका प्रबंधन", "Role Management"), href: "/dashbord/role", icon: Briefcase }
             ]
           },
           {
-            label: lang === "bn" ? "সার্ভিস ক্যাটালগ" : "Service Catalog",
+            label: getLabel("সার্ভিস ক্যাটালগ", "सेवा सूची", "Service Catalog"),
             icon: Wrench,
             children: [
-              { label: lang === "bn" ? "ক্যাটাগরিস" : "Categories", href: "/dashbord/category", icon: ClipboardList },
-              { label: lang === "bn" ? "লোকেশনসমূহ" : "Locations", href: "/dashbord/locations", icon: MapPin },
-              { label: lang === "bn" ? "সার্ভিসেস" : "Services", href: "/dashbord/services", icon: Wrench },
-              { label: lang === "bn" ? "নেস্টেড সার্ভিসেস" : "Nested Services", href: "/dashbord/nested-services", icon: Layers },
-              { label: lang === "bn" ? "প্যাকেজসমূহ" : "Packages", href: "/dashbord/packages", icon: Package }
+              { label: getLabel("ক্যাটাগরিস", "श्रेणियां", "Categories"), href: "/dashbord/category", icon: ClipboardList },
+              { label: getLabel("লোকেশনসমূহ", "स्थान", "Locations"), href: "/dashbord/locations", icon: MapPin },
+              { label: getLabel("সার্ভিসেস", "सेवाएं", "Services"), href: "/dashbord/services", icon: Wrench },
+              { label: getLabel("নেস্টেড সার্ভিসেস", "नेस्टेड सेवाएं", "Nested Services"), href: "/dashbord/nested-services", icon: Layers },
+              { label: getLabel("প্যাকেজসমূহ", "पैकेज", "Packages"), href: "/dashbord/packages", icon: Package }
             ]
           },
           {
-            label: lang === "bn" ? "ল্যান্ডিং পেজ" : "Landing Page",
+            label: getLabel("ল্যান্ডিং পেজ", "लैंडिंग पेज", "Landing Page"),
             icon: Globe,
             children: [
-              { label: lang === "bn" ? "হিরো ম্যানেজমেন্ট" : "Hero Management", href: "/dashbord/hero", icon: Sparkles },
-              { label: lang === "bn" ? "ব্লগ ম্যানেজমেন্ট" : "Blog Management", href: "/dashbord/blogs", icon: BookOpen },
-              { label: lang === "bn" ? "কোম্পানি ব্র্যান্ডিং" : "Company Branding", href: "/dashbord/company-branding", icon: Building2 }
+              { label: getLabel("হিরো ম্যানেজমেন্ট", "हीरो प्रबंधन", "Hero Management"), href: "/dashbord/hero", icon: Sparkles },
+              { label: getLabel("ব্লগ ম্যানেজমেন্ট", "ब्लॉग प्रबंधन", "Blog Management"), href: "/dashbord/blogs", icon: BookOpen },
+              { label: getLabel("কোম্পানি ব্র্যান্ডিং", "कंपनी ब्रांडिंग", "Company Branding"), href: "/dashbord/company-branding", icon: Building2 }
             ]
           },
           {
-            label: lang === "bn" ? "মার্কেটিং" : "Marketing",
+            label: getLabel("মার্কেটিং", "मार्केटिंग", "Marketing"),
             icon: Percent,
             children: [
-              { label: lang === "bn" ? "কুপনসমূহ" : "Coupons", href: "/dashbord/coupons", icon: Percent }
+              { label: getLabel("কুপনসমূহ", "कूपन", "Coupons"), href: "/dashbord/coupons", icon: Percent }
             ]
           },
           {
-            label: lang === "bn" ? "ম্যানুয়াল ইনভয়েস" : "Manual Invoice",
+            label: getLabel("ম্যানুয়াল ইনভয়েস", "मैनुअल चालान", "Manual Invoice"),
             icon: Receipt,
             children: [
-              { label: lang === "bn" ? "ড্যাশবোর্ড" : "Dashboard", href: "/dashbord/manual-invoice", icon: LayoutGrid },
-              { label: lang === "bn" ? "নতুন ইনভয়েস" : "Create Invoice", href: "/dashbord/manual-invoice/create", icon: PlusCircle },
-              { label: lang === "bn" ? "ক্লায়েন্ট ডিরেক্টরি" : "Client Directory", href: "/dashbord/manual-invoice/customers", icon: Users },
-              { label: lang === "bn" ? "সার্ভিস ক্যাটালগ" : "Service Catalog", href: "/dashbord/manual-invoice/services", icon: Wrench },
-              { label: lang === "bn" ? "ট্র্যাশ বিন" : "Trash Bin", href: "/dashbord/manual-invoice/trash", icon: Trash2 }
+              { label: getLabel("ড্যাশবোর্ড", "डैशबोर्ड", "Dashboard"), href: "/dashbord/manual-invoice", icon: LayoutGrid },
+              { label: getLabel("নতুন ইনভয়েস", "चालान बनाएं", "Create Invoice"), href: "/dashbord/manual-invoice/create", icon: PlusCircle },
+              { label: getLabel("ক্লায়েন্ট ডিরেক্টরি", "ग्राहक निर्देशिका", "Client Directory"), href: "/dashbord/manual-invoice/customers", icon: Users },
+              { label: getLabel("সার্ভিস ক্যাটালগ", "सेवा सूची", "Service Catalog"), href: "/dashbord/manual-invoice/services", icon: Wrench },
+              { label: getLabel("ট্র্যাশ বিন", "कचरा पात्र", "Trash Bin"), href: "/dashbord/manual-invoice/trash", icon: Trash2 }
             ]
           },
           {
-            label: lang === "bn" ? "সাপোর্ট ডেস্ক" : "Support Desk",
+            label: getLabel("সাপোর্ট ডেস্ক", "सहायता डेस्क", "Support Desk"),
             icon: Mail,
             children: [
-              { label: lang === "bn" ? "টিকেট ম্যানেজমেন্ট" : "Ticket Management", href: "/dashbord/support-desk", icon: Ticket },
-              { label: lang === "bn" ? "যোগাযোগ" : "Contacts", href: "/dashbord/contacts", icon: Mail },
-              { label: lang === "bn" ? "লাইভ চ্যাট" : "Live Chat", href: "/dashbord/live-chat", icon: MessageSquare },
-              { label: lang === "bn" ? "এআই চ্যাট লগ" : "AI Chat Log", href: "/dashbord/ai-chat-log", icon: Bot },
+              { label: getLabel("টিকেট ম্যানেজমেন্ট", "टिकट प्रबंधन", "Ticket Management"), href: "/dashbord/support-desk", icon: Ticket },
+              { label: getLabel("যোগাযোগ", "संपर्क", "Contacts"), href: "/dashbord/contacts", icon: Mail },
+              { label: getLabel("লাইভ চ্যাট", "लाइव चैट", "Live Chat"), href: "/dashbord/live-chat", icon: MessageSquare },
+              { label: getLabel("এআই চ্যাট লগ", "एआई चैट लॉग", "AI Chat Log"), href: "/dashbord/ai-chat-log", icon: Bot },
             ]
           },
           {
-            label: lang === "bn" ? "সেটিংস" : "Settings",
+            label: getLabel("সেটিংস", "सेटिंग्स", "Settings"),
             icon: User,
             children: [
-              { label: lang === "bn" ? "আমার প্রোফাইল" : "My Profile", href: "/dashbord/profile", icon: User }
+              { label: getLabel("আমার প্রোফাইল", "मेरी प्रोफ़ाइल", "My Profile"), href: "/dashbord/profile", icon: User }
             ]
           }
         ];
       case "agent":
         return [
           homeItem,
-          { label: lang === "bn" ? "ওভারভিউ" : "Overview", icon: LayoutGrid, href: "/dashbord" },
+          { label: getLabel("ওভারভিউ", "अवलोकन", "Overview"), icon: LayoutGrid, href: "/dashbord" },
           {
-            label: lang === "bn" ? "অপারেশনস" : "Operations",
+            label: getLabel("অপারেশনস", "संचालन", "Operations"),
             icon: Calendar,
             children: [
-              { label: lang === "bn" ? "বুকিং ম্যানেজ করুন" : "Manage Bookings", href: "/dashbord/manage-bookings", icon: ClipboardList },
-              { label: lang === "bn" ? "কুইক বুকিং" : "Quick Booking", href: "/dashbord/quick-booking", icon: Zap },
-              { label: lang === "bn" ? "কমিশনসমূহ" : "Commissions", href: "/dashbord/commissions", icon: Coins },
-              { label: lang === "bn" ? "অর্ডারসমূহ" : "Orders", href: "/dashbord/orders", icon: ShoppingBag },
-              { label: lang === "bn" ? "ওয়ালেট এবং উপার্জন" : "Wallet & Earnings", href: "/dashbord/vendor-wallet", icon: Wallet }
+              { label: getLabel("বুকিং ম্যানেজ করুন", "बुकिंग प्रबंधित करें", "Manage Bookings"), href: "/dashbord/manage-bookings", icon: ClipboardList },
+              { label: getLabel("কুইক বুকিং", "त्वरित बुकिंग", "Quick Booking"), href: "/dashbord/quick-booking", icon: Zap },
+              { label: getLabel("কমিশনসমূহ", "कमीशन", "Commissions"), href: "/dashbord/commissions", icon: Coins },
+              { label: getLabel("অর্ডারসমূহ", "ऑर्डर", "Orders"), href: "/dashbord/orders", icon: ShoppingBag },
+              { label: getLabel("ওয়ালেট এবং উপার্জন", "वॉलेट और कमाई", "Wallet & Earnings"), href: "/dashbord/vendor-wallet", icon: Wallet }
             ]
           },
           {
-            label: lang === "bn" ? "ডিরেক্টরি" : "Directories",
+            label: getLabel("ডিরেক্টরি", "निर्देशिका", "Directories"),
             icon: Users,
             children: [
-              { label: lang === "bn" ? "ক্লায়েন্ট ম্যানেজ করুন" : "Manage Clients", href: "/dashbord/users", icon: UserCheck },
-              { label: lang === "bn" ? "সার্ভিসেস" : "Services", href: "/dashbord/services", icon: Wrench }
+              { label: getLabel("ক্লায়েন্ট ম্যানেজ করুন", "ग्राहक प्रबंधित करें", "Manage Clients"), href: "/dashbord/users", icon: UserCheck },
+              { label: getLabel("সার্ভিসেস", "सेवाएं", "Services"), href: "/dashbord/services", icon: Wrench }
             ]
           },
           {
-            label: lang === "bn" ? "ম্যানুয়াল ইনভয়েস" : "Manual Invoice",
+            label: getLabel("ম্যানুয়াল ইনভয়েস", "मैनुअल चालान", "Manual Invoice"),
             icon: Receipt,
             children: [
-              { label: lang === "bn" ? "ড্যাশবোর্ড" : "Invoice Dashboard", href: "/dashbord/manual-invoice", icon: LayoutGrid },
-              { label: lang === "bn" ? "নতুন ইনভয়েস" : "Create Invoice", href: "/dashbord/manual-invoice/create", icon: PlusCircle },
-              { label: lang === "bn" ? "ক্লায়েন্ট ডিরেক্টরি" : "Client Directory", href: "/dashbord/manual-invoice/customers", icon: Users },
-              { label: lang === "bn" ? "সার্ভিস ক্যাটালগ" : "Service Catalog", href: "/dashbord/manual-invoice/services", icon: Wrench },
-              { label: lang === "bn" ? "ট্র্যাশ বিন" : "Trash Bin", href: "/dashbord/manual-invoice/trash", icon: Trash2 }
+              { label: getLabel("ড্যাশবোর্ড", "चालान डैशबोर्ड", "Invoice Dashboard"), href: "/dashbord/manual-invoice", icon: LayoutGrid },
+              { label: getLabel("নতুন ইনভয়েস", "चालान बनाएं", "Create Invoice"), href: "/dashbord/manual-invoice/create", icon: PlusCircle },
+              { label: getLabel("ক্লায়েন্ট ডিরেক্টরি", "ग्राहक निर्देशिका", "Client Directory"), href: "/dashbord/manual-invoice/customers", icon: Users },
+              { label: getLabel("সার্ভিস ক্যাটালগ", "सेवा सूची", "Service Catalog"), href: "/dashbord/manual-invoice/services", icon: Wrench },
+              { label: getLabel("ট্র্যাশ বিন", "कचरा पात्र", "Trash Bin"), href: "/dashbord/manual-invoice/trash", icon: Trash2 }
             ]
           },
           {
-            label: lang === "bn" ? "সাপোর্ট এবং প্রোফাইল" : "Support & Profile",
+            label: getLabel("সাপোর্ট এবং প্রোফাইল", "सहायता और प्रोफ़ाइल", "Support & Profile"),
             icon: HelpCircle,
             children: [
-              { label: lang === "bn" ? "লাইভ চ্যাট" : "Live Chat", href: "/dashbord/live-chat", icon: MessageSquare },
-              { label: lang === "bn" ? "সাপোর্ট ডেস্ক" : "Support Desk", href: "/dashbord/support", icon: HelpCircle },
-              { label: lang === "bn" ? "আমার প্রোফাইল" : "My Profile", href: "/dashbord/profile", icon: User }
+              { label: getLabel("লাইভ চ্যাট", "लाइव चैट", "Live Chat"), href: "/dashbord/live-chat", icon: MessageSquare },
+              { label: getLabel("সাপোর্ট ডেস্ক", "सहायता डेस्क", "Support Desk"), href: "/dashbord/support", icon: HelpCircle },
+              { label: getLabel("আমার প্রোফাইল", "मेरी प्रोफ़ाइल", "My Profile"), href: "/dashbord/profile", icon: User }
             ]
           }
         ];
       case "vendor":
         return [
           homeItem,
-          { label: lang === "bn" ? "ওভারভিউ" : "Overview", icon: LayoutGrid, href: "/dashbord" },
+          { label: getLabel("ওভারভিউ", "अवलोकन", "Overview"), icon: LayoutGrid, href: "/dashbord" },
           {
-            label: lang === "bn" ? "বুকিংস" : "Bookings",
+            label: getLabel("বুকিংস", "बुकिंग", "Bookings"),
             icon: Calendar,
             children: [
-              { label: lang === "bn" ? "বুকিং ম্যানেজ করুন" : "Manage Bookings", href: "/dashbord/manage-bookings", icon: ClipboardList },
-              { label: lang === "bn" ? "কাস্টম শিফটিং" : "Custom Shifting", href: "/dashbord/custom-shifting", icon: Truck },
-              { label: lang === "bn" ? "ওয়ালেট এবং উপার্জন" : "Wallet & Earnings", href: "/dashbord/vendor-wallet", icon: Wallet }
+              { label: getLabel("বুকিং ম্যানেজ করুন", "बुकिंग प्रबंधित करें", "Manage Bookings"), href: "/dashbord/manage-bookings", icon: ClipboardList },
+              { label: getLabel("কাস্টম শিফটিং", "कस्टम शिफ्टिंग", "Custom Shifting"), href: "/dashbord/custom-shifting", icon: Truck },
+              { label: getLabel("ওয়ালেট এবং উপার্জন", "वॉलेट और कमाई", "Wallet & Earnings"), href: "/dashbord/vendor-wallet", icon: Wallet }
             ]
           },
           {
-            label: lang === "bn" ? "সার্ভিসেস" : "Services",
+            label: getLabel("সার্ভিসেস", "सेवाएं", "Services"),
             icon: Wrench,
             children: [
-              { label: lang === "bn" ? "আমার সার্ভিসেস" : "My Services", href: "/dashbord/vendor-services", icon: Briefcase },
-              { label: lang === "bn" ? "নেস্টেড সার্ভিসেস" : "Nested Services", href: "/dashbord/nested-services", icon: Layers },
-              { label: lang === "bn" ? "প্যাকেজসমূহ" : "Packages", href: "/dashbord/vendor-packages", icon: Package }
+              { label: getLabel("আমার সার্ভিসেস", "मेरी सेवाएं", "My Services"), href: "/dashbord/vendor-services", icon: Briefcase },
+              { label: getLabel("নেস্টেড সার্ভিসেস", "नेस्टेड सेवाएं", "Nested Services"), href: "/dashbord/nested-services", icon: Layers },
+              { label: getLabel("প্যাকেজসমূহ", "पैकेज", "Packages"), href: "/dashbord/vendor-packages", icon: Package }
             ]
           },
           {
-            label: lang === "bn" ? "টিম এবং ক্লাইন্টস" : "Team & Clients",
+            label: getLabel("টিম এবং ক্লাইন্টস", "टीम और ग्राहक", "Team & Clients"),
             icon: Users,
             children: [
-              { label: lang === "bn" ? "আমার কর্মচারীবৃন্দ" : "My Employees", href: "/dashbord/employees", icon: UserPlus },
-              { label: lang === "bn" ? "আমার ক্লাইন্টস" : "My Clients", href: "/dashbord/users", icon: UserCheck }
+              { label: getLabel("আমার কর্মচারীবৃন্দ", "मेरे कर्मचारी", "My Employees"), href: "/dashbord/employees", icon: UserPlus },
+              { label: getLabel("আমার ক্লাইন্টস", "मेरे ग्राहक", "My Clients"), href: "/dashbord/users", icon: UserCheck }
             ]
           },
           {
-            label: lang === "bn" ? "সাপোর্ট এবং প্রোফাইল" : "Support & Profile",
+            label: getLabel("সাপোর্ট এবং প্রোফাইল", "सहायता और प्रोफ़ाइल", "Support & Profile"),
             icon: HelpCircle,
             children: [
-              { label: lang === "bn" ? "লাইভ চ্যাট" : "Live Chat", href: "/dashbord/live-chat", icon: MessageSquare },
-              { label: lang === "bn" ? "আমার প্রোফাইল" : "My Profile", href: "/dashbord/profile", icon: User }
+              { label: getLabel("লাইভ চ্যাট", "लाइव चैट", "Live Chat"), href: "/dashbord/live-chat", icon: MessageSquare },
+              { label: getLabel("আমার প্রোফাইল", "मेरी प्रोफ़ाइल", "My Profile"), href: "/dashbord/profile", icon: User }
             ]
           }
+        ];
+      case "employee":
+        return [
+          homeItem,
+          { label: getLabel("ওভারভিউ", "अवलोकन", "Overview"), icon: LayoutGrid, href: "/dashbord" },
+          { label: getLabel("আমার টাস্কসমূহ", "मेरे कार्य", "My Tasks"), icon: ClipboardList, href: "/dashbord/employee-tasks" },
+          { label: getLabel("কাজের ইতিহাস", "कार्य इतिहास", "Work History"), icon: Calendar, href: "/dashbord/employee-history" },
+          { label: getLabel("আমার প্রোফাইল", "मेरी प्रोफ़ाइल", "My Profile"), icon: User, href: "/dashbord/profile" }
         ];
       case "client":
         return [
           homeItem,
-          { label: lang === "bn" ? "ওভারভিউ" : "Overview", icon: LayoutGrid, href: "/dashbord/overview" },
-          { label: lang === "bn" ? "আমার বুকিংস" : "My Bookings", icon: Calendar, href: "/dashbord/bookings" },
-          { label: lang === "bn" ? "সংরক্ষিত সার্ভিসেস" : "Saved Services", icon: Heart, href: "/dashbord/saved" },
-          { label: lang === "bn" ? "হেল্প সেন্টার" : "Help Center", icon: HelpCircle, href: "/dashbord/help" },
-          { label: lang === "bn" ? "আমার প্রোফাইল" : "My Profile", icon: User, href: "/dashbord/profile" }
+          { label: getLabel("ওভারভিউ", "अवलोकन", "Overview"), icon: LayoutGrid, href: "/dashbord/overview" },
+          { label: getLabel("আমার বুকিংস", "मेरी बुकिंग", "My Bookings"), icon: Calendar, href: "/dashbord/bookings" },
+          { label: getLabel("সংরক্ষিত সার্ভিসেস", "सहेजी गई सेवाएं", "Saved Services"), icon: Heart, href: "/dashbord/saved" },
+          { label: getLabel("হেল্প সেন্টার", "सहायता केंद्र", "Help Center"), icon: HelpCircle, href: "/dashbord/help" },
+          { label: getLabel("আমার প্রোফাইল", "मेरी प्रोफ़ाइल", "My Profile"), icon: User, href: "/dashbord/profile" }
         ];
       default:
         return [];
@@ -538,24 +553,47 @@ export function Sidebar({ open, onClose }: { open?: boolean; onClose?: () => voi
 
         {/* Bottom Language & Logout Controls (Premium Glass Card) */}
         <div className="p-3 border-t border-slate-100 bg-gradient-to-b from-white/40 to-slate-50/60 relative z-10 space-y-1.5">
-          <button
-            onClick={() => dispatch(toggleLanguage())}
-            className="flex items-center gap-3 px-3.5 py-2.5 text-slate-700 hover:text-[#FF6014] w-full rounded-2xl bg-white border border-slate-200/70 hover:border-[#FF6014]/25 hover:bg-[#FFF8F4] transition-all duration-200 shadow-xs cursor-pointer group"
-          >
-            <div className="p-1.5 rounded-xl bg-slate-100 group-hover:bg-[#FF6014]/10 text-slate-500 group-hover:text-[#FF6014] transition-colors shrink-0">
-              <Languages size={16} />
-            </div>
-            {!collapsed && (
-              <div className="flex items-center justify-between flex-1 min-w-0">
-                <span className="text-xs font-black text-slate-800 group-hover:text-[#FF6014] truncate transition-colors">
-                  {lang === "bn" ? "Switch to English" : "বাংলায় পরিবর্তন করুন"}
-                </span>
-                <span className="text-[9px] font-black text-[#FF6014] uppercase tracking-wider bg-[#FFF8F4] border border-[#FF6014]/20 px-2 py-0.5 rounded-full shrink-0 ml-1">
-                  {lang === "bn" ? "EN" : "বাং"}
-                </span>
+          <div className="flex items-center justify-between p-2 rounded-2xl bg-white border border-slate-200/70 shadow-2xs">
+            <div className="flex items-center gap-2 min-w-0">
+              <div className="p-1.5 rounded-xl bg-slate-100 text-[#FF6014] shrink-0">
+                <Languages size={16} />
               </div>
-            )}
-          </button>
+              {!collapsed && (
+                <span className="text-xs font-black text-slate-800 truncate">
+                  {lang === "bn" ? "ভাষা" : lang === "hi" ? "भाषा" : "Language"}
+                </span>
+              )}
+            </div>
+            <div className="flex items-center gap-0.5 bg-slate-100/90 p-0.5 rounded-xl shrink-0">
+              <button
+                onClick={() => dispatch(setLanguage("bn"))}
+                className={`px-1.5 py-0.5 rounded-lg text-[10px] font-black transition-all cursor-pointer ${
+                  lang === "bn" ? "bg-[#FF6014] text-white shadow-2xs" : "text-slate-500 hover:text-slate-800"
+                }`}
+                title="বাংলা"
+              >
+                বাং
+              </button>
+              <button
+                onClick={() => dispatch(setLanguage("en"))}
+                className={`px-1.5 py-0.5 rounded-lg text-[10px] font-black transition-all cursor-pointer ${
+                  lang === "en" ? "bg-[#FF6014] text-white shadow-2xs" : "text-slate-500 hover:text-slate-800"
+                }`}
+                title="English"
+              >
+                EN
+              </button>
+              <button
+                onClick={() => dispatch(setLanguage("hi"))}
+                className={`px-1.5 py-0.5 rounded-lg text-[10px] font-black transition-all cursor-pointer ${
+                  lang === "hi" ? "bg-[#FF6014] text-white shadow-2xs" : "text-slate-500 hover:text-slate-800"
+                }`}
+                title="हिन्दी"
+              >
+                हिं
+              </button>
+            </div>
+          </div>
 
           <button
             onClick={handleLogout}

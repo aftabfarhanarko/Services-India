@@ -9,7 +9,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useGetNotificationsQuery, useMarkNotificationAsReadMutation } from "@/redux/features/notification/notificationApi";
 import { useGetAllBookingsQuery } from "@/redux/features/admin/booking";
-import { toggleLanguage } from "@/redux/features/shared/langSlice";
+import { setLanguage, toggleLanguage } from "@/redux/features/shared/langSlice";
 import { format } from "date-fns";
 import { formatImageUrl } from "@/lib/utils";
 
@@ -309,19 +309,43 @@ export function TopNavbar({ onMenuClick }: { onMenuClick?: () => void }) {
       {/* Right Navbar Controls */}
       <div className="flex items-center gap-5">
 
-        {/* Language Toggle Switcher (Premium Pill) */}
-        <button
-          onClick={() => dispatch(toggleLanguage())}
-          className="relative flex items-center gap-2 bg-slate-100/70 hover:bg-slate-200/70 active:scale-95 transition-all duration-200 px-3 py-1.5 rounded-full border border-slate-200/80 shadow-xs cursor-pointer group"
-          title={lang === "bn" ? "Switch to English" : "বাংলায় পরিবর্তন করুন"}
-        >
-          <Languages size={15} className="text-[#FF6014] group-hover:rotate-12 transition-transform duration-300" />
-          <div className="flex items-center gap-1 text-[11px] font-black uppercase tracking-wider">
-            <span className={lang === "en" ? "text-[#FF6014]" : "text-slate-400"}>EN</span>
-            <span className="text-slate-300 font-light">/</span>
-            <span className={lang === "bn" ? "text-[#FF6014]" : "text-slate-400"}>বাং</span>
-          </div>
-        </button>
+        {/* Language Switcher (3-Way Pill for EN / বাং / हिं) */}
+        <div className="flex items-center bg-slate-100/90 p-1 rounded-full border border-slate-200/80 shadow-2xs gap-0.5">
+          <Languages size={14} className="text-[#FF6014] ml-1.5 mr-0.5 shrink-0" />
+          <button
+            onClick={() => dispatch(setLanguage("bn"))}
+            className={`px-2 py-0.5 rounded-full text-[10px] font-black transition-all cursor-pointer ${
+              lang === "bn"
+                ? "bg-[#FF6014] text-white shadow-xs"
+                : "text-slate-500 hover:text-slate-800"
+            }`}
+            title="বাংলায় পরিবর্তন করুন"
+          >
+            বাং
+          </button>
+          <button
+            onClick={() => dispatch(setLanguage("en"))}
+            className={`px-2 py-0.5 rounded-full text-[10px] font-black transition-all cursor-pointer ${
+              lang === "en"
+                ? "bg-[#FF6014] text-white shadow-xs"
+                : "text-slate-500 hover:text-slate-800"
+            }`}
+            title="Switch to English"
+          >
+            EN
+          </button>
+          <button
+            onClick={() => dispatch(setLanguage("hi"))}
+            className={`px-2 py-0.5 rounded-full text-[10px] font-black transition-all cursor-pointer ${
+              lang === "hi"
+                ? "bg-[#FF6014] text-white shadow-xs"
+                : "text-slate-500 hover:text-slate-800"
+            }`}
+            title="हिन्दी में बदलें"
+          >
+            हिं
+          </button>
+        </div>
 
         {/* Notifications Button (Rich Animations & Chime Sound) */}
         <div className="relative" ref={notificationDropdownRef}>
