@@ -210,8 +210,10 @@ Detailed Guidelines for Responses:
       }))
     ];
 
-    // 6. Call OpenRouter API using google/gemini-2.5-flash as the primary fast/cheap model
+    // 6. Call OpenRouter API using ultra-fast google/gemini-2.5-flash with token limit & timeout
     const openrouterUrl = "https://openrouter.ai/api/v1/chat/completions";
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 8000);
 
     let response = await fetch(openrouterUrl, {
       method: "POST",
@@ -221,16 +223,22 @@ Detailed Guidelines for Responses:
         "HTTP-Referer": "https://rajseba.in",
         "X-Title": "Rajseba Support Chatbot",
       },
+      signal: controller.signal,
       body: JSON.stringify({
         model: "google/gemini-2.5-flash",
         messages: formattedMessages,
-        temperature: 0.7,
+        max_tokens: 350,
+        temperature: 0.5,
       }),
-    });
+    }).catch(() => null);
+    clearTimeout(timeoutId);
 
     // If Google Gemini fails or is rate-limited on OpenRouter, fallback to openai/gpt-4o-mini
-    if (!response.ok) {
-      console.warn("OpenRouter Gemini-2.5-flash call failed, trying fallback openai/gpt-4o-mini...");
+    if (!response || !response.ok) {
+      console.warn("OpenRouter Gemini call failed/timed out, trying fallback openai/gpt-4o-mini...");
+      const fallbackController = new AbortController();
+      const fbTimeoutId = setTimeout(() => fallbackController.abort(), 8000);
+
       response = await fetch(openrouterUrl, {
         method: "POST",
         headers: {
@@ -239,12 +247,15 @@ Detailed Guidelines for Responses:
           "HTTP-Referer": "https://rajseba.in",
           "X-Title": "Rajseba Support Chatbot",
         },
+        signal: fallbackController.signal,
         body: JSON.stringify({
           model: "openai/gpt-4o-mini",
           messages: formattedMessages,
-          temperature: 0.7,
+          max_tokens: 350,
+          temperature: 0.5,
         }),
-      });
+      }).catch(() => null);
+      clearTimeout(fbTimeoutId);
     }
 
     if (!response.ok) {
