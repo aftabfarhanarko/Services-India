@@ -285,8 +285,8 @@ Detailed Guidelines for Responses:
       clearTimeout(fbTimeoutId);
     }
 
-    if (!response.ok) {
-      const errorData = await response.json().catch(() => ({}));
+    if (!response || !response.ok) {
+      const errorData = response ? await response.json().catch(() => ({})) : {};
       console.error("OpenRouter API returned error:", errorData);
       throw new Error("OpenRouter API calls failed");
     }
