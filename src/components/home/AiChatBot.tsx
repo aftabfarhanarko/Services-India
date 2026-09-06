@@ -283,25 +283,16 @@ export function AiChatBot() {
 
       </div>
 
-      {/* Chat Window / Mobile Bottom Sheet Modal */}
+      {/* Chat Window / Floating Modal */}
       <AnimatePresence>
         {isOpen && (
-          <>
-            {/* Soft Light Blur Overlay (Mobile & Desktop Backdrop) */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              onClick={() => setIsOpen(false)}
-              className="fixed inset-0 bg-slate-950/25 backdrop-blur-md z-[997]"
-            />
-
+          <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4 md:p-0 md:block pointer-events-none">
             <motion.div
               initial={{ opacity: 0, scale: 0.9, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.9, y: 20 }}
-              transition={{ type: "spring", stiffness: 360, damping: 26 }}
-              className="fixed inset-4 sm:inset-6 md:inset-auto md:bottom-28 md:right-8 md:w-[380px] my-auto md:my-0 z-[998] h-[80vh] max-h-[580px] md:h-[500px] bg-white/95 backdrop-blur-xl rounded-[28px] md:rounded-3xl border border-slate-100 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.25)] flex flex-col overflow-hidden"
+              transition={{ type: "spring", stiffness: 380, damping: 25 }}
+              className="pointer-events-auto w-full max-w-[380px] h-[78vh] max-h-[560px] md:h-[500px] md:fixed md:bottom-28 md:right-8 md:inset-auto bg-white rounded-[28px] md:rounded-3xl border border-slate-200/90 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.3)] flex flex-col overflow-hidden"
             >
               {/* Mobile Drawer Handle / Indicator */}
               <div className="md:hidden w-full flex justify-center pt-2.5 pb-1 bg-gradient-to-r from-[#FF6014] to-[#FF7C71]">
@@ -388,7 +379,7 @@ export function AiChatBot() {
                 </form>
               </div>
             </motion.div>
-          </>
+          </div>
         )}
       </AnimatePresence>
     </>
