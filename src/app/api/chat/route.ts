@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || "https://www.api.rajseba.in";
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || "https://api.rajseba.in";
 
 // Allowed production origins to prevent external websites / postman tab abuse
 const ALLOWED_ORIGINS = [

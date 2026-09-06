@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 
 const BASE_URL = "https://rajseba.com";
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL || "https://www.api.rajseba.in";
+const API_URL = process.env.NEXT_PUBLIC_API_URL || "https://api.rajseba.in";
 
 // Fetch all categories dynamically
 async function getCategories(): Promise<{ id: number; name: string; updatedAt?: string }[]> {
