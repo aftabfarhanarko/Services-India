@@ -286,14 +286,13 @@ export function AiChatBot() {
       {/* Chat Window / Floating Modal */}
       <AnimatePresence>
         {isOpen && (
-          <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4 md:p-0 md:block pointer-events-none">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9, y: 20 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.9, y: 20 }}
-              transition={{ type: "spring", stiffness: 380, damping: 25 }}
-              className="pointer-events-auto w-full max-w-[380px] h-[78vh] max-h-[560px] md:h-[500px] md:fixed md:bottom-28 md:right-8 md:inset-auto bg-white rounded-[28px] md:rounded-3xl border border-slate-200/90 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.3)] flex flex-col overflow-hidden"
-            >
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95, y: 15 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.95, y: 15 }}
+            transition={{ type: "spring", stiffness: 380, damping: 25 }}
+            className="fixed inset-x-3 bottom-20 top-auto md:top-auto md:bottom-28 md:right-8 md:left-auto md:w-[380px] h-[75vh] max-h-[540px] md:h-[500px] bg-white rounded-[28px] md:rounded-3xl border border-slate-200 shadow-[0_20px_50px_rgba(0,0,0,0.25)] z-[99999] flex flex-col overflow-hidden"
+          >
               {/* Mobile Drawer Handle / Indicator */}
               <div className="md:hidden w-full flex justify-center pt-2.5 pb-1 bg-gradient-to-r from-[#FF6014] to-[#FF7C71]">
                 <div className="w-12 h-1 bg-white/40 rounded-full" />
@@ -379,7 +378,6 @@ export function AiChatBot() {
                 </form>
               </div>
             </motion.div>
-          </div>
         )}
       </AnimatePresence>
     </>
