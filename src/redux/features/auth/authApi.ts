@@ -30,6 +30,13 @@ export const authApi = baseApi.injectEndpoints({
         body: userData,
       }),
     }),
+    googleLogin: builder.mutation<any, { idToken?: string; token?: string }>({
+      query: (data) => ({
+        url: '/auth/google',
+        method: 'POST',
+        body: data,
+      }),
+    }),
     verifyOtp: builder.mutation<any, { phone: string; otpCode: string }>({
       query: (data) => ({
         url: '/auth/verify-otp',
@@ -54,4 +61,4 @@ export const authApi = baseApi.injectEndpoints({
   }),
 });
 
-export const { useGetUserProfileQuery, useLoginMutation, useRegisterMutation, useVerifyOtpMutation, useSendOtpMutation, useResendOtpMutation, useLazyGetUserProfileQuery } = authApi;
+export const { useGetUserProfileQuery, useLoginMutation, useRegisterMutation, useGoogleLoginMutation, useVerifyOtpMutation, useSendOtpMutation, useResendOtpMutation, useLazyGetUserProfileQuery } = authApi;

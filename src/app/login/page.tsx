@@ -103,66 +103,6 @@ export default function LoginPage() {
               </p>
             </div>
 
-            {/* Quick Demo Credentials */}
-            <div className="mb-6 p-4 rounded-2xl bg-slate-50/90 border border-slate-200/80 shadow-2xs">
-              <div className="flex items-center gap-1.5 text-[11px] font-black text-slate-600 uppercase tracking-wider mb-3">
-                <Zap size={14} className="text-[#FF6014] fill-[#FF6014]" />
-                <span>Quick Demo Accounts (ক্লিক করে অটো ফিল করুন)</span>
-              </div>
-              <div className="flex flex-wrap gap-2">
-                {[
-                  {
-                    role: "Super Admin",
-                    email: "aftabfarhan324@gmail.com",
-                    pass: "123456",
-                    icon: <ShieldCheck size={13} />,
-                    color: "bg-rose-50 text-rose-700 border-rose-200 hover:bg-rose-100",
-                  },
-                  {
-                    role: "Vendor",
-                    email: "vendor@gmail.com",
-                    pass: "123456",
-                    icon: <Store size={13} />,
-                    color: "bg-orange-50 text-orange-700 border-orange-200 hover:bg-orange-100",
-                  },
-                  {
-                    role: "Agent",
-                    email: "agent@gmail.com",
-                    pass: "123456",
-                    icon: <Briefcase size={13} />,
-                    color: "bg-blue-50 text-blue-700 border-blue-200 hover:bg-blue-100",
-                  },
-                  {
-                    role: "Client",
-                    email: "client@gmail.com",
-                    pass: "123456",
-                    icon: <User size={13} />,
-                    color: "bg-emerald-50 text-emerald-700 border-emerald-200 hover:bg-emerald-100",
-                  },
-                  {
-                    role: "Employee",
-                    email: "employ@example.com",
-                    pass: "123456",
-                    icon: <Users size={13} />,
-                    color: "bg-purple-50 text-purple-700 border-purple-200 hover:bg-purple-100",
-                  },
-                ].map((item) => (
-                  <button
-                    key={item.role}
-                    type="button"
-                    onClick={() => {
-                      setEmail(item.email);
-                      setPassword(item.pass);
-                    }}
-                    className={`px-3 py-1.5 rounded-xl text-xs font-bold border transition-all flex items-center gap-1.5 hover:scale-[1.03] active:scale-[0.98] cursor-pointer shadow-2xs ${item.color}`}
-                  >
-                    {item.icon}
-                    <span>{item.role}</span>
-                  </button>
-                ))}
-              </div>
-            </div>
-
             <form onSubmit={handleSubmit} className="space-y-4">
               <div className="space-y-1.5">
                 <label className="block text-[10px] font-black text-slate-400 uppercase tracking-wider">
@@ -259,6 +199,39 @@ export default function LoginPage() {
                 )}
               </button>
             </form>
+
+            <div className="my-5 flex items-center gap-3">
+              <div className="h-px flex-1 bg-slate-200" />
+              <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider">
+                OR
+              </span>
+              <div className="h-px flex-1 bg-slate-200" />
+            </div>
+
+            <a
+              href="https://api.rajseba.in/api/auth/google/callback"
+              className="w-full bg-white hover:bg-slate-50 border border-slate-200 text-slate-700 text-xs font-bold py-3.5 rounded-2xl shadow-xs transition-all flex items-center justify-center gap-3 cursor-pointer text-decoration-none group"
+            >
+              <svg className="w-5 h-5" viewBox="0 0 24 24">
+                <path
+                  fill="#4285F4"
+                  d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
+                />
+                <path
+                  fill="#34A853"
+                  d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"
+                />
+                <path
+                  fill="#FBBC05"
+                  d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"
+                />
+                <path
+                  fill="#EA4335"
+                  d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"
+                />
+              </svg>
+              <span>Sign in with Google</span>
+            </a>
 
             <p className="text-center text-xs text-slate-400 font-bold mt-8">
               Don't have an account?{" "}
