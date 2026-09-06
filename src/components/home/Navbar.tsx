@@ -498,27 +498,66 @@ export function Navbar() {
                                     </motion.div>
                                   )}
                                 </div>
-
-                                {/* Right Panel: Featured Interactive Promo Card (Brand Primary Theme with Framer Motion Entrance) */}
+                                {/* Right Panel: Featured Interactive Promo Card (Brand Primary Theme with Staggered Elements Animation) */}
                                 <motion.div
-                                  initial={{ opacity: 0, x: 15, scale: 0.95 }}
-                                  animate={{ opacity: 1, x: 0, scale: 1 }}
-                                  transition={{ duration: 0.3, delay: 0.1, ease: "easeOut" }}
+                                  initial="hidden"
+                                  animate="show"
+                                  variants={{
+                                    hidden: { opacity: 0, x: 15, scale: 0.95 },
+                                    show: {
+                                      opacity: 1,
+                                      x: 0,
+                                      scale: 1,
+                                      transition: {
+                                        duration: 0.28,
+                                        ease: "easeOut",
+                                        staggerChildren: 0.05,
+                                        delayChildren: 0.12,
+                                      },
+                                    },
+                                  }}
                                   className="w-[250px] bg-gradient-to-br from-[#FF6014] via-[#FF7328] to-[#E0530A] text-white rounded-2.5xl p-5.5 flex flex-col justify-between relative overflow-hidden shrink-0 shadow-xl shadow-[#FF6014]/25 border border-[#FF6014]/30"
                                 >
                                   <div className="absolute -top-10 -right-10 w-36 h-36 bg-white/20 rounded-full blur-2xl pointer-events-none" />
                                   <div className="absolute -bottom-10 -left-10 w-32 h-32 bg-black/10 rounded-full blur-xl pointer-events-none" />
-                                  <div className="relative z-10">
-                                    <div className="inline-flex items-center gap-1.5 text-[9px] font-black uppercase tracking-widest text-white bg-white/20 backdrop-blur-md border border-white/30 px-3 py-1 rounded-full mb-3.5 shadow-2xs">
+                                  <div className="relative z-10 space-y-3">
+                                    <motion.div
+                                      variants={{
+                                        hidden: { opacity: 0, y: 8, scale: 0.9 },
+                                        show: { opacity: 1, y: 0, scale: 1, transition: { type: "spring", stiffness: 350, damping: 22 } }
+                                      }}
+                                      className="inline-flex items-center gap-1.5 text-[9px] font-black uppercase tracking-widest text-white bg-white/20 backdrop-blur-md border border-white/30 px-3 py-1 rounded-full shadow-2xs"
+                                    >
                                       <Sparkles className="w-3 h-3 text-white" /> Rajseba Certified
-                                    </div>
-                                    <h4 className="text-base font-black text-white leading-tight mb-2 tracking-tight">
+                                    </motion.div>
+
+                                    <motion.h4
+                                      variants={{
+                                        hidden: { opacity: 0, y: 10 },
+                                        show: { opacity: 1, y: 0, transition: { duration: 0.22 } }
+                                      }}
+                                      className="text-base font-black text-white leading-tight tracking-tight"
+                                    >
                                       Custom Home Solutions
-                                    </h4>
-                                    <p className="text-[11px] text-white/90 leading-relaxed font-medium">
+                                    </motion.h4>
+
+                                    <motion.p
+                                      variants={{
+                                        hidden: { opacity: 0, y: 10 },
+                                        show: { opacity: 1, y: 0, transition: { duration: 0.22 } }
+                                      }}
+                                      className="text-[11px] text-white/90 leading-relaxed font-medium"
+                                    >
                                       Connect with 250+ background-verified technicians for instant home maintenance & repairs.
-                                    </p>
-                                    <div className="mt-3.5 flex items-center gap-2 pt-3 border-t border-white/20">
+                                    </motion.p>
+
+                                    <motion.div
+                                      variants={{
+                                        hidden: { opacity: 0, y: 10, scale: 0.95 },
+                                        show: { opacity: 1, y: 0, scale: 1, transition: { type: "spring", stiffness: 300, damping: 20 } }
+                                      }}
+                                      className="pt-2 flex items-center gap-2 border-t border-white/20"
+                                    >
                                       <div className="flex -space-x-2">
                                         {[
                                           "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80",
@@ -529,25 +568,44 @@ export function Navbar() {
                                         ))}
                                       </div>
                                       <span className="text-[10px] font-bold text-white/95">250+ Experts Active</span>
-                                    </div>
+                                    </motion.div>
                                   </div>
 
                                   <div className="mt-5 space-y-2.5 relative z-10">
-                                    <Link
-                                      href="/services"
-                                      onClick={() => setShowServicesDropdown(false)}
-                                      className="w-full flex items-center justify-center gap-2 bg-white hover:bg-slate-50 text-[#FF6014] text-xs font-black tracking-wide py-3 px-4 rounded-xl transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5 cursor-pointer border-none"
+                                    <motion.div
+                                      variants={{
+                                        hidden: { opacity: 0, y: 12, scale: 0.95 },
+                                        show: { opacity: 1, y: 0, scale: 1, transition: { type: "spring", stiffness: 350, damping: 22 } }
+                                      }}
+                                      whileHover={{ scale: 1.02 }}
+                                      whileTap={{ scale: 0.98 }}
                                     >
-                                      <span>Get Instant Quote</span>
-                                      <ArrowRight className="w-4 h-4 text-[#FF6014]" />
-                                    </Link>
-                                    <a
-                                      href="tel:01813333373"
-                                      className="w-full flex items-center justify-center gap-2 bg-black/15 hover:bg-black/25 border border-white/20 text-white text-xs font-bold py-2.5 px-4 rounded-xl transition-all text-decoration-none"
+                                      <Link
+                                        href="/services"
+                                        onClick={() => setShowServicesDropdown(false)}
+                                        className="w-full flex items-center justify-center gap-2 bg-white hover:bg-slate-50 text-[#FF6014] text-xs font-black tracking-wide py-3 px-4 rounded-xl transition-all shadow-md hover:shadow-lg cursor-pointer border-none"
+                                      >
+                                        <span>Get Instant Quote</span>
+                                        <ArrowRight className="w-4 h-4 text-[#FF6014]" />
+                                      </Link>
+                                    </motion.div>
+
+                                    <motion.div
+                                      variants={{
+                                        hidden: { opacity: 0, y: 12, scale: 0.95 },
+                                        show: { opacity: 1, y: 0, scale: 1, transition: { type: "spring", stiffness: 350, damping: 22 } }
+                                      }}
+                                      whileHover={{ scale: 1.02 }}
+                                      whileTap={{ scale: 0.98 }}
                                     >
-                                      <span>Call Hotline</span>
-                                      <Phone className="w-3.5 h-3.5 text-white" />
-                                    </a>
+                                      <a
+                                        href="tel:01813333373"
+                                        className="w-full flex items-center justify-center gap-2 bg-black/15 hover:bg-black/25 border border-white/20 text-white text-xs font-bold py-2.5 px-4 rounded-xl transition-all text-decoration-none"
+                                      >
+                                        <span>Call Hotline</span>
+                                        <Phone className="w-3.5 h-3.5 text-white" />
+                                      </a>
+                                    </motion.div>
                                   </div>
                                 </motion.div>
                               </motion.div>
