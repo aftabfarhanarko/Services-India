@@ -5,7 +5,9 @@
  * CDN Base URL: http://ys5u1ge5eguiimbv9s2bkxrg.200.141.14.181.sslip.io
  */
 
-const CDN_URL = process.env.NEXT_PUBLIC_CDN_URL || "http://ys5u1ge5eguiimbv9s2bkxrg.200.141.14.181.sslip.io";
+const CDN_URL = (
+  process.env.NEXT_PUBLIC_CDN_URL || "https://ys5u1ge5eguiimbv9s2bkxrg.200.141.14.181.sslip.io"
+).replace(/^http:\/\//i, "https://");
 
 export const uploadImage = async (
   file: File,
