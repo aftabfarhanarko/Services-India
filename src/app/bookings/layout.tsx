@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "My Bookings — Rajseba",
-  description: "View and manage all your home service bookings on Rajseba. Track status, view details, and manage upcoming or past service appointments.",
-  keywords: ["my bookings rajseba", "track service booking", "manage home service", "booking history Bangladesh"],
+  title: "My Bookings — Rajseba Kolkata",
+  description: "View and manage all your home service bookings on Rajseba Kolkata. Track status, view details, and manage upcoming or past service appointments in West Bengal, India.",
+  keywords: ["my bookings rajseba", "track service booking Kolkata", "manage home service West Bengal", "booking history India"],
   alternates: { canonical: "https://rajseba.com/bookings" },
   openGraph: {
-    title: "My Bookings — Rajseba",
-    description: "View and manage all your home service bookings on Rajseba.",
+    title: "My Bookings — Rajseba Kolkata",
+    description: "View and manage all your home service bookings on Rajseba Kolkata, India.",
     url: "https://rajseba.com/bookings",
     type: "website",
   },

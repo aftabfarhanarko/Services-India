@@ -87,7 +87,7 @@ export default function AgentQuickBookingPage() {
                               <p className="text-[10px] text-slate-500 mt-1 line-clamp-2">{sub.description}</p>
                             </div>
                             <div className="flex items-center justify-between mt-3 pt-3 border-t border-slate-50">
-                              <span className="font-bold text-[#FF6014] text-sm">৳{sub.price}</span>
+                              <span className="font-bold text-[#FF6014] text-sm">₹{sub.price}</span>
                               {quantity > 0 ? (
                                 <div className="flex items-center gap-2 bg-slate-50 border border-slate-200 rounded-lg p-0.5">
                                   <button onClick={() => state.handleUpdateQuantity(sub.id, -1)} type="button" className="w-6 h-6 rounded text-slate-600 hover:bg-slate-200 flex items-center justify-center cursor-pointer">-</button>

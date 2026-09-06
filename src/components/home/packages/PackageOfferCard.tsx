@@ -103,7 +103,7 @@ export function PackageOfferCard({
           {pkg.price ? (
             <div className="flex items-baseline gap-1 mt-2">
               <span className="text-3xl font-black text-[#FF6014]">
-                ৳{pkg.price}
+                ₹{pkg.price}
               </span>
               <span className="text-xs font-bold text-slate-400">/package</span>
             </div>

@@ -63,7 +63,7 @@ export default function SuperAdminDashboard() {
       customer: b.user?.name || "Unknown Customer",
       service: b.nestedService?.name || b.pkg?.name || "Service",
       provider: b.vendor?.name || b.vendor?.email || "Unassigned",
-      amount: `৳${Number(b.total_price || 0).toLocaleString()}`,
+      amount: `₹${Number(b.total_price || 0).toLocaleString()}`,
       status: b.status,
       date: new Date(b.createdAt).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric", hour: "2-digit", minute: "2-digit" })
     }));
@@ -265,10 +265,10 @@ export default function SuperAdminDashboard() {
           </div>
           <div className="mx-6 mb-6 mt-2 grid grid-cols-2 md:grid-cols-4 divide-y md:divide-y-0 md:divide-x divide-slate-100 bg-slate-50/70 rounded-2xl border border-slate-100/90 overflow-hidden">
             {[
-              { label: "This Month Rev", value: `৳${overview.revenue.monthly.toLocaleString()}`, accent: "text-[#FF6014]", icon: Calendar },
-              { label: "This Week Rev", value: `৳${overview.revenue.weekly.toLocaleString()}`, accent: "text-indigo-500", icon: Clock },
-              { label: "Month Withdraws", value: `৳${overview.withdraws.monthlyAmount.toLocaleString()}`, accent: "text-emerald-500", icon: Wallet },
-              { label: "Week Withdraws", value: `৳${overview.withdraws.weeklyAmount.toLocaleString()}`, accent: "text-amber-500", icon: DollarSign },
+              { label: "This Month Rev", value: `₹${overview.revenue.monthly.toLocaleString()}`, accent: "text-[#FF6014]", icon: Calendar },
+              { label: "This Week Rev", value: `₹${overview.revenue.weekly.toLocaleString()}`, accent: "text-indigo-500", icon: Clock },
+              { label: "Month Withdraws", value: `₹${overview.withdraws.monthlyAmount.toLocaleString()}`, accent: "text-emerald-500", icon: Wallet },
+              { label: "Week Withdraws", value: `₹${overview.withdraws.weeklyAmount.toLocaleString()}`, accent: "text-amber-500", icon: DollarSign },
             ].map((s, i) => {
               const SubIcon = s.icon;
               return (

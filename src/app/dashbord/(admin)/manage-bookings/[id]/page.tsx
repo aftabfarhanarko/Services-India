@@ -370,7 +370,7 @@ export default function BookingDetailsPage() {
                           <Briefcase size={14} className="text-purple-600" /> {sub.name}
                           {qty > 1 ? <span className="text-[10px] bg-purple-100 text-purple-700 px-1.5 py-0.5 rounded-md font-black">×{qty}</span> : null}
                         </p>
-                        <p className="text-xs font-black text-[#FF6014]">৳{Number(sub.price) * qty}</p>
+                        <p className="text-xs font-black text-[#FF6014]">₹{Number(sub.price) * qty}</p>
                       </div>
                     );
                   })}

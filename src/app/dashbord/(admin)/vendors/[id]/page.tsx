@@ -120,7 +120,7 @@ export default function VendorDetailsPage() {
                 <div>
                   <p className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Min Starting Price</p>
                   <p className="font-semibold text-brand-primary text-sm">
-                    {profile.min_starting_price ? `৳${profile.min_starting_price}` : "Negotiable"}
+                    {profile.min_starting_price ? `₹${profile.min_starting_price}` : "Negotiable"}
                   </p>
                 </div>
                 {profile.description && (

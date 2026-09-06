@@ -82,7 +82,7 @@ const Testimonials = () => {
     },
     {
       name: "Sarah Jenkins",
-      location: "Dhaka, Bangladesh",
+      location: "Salt Lake, Kolkata",
       rating: 5,
       comment: "The service exceeded my expectations! Very professional staff and quick response times.",
       avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=600&q=80",
@@ -90,7 +90,7 @@ const Testimonials = () => {
     },
     {
       name: "Michael Chen",
-      location: "Chittagong, Bangladesh",
+      location: "Park Street, Kolkata",
       rating: 5,
       comment: "Great experience working with Rajseba. Highly organized and reliable team.",
       avatar: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=600&q=80",
@@ -98,7 +98,7 @@ const Testimonials = () => {
     },
     {
       name: "Sophia Martinez",
-      location: "Sylhet, Bangladesh",
+      location: "Ballygunge, Kolkata",
       rating: 5,
       comment: "Prompt service and transparent pricing. Will definitely use their service again!",
       avatar: "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=600&q=80",
@@ -106,7 +106,7 @@ const Testimonials = () => {
     },
     {
       name: "Alex Turner",
-      location: "Uttara, Dhaka",
+      location: "New Town, Kolkata",
       rating: 5,
       comment: "Top notch quality and amazing support. Truly happy with the results.",
       avatar: "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?auto=format&fit=crop&w=600&q=80",
@@ -118,7 +118,7 @@ const Testimonials = () => {
     .filter((r: any) => (r.comment || r.content || r.review || "").trim().length > 0)
     .map((r: any) => ({
       name: r.user?.name || "Valued Customer",
-      location: r.user?.profile?.address || "Dhaka, Bangladesh",
+      location: r.user?.profile?.address || "Kolkata, West Bengal",
       rating: r.rating || 5,
       comment: r.comment || r.content || r.review || "",
       avatar:
@@ -143,7 +143,7 @@ const Testimonials = () => {
         What Our Clients <span className="text-[#FF6014]">Say About Us</span>
       </h2>
       <p className="mt-3 text-slate-500 text-sm md:text-base font-medium max-w-2xl mx-auto leading-relaxed">
-        Trusted by thousands of happy households across Bangladesh.
+        Trusted by thousands of happy households across Kolkata & India.
       </p>
     </div>
   );

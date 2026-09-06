@@ -378,7 +378,7 @@ export default function CustomShiftingDashboard() {
                         </span>
                         {shifting.price && (
                           <div className="text-xs font-black text-slate-800 flex items-center gap-0.5 mt-1">
-                            <span className="text-[#FF6014] font-extrabold">৳</span>
+                            <span className="text-[#FF6014] font-extrabold">₹</span>
                             {Number(shifting.price).toLocaleString()}
                           </div>
                         )}

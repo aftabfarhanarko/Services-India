@@ -192,7 +192,7 @@ export default function TermsClientPage() {
                         <strong className="text-slate-700">Cancellation Window:</strong> You can reschedule or cancel any scheduled service up to 2 hours prior to the slot commencement through your Client Dashboard without charge.
                       </li>
                       <li>
-                        <strong className="text-slate-700">Late Cancellation Fee:</strong> Cancellations made less than 2 hours before the schedule will incur a convenience dispatch fee of ৳200 to cover travel costs for the allocated technician.
+                        <strong className="text-slate-700">Late Cancellation Fee:</strong> Cancellations made less than 2 hours before the schedule will incur a convenience dispatch fee of ₹200 to cover travel costs for the allocated technician.
                       </li>
                       <li>
                         <strong className="text-slate-700">No-Show Rule:</strong> If the technician arrives at your location and cannot gain access or reach you via phone within 20 minutes, the order will be cancelled, and the late fee will be charged.
@@ -227,7 +227,7 @@ export default function TermsClientPage() {
                         <strong className="text-slate-700">Payment Gateways:</strong> We support payments via Cash on Delivery (COD), digital cards, MFS (bKash, Nagad), or deductions from your pre-loaded Rajseba Wallet.
                       </li>
                       <li>
-                        <strong className="text-slate-700">Inspection Charges:</strong> If a service requires physical diagnosis first, a minimal inspection fee of ৳150 applies. This fee is waived if you proceed with the suggested repair job.
+                        <strong className="text-slate-700">Inspection Charges:</strong> If a service requires physical diagnosis first, a minimal inspection fee of ₹150 applies. This fee is waived if you proceed with the suggested repair job.
                       </li>
                       <li>
                         <strong className="text-slate-700">Additional Spare Parts:</strong> If the repair requires additional spare materials, the technician will present a cost estimate. Extra materials are only purchased and billed upon your explicit dashboard approval.
@@ -300,7 +300,7 @@ export default function TermsClientPage() {
                     </p>
                     <ul className="list-disc pl-4 space-y-2">
                       <li>
-                        <strong className="text-slate-700">Damage Protection:</strong> Rajseba offers coverage up to <strong className="text-slate-700">৳10,000</strong> in case of accidental property damage caused directly by technician negligence during service delivery.
+                        <strong className="text-slate-700">Damage Protection:</strong> Rajseba offers coverage up to <strong className="text-slate-700">₹10,000</strong> in case of accidental property damage caused directly by technician negligence during service delivery.
                       </li>
                       <li>
                         <strong className="text-slate-700">Exclusions:</strong> We are not liable for pre-existing structural issues, appliance wear-and-tear (e.g. old corroded copper lines breaking during basic AC servicing), or issues caused by cheap/faulty parts supplied directly by the client.

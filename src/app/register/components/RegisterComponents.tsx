@@ -7,7 +7,7 @@ export const REGISTER_CONTENT = {
   badge: "JOIN RAJSEBA",
   heroTitle: "Expert care for your",
   heroAccent: "premium home.",
-  heroDesc: "Experience the pinnacle of hospitality and safety with our curated selection of professional home services in Bangladesh.",
+  heroDesc: "Experience the pinnacle of hospitality and safety with our curated selection of professional home services in Kolkata, West Bengal, India.",
   benefits: [
     {
       title: "Verified Professionals",

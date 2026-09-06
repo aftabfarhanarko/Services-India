@@ -24,7 +24,7 @@ const OG_IMAGE = `${SITE_URL}/og-image.jpg`;
 // Fetch live categories from the backend at build/request time
 async function getCategories(): Promise<string[]> {
   try {
-    const apiBase = process.env.NEXT_PUBLIC_API_URL || "https://home-services-backend-b6v4.onrender.com";
+    const apiBase = process.env.NEXT_PUBLIC_API_URL || "https://www.api.rajseba.in";
     const res = await fetch(`${apiBase}/category`, {
       next: { revalidate: 3600 }, // ISR — re-fetch every 1 hour
     });
@@ -44,20 +44,25 @@ export async function generateMetadata(): Promise<Metadata> {
   const categories = await getCategories();
 
   // Build rich keyword list: brand + category names + location terms
-  const categoryKeywords = categories.map((c) => c);
+  const categoryKeywords = categories.map((c) => `${c} Kolkata`);
   const baseKeywords = [
-    "home services Bangladesh",
-    "home services Rajshahi",
-    "AC repair Bangladesh",
-    "cleaning service Dhaka",
-    "plumbing service Bangladesh",
-    "electrical repair Bangladesh",
-    "professional home care",
-    "verified home experts",
-    "book home services online",
-    "Rajseba",
+    "home services Kolkata",
+    "home services West Bengal",
+    "home services India",
+    "AC repair Kolkata",
+    "house cleaning Kolkata",
+    "plumbing service Kolkata",
+    "electrician in Kolkata",
+    "packers and movers Kolkata",
+    "appliance repair Kolkata",
+    "professional home care Kolkata",
+    "verified home experts Kolkata",
+    "book home services online Kolkata",
+    "Rajseba Kolkata",
+    "Rajseba India",
   ];
   const allKeywords = [
+    ...categories,
     ...categoryKeywords,
     ...baseKeywords,
   ];
@@ -68,9 +73,9 @@ export async function generateMetadata(): Promise<Metadata> {
       ? categories.slice(0, 5).join(", ")
       : "AC repair, cleaning, plumbing, electrical";
 
-  const description = `Book trusted home services in Bangladesh — ${categoryList}, and more. Verified experts, instant booking, guaranteed quality. Your home deserves the best.`;
+  const description = `Book trusted home services in Kolkata, West Bengal, India — ${categoryList}, and more. Verified experts, instant booking, guaranteed quality. Your home in Kolkata deserves the best care.`;
 
-  const title = `${SITE_NAME} — ${SITE_TAGLINE}`;
+  const title = `${SITE_NAME} — Premium Home Services in Kolkata, West Bengal, India`;
 
   return {
     title,
@@ -97,15 +102,15 @@ export async function generateMetadata(): Promise<Metadata> {
       title,
       description,
       url: SITE_URL,
-      siteName: SITE_NAME,
-      locale: "en_US",
+      siteName: `${SITE_NAME} Kolkata`,
+      locale: "en_IN",
       type: "website",
       images: [
         {
           url: OG_IMAGE,
           width: 1200,
           height: 630,
-          alt: `${SITE_NAME} — Professional Home Services in Bangladesh`,
+          alt: `${SITE_NAME} — Professional Home Services in Kolkata, West Bengal, India`,
         },
       ],
     },

@@ -53,7 +53,7 @@ export function SubServiceDetailCard({
           <div>
             <span className="text-[10px] text-slate-400 font-bold uppercase tracking-wider block">Price</span>
             <div className="text-[#FF6014] text-2xl font-black">
-              ৳{Number(subService.price).toLocaleString()}
+              ₹{Number(subService.price).toLocaleString()}
             </div>
           </div>
           <div className="w-32">
@@ -242,7 +242,7 @@ export function SubServiceDetailDrawer({
                 <div>
                   <span className="text-[10px] text-slate-400 font-bold uppercase tracking-wider block">Price</span>
                   <div className="text-[#FF6014] text-xl font-black">
-                    ৳{Number(subService.price).toLocaleString()}
+                    ₹{Number(subService.price).toLocaleString()}
                   </div>
                 </div>
                 <div className="w-32">

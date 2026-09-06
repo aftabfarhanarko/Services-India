@@ -269,7 +269,7 @@ export default function TrendingServices() {
                         Starting from
                       </p>
                       <p className="text-base font-bold text-slate-800">
-                        ৳{service.price.toLocaleString()}
+                        ₹{service.price.toLocaleString()}
                       </p>
                     </div>
                     <Link

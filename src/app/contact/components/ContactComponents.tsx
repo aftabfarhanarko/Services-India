@@ -17,7 +17,7 @@ export const TRUST_BARS = [
 export const FAQS = [
   { question: "How do I schedule a home service on Rajseba?", answer: "Browse our service directory, pick the task required, and choose your preferred date/time slot using our calendar. A verified Rajseba professional will be matched to your booking instantly." },
   { question: "What verification procedures do professionals go through?", answer: "Every technician goes through a multi-tier vetting process, including biometric National ID verification, criminal background checks, and a practical skill examination at the Rajseba Academy." },
-  { question: "What happens if there is accidental damage during service?", answer: "Your satisfaction and safety are our priorities. All Rajseba appointments are protected under our service insurance, covering accidental damages up to ৳10,000." },
+  { question: "What happens if there is accidental damage during service?", answer: "Your satisfaction and safety are our priorities. All Rajseba appointments are protected under our service insurance, covering accidental damages up to ₹10,000." },
   { question: "Can I cancel or change my booking slot?", answer: "Yes, you can reschedule or cancel any scheduled booking up to 2 hours before the service slot begins directly through your dashboard without any cancellation penalty fee." },
   { question: "How does the warranty claim process work?", answer: "All completed services come with a 7-day Rajseba Service Warranty. If any issue reoccurs, submit a ticket or call us for a free follow-up inspection and fix." }
 ];
@@ -28,7 +28,7 @@ export function ContactChannelsList() {
 
   const phone = branding?.phone || "01813-333373";
   const email = branding?.email || "info@rajseba.com";
-  const address = branding?.address || "Rajshahi High-tech Park, Rajshahi, Bangladesh";
+  const address = branding?.address || "Kolkata, West Bengal, India";
 
   const channels = [
     { icon: Phone, label: "Call Support", primary: phone, href: `tel:${phone.replace(/[^0-9+]/g, '')}`, secondary: `Hotline: ${phone}`, badge: "24/7 Hotline" },

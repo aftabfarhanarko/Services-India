@@ -413,7 +413,7 @@ export default function ServiceDetailClientPage({ id }: { id: string }) {
                 </div>
                 <div className="min-w-0">
                   <p className="text-[10px] font-bold text-slate-400 leading-none">{state.cartItemCount} item{state.cartItemCount === 1 ? "" : "s"}</p>
-                  <p className="text-base font-black text-slate-900 mt-0.5 leading-none">৳{state.payableTotal.toLocaleString()}</p>
+                  <p className="text-base font-black text-slate-900 mt-0.5 leading-none">₹{state.payableTotal.toLocaleString()}</p>
                 </div>
               </div>
               <button

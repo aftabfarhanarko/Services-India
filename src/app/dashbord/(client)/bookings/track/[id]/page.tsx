@@ -335,7 +335,7 @@ export default function DynamicBookingTracker() {
               <span className="text-xs font-extrabold text-slate-400 uppercase tracking-wider">
                 {lang === "bn" ? "মোট পরিমাণ" : "Total Amount"}
               </span>
-              <span className="text-lg font-black text-[#FF6014]">৳{booking.total_price || booking.service?.price || booking.pkg?.price || 0}</span>
+              <span className="text-lg font-black text-[#FF6014]">₹{booking.total_price || booking.service?.price || booking.pkg?.price || 0}</span>
             </div>
           </motion.div>
 

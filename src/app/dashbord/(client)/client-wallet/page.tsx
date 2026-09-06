@@ -205,7 +205,7 @@ export default function WalletPage() {
 
             <div className="space-y-2 relative z-10">
               <h3 className="text-xl font-black tracking-tight">
-                {lang === "bn" ? "রেফার করুন এবং ৫০০৳ জিতুন" : "Refer & Earn ৳500"}
+                {lang === "bn" ? "রেফার করুন এবং ৫০০₹ জিতুন" : "Refer & Earn ₹500"}
               </h3>
               <p className="text-xs text-rose-100 leading-relaxed font-semibold max-w-[240px]">
                 {lang === "bn"

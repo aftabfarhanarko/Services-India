@@ -85,7 +85,7 @@ export default function TransactionHistory({ myCompletedBookings, lang = "bn" }:
                       })}
                     </td>
                     <td className="px-3 md:px-6 py-3 md:py-4 text-xs font-extrabold text-[#FF6014]">
-                      - ৳ {Number(b.total_price || 0).toLocaleString("en-BD")}
+                      - ₹ {Number(b.total_price || 0).toLocaleString("en-BD")}
                     </td>
                     <td className="px-3 md:px-6 py-3 md:py-4">
                       <span className="text-[9px] font-bold px-2 py-0.5 rounded-lg bg-[#FFF8F4] text-[#FF6014] uppercase">

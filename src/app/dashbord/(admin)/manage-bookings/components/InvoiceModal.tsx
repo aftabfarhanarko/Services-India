@@ -156,8 +156,8 @@ export default function InvoiceModal({ isOpen, onClose, booking }: InvoiceModalP
                               {ss.description && <p className="text-[10px] text-slate-400 mt-0.5 line-clamp-1">{ss.description}</p>}
                             </td>
                             <td className="py-3 text-center">{qty}</td>
-                            <td className="py-3 text-right">৳{price.toLocaleString()}</td>
-                            <td className="py-3 text-right font-bold text-slate-900">৳{amount.toLocaleString()}</td>
+                            <td className="py-3 text-right">₹{price.toLocaleString()}</td>
+                            <td className="py-3 text-right font-bold text-slate-900">₹{amount.toLocaleString()}</td>
                           </tr>
                         );
                       })
@@ -167,8 +167,8 @@ export default function InvoiceModal({ isOpen, onClose, booking }: InvoiceModalP
                           {booking.pkg ? booking.pkg.name : (booking.service?.name || 'Service Booking')}
                         </td>
                         <td className="py-3 text-center">{booking.quantity || 1}</td>
-                        <td className="py-3 text-right">৳{totalPayable.toLocaleString()}</td>
-                        <td className="py-3 text-right font-bold text-slate-900">৳{totalPayable.toLocaleString()}</td>
+                        <td className="py-3 text-right">₹{totalPayable.toLocaleString()}</td>
+                        <td className="py-3 text-right font-bold text-slate-900">₹{totalPayable.toLocaleString()}</td>
                       </tr>
                     )}
                   </tbody>
@@ -179,27 +179,27 @@ export default function InvoiceModal({ isOpen, onClose, booking }: InvoiceModalP
               <div className="flex flex-col sm:flex-row justify-between items-start gap-6 border-t border-slate-100 pt-6">
                 <div className="space-y-1.5 text-xs text-slate-500 max-w-sm">
                   <p className="font-extrabold text-slate-800 uppercase tracking-wider text-[10px]">Payment Summary</p>
-                  <p>● Total Payable Amount: <span className="font-bold text-slate-800">৳{totalPayable.toLocaleString()}.00 BDT</span></p>
-                  <p>● Paid Amount: <span className="font-bold text-slate-800">৳{paidAmount.toLocaleString()}.00 BDT</span></p>
-                  <p className={`font-bold ${dueAmount > 0 ? 'text-[#FF6014]' : 'text-slate-500'}`}>● Due Amount: ৳{dueAmount.toLocaleString()}.00 BDT</p>
+                  <p>● Total Payable Amount: <span className="font-bold text-slate-800">₹{totalPayable.toLocaleString()}.00 BDT</span></p>
+                  <p>● Paid Amount: <span className="font-bold text-slate-800">₹{paidAmount.toLocaleString()}.00 BDT</span></p>
+                  <p className={`font-bold ${dueAmount > 0 ? 'text-[#FF6014]' : 'text-slate-500'}`}>● Due Amount: ₹{dueAmount.toLocaleString()}.00 BDT</p>
                 </div>
                 
                 <div className="w-full sm:w-80 bg-slate-50 p-4 rounded-2xl border border-slate-100 space-y-2 text-xs">
                   <div className="flex justify-between">
                     <span className="text-slate-400 font-medium">Subtotal:</span>
-                    <span className="font-bold text-slate-800">৳{totalPayable.toLocaleString()}.00</span>
+                    <span className="font-bold text-slate-800">₹{totalPayable.toLocaleString()}.00</span>
                   </div>
                   <div className="flex justify-between">
                     <span className="text-slate-400 font-medium">Discount:</span>
-                    <span className="font-bold text-emerald-600">- ৳0.00</span>
+                    <span className="font-bold text-emerald-600">- ₹0.00</span>
                   </div>
                   <div className="flex justify-between">
                     <span className="text-slate-400 font-medium">Tax / VAT:</span>
-                    <span className="font-bold text-slate-800">৳0.00</span>
+                    <span className="font-bold text-slate-800">₹0.00</span>
                   </div>
                   <div className="flex justify-between border-t border-slate-200 pt-2 font-bold text-sm">
                     <span className="text-slate-800">Total Amount:</span>
-                    <span className="text-[#FF6014]">৳{totalPayable.toLocaleString()}.00</span>
+                    <span className="text-[#FF6014]">₹{totalPayable.toLocaleString()}.00</span>
                   </div>
                 </div>
               </div>

@@ -32,7 +32,7 @@ export function useChatMessages(
   useEffect(() => {
     if (!user?.id && !user?._id) return;
 
-    const apiBase = process.env.NEXT_PUBLIC_API_URL || "https://home-services-backend-b6v4.onrender.com";
+    const apiBase = process.env.NEXT_PUBLIC_API_URL || "https://www.api.rajseba.in";
     const newSocket = io(apiBase, {
       query: { userId: user.id || user._id },
     });

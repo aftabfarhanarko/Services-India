@@ -195,7 +195,7 @@ export default function CategorizedSections() {
                         <div>
                           <span className="text-[10px] text-slate-400 font-bold block uppercase tracking-wider">Price starts at</span>
                           <span className="text-sm font-black text-slate-900">
-                            {priceVal > 0 ? `৳${priceVal.toLocaleString()}` : "Contact"}
+                            {priceVal > 0 ? `₹${priceVal.toLocaleString()}` : "Contact"}
                           </span>
                         </div>
                         <Link

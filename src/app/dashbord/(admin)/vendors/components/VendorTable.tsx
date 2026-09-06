@@ -67,7 +67,7 @@ export default function VendorTable({
       header: "Wallet & Comm.",
       render: (vendor: VendorItem) => (
         <div>
-          <p className="font-bold text-slate-900 text-sm">৳{(vendor.wallet_balance || 0).toLocaleString()}</p>
+          <p className="font-bold text-slate-900 text-sm">₹{(vendor.wallet_balance || 0).toLocaleString()}</p>
           <p className="text-xs text-slate-500 font-medium">{vendor.commission_percentage || 0}% Comm.</p>
         </div>
       ),

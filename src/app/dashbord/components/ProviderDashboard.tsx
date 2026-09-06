@@ -186,14 +186,14 @@ export default function ProviderDashboard() {
   const stats = [
     {
       label: t.todaysEarnings,
-      value: `৳${todayEarnings.toLocaleString()}`,
+      value: `₹${todayEarnings.toLocaleString()}`,
       desc: t.fromCompleted,
       icon: DollarSign,
       color: "text-emerald-600 bg-emerald-50",
     },
     {
       label: t.totalRevenue,
-      value: `৳${totalRevenue.toLocaleString()}`,
+      value: `₹${totalRevenue.toLocaleString()}`,
       desc: t.fromCompleted,
       icon: DollarSign,
       color: "text-blue-600 bg-blue-50",
@@ -221,7 +221,7 @@ export default function ProviderDashboard() {
     address: b.location || "N/A",
     service: b.nestedService?.name || b.pkg?.name || "Service",
     time: `${b.date || ""} ${b.time || ""}`,
-    amount: `৳${Number(b.total_price || 0).toLocaleString()}`,
+    amount: `₹${Number(b.total_price || 0).toLocaleString()}`,
     status: b.status,
     employees: b.employees || [],
   }));
@@ -624,7 +624,7 @@ export default function ProviderDashboard() {
                       </div>
                       <div>
                         <label className="block text-[10px] font-bold text-slate-400 uppercase mb-1">
-                          {t.startingPrice} (৳)
+                          {t.startingPrice} (₹)
                         </label>
                         <input
                           name="min_starting_price"
@@ -777,7 +777,7 @@ export default function ProviderDashboard() {
                     <DollarSign size={14} className="text-slate-400 shrink-0 mt-0.5" />
                     <div>
                       <p className="font-bold text-slate-750">{t.minPrice}</p>
-                      <p className="text-slate-500">৳{myProfile.min_starting_price || "Not set"}</p>
+                      <p className="text-slate-500">₹{myProfile.min_starting_price || "Not set"}</p>
                     </div>
                   </div>
 

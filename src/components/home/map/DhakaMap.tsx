@@ -14,7 +14,7 @@ import "./leaflet-custom.css";
 import VendorCategoryTags from "./VendorCategoryTags";
 import VendorLocationInfo from "./VendorLocationInfo";
 
-const BANGLADESH_CENTER: [number, number] = [23.685, 90.3563];
+const KOLKATA_CENTER: [number, number] = [22.5726, 88.3639];
 const DEFAULT_ZOOM = 7;
 
 interface DhakaMapProps {
@@ -73,7 +73,7 @@ function ResetController({ resetToken }: { resetToken: number }) {
 
   useEffect(() => {
     if (resetToken > 0) {
-      map.flyTo(BANGLADESH_CENTER, DEFAULT_ZOOM, { duration: 0.8 });
+      map.flyTo(KOLKATA_CENTER, DEFAULT_ZOOM, { duration: 0.8 });
     }
   }, [resetToken, map]);
 
@@ -103,7 +103,7 @@ function getMarkerShortLabel(expert: Expert) {
   if (expert.district && expert.division && expert.district !== expert.division) {
     return `${expert.district}, ${expert.division}`;
   }
-  return expert.district || expert.division || expert.location.split(",")[0] || "Bangladesh";
+  return expert.district || expert.division || expert.location.split(",")[0] || "Kolkata, India";
 }
 
 function createMarkerIcon(expert: Expert, isSelected: boolean) {
@@ -203,7 +203,7 @@ function VendorMarker({
           <VendorCategoryTags categories={expert.categories} max={3} />
 
           <p className="text-sm font-black text-[#FF6014]">
-            ৳{expert.price.toLocaleString()}+
+            ₹{expert.price.toLocaleString()}+
           </p>
 
           <button
@@ -232,7 +232,7 @@ export default function DhakaMap({
     <div className="flex-1 min-h-[400px] md:min-h-[600px] h-[400px] md:h-full rounded-3xl border border-slate-200 shadow-md relative overflow-hidden z-0">
       <div className="absolute inset-0">
         <MapContainer
-          center={BANGLADESH_CENTER}
+          center={KOLKATA_CENTER}
           zoom={DEFAULT_ZOOM}
           className="h-full w-full"
           style={{ height: "100%", width: "100%" }}

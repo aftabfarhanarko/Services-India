@@ -57,7 +57,7 @@ export default function NestedServiceTable({
       render: (item: NestedService) => (
         <span className="inline-flex items-center gap-1 bg-emerald-50 text-emerald-700 font-bold text-xs px-2.5 py-1 rounded-xl border border-emerald-100/50">
           <DollarSign size={12} />
-          {item.starting_price != null ? `৳${item.starting_price.toLocaleString()}` : "পরিবর্তনশীল"}
+          {item.starting_price != null ? `₹${item.starting_price.toLocaleString()}` : "পরিবর্তনশীল"}
         </span>
       ),
     },

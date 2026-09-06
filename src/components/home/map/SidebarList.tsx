@@ -190,7 +190,7 @@ export default function SidebarList({
                   <div className="flex items-center justify-between text-xs pt-1">
                     <div>
                       <span className="text-[10px] text-slate-400 font-bold block">STARTING AT</span>
-                      <span className="text-[#FF6014] text-sm font-black">৳{expert.price}+</span>
+                      <span className="text-[#FF6014] text-sm font-black">₹{expert.price}+</span>
                     </div>
                     {isSelected && (
                       <Button

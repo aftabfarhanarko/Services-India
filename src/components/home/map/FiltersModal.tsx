@@ -64,7 +64,7 @@ export default function FiltersModal({
 
             {/* Price range selector */}
             <div className="space-y-3">
-              <h4 className="text-xs font-bold text-slate-500 uppercase tracking-wider">Price Range (৳)</h4>
+              <h4 className="text-xs font-bold text-slate-500 uppercase tracking-wider">Price Range (₹)</h4>
               
               <div className="grid grid-cols-2 gap-3">
                 <div className="space-y-1">

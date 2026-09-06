@@ -186,7 +186,7 @@ export default function BookingTable({ filteredBookings, setDeleteModalBookingId
       key: "price",
       header: t.totalPrice,
       accessorKey: "total_price",
-      render: (item: any) => <span className="font-bold text-slate-800">৳{item.total_price || 0}</span>,
+      render: (item: any) => <span className="font-bold text-slate-800">₹{item.total_price || 0}</span>,
     },
     {
       key: "status",
@@ -367,10 +367,10 @@ export default function BookingTable({ filteredBookings, setDeleteModalBookingId
                                           <span className="p-1.5 bg-emerald-100 text-emerald-600 rounded-md"><Briefcase size={14} /></span>
                                           {ss.name}
                                         </span>
-                                        <span className="text-xs text-emerald-600 font-semibold ml-9 mt-0.5">৳{price} x {qty}</span>
+                                        <span className="text-xs text-emerald-600 font-semibold ml-9 mt-0.5">₹{price} x {qty}</span>
                                       </div>
                                       <span className="text-sm font-black bg-emerald-500 text-white px-3 py-1 rounded-md shadow-xs">
-                                        ৳{subTotal}
+                                        ₹{subTotal}
                                       </span>
                                     </div>
                                   );
@@ -388,7 +388,7 @@ export default function BookingTable({ filteredBookings, setDeleteModalBookingId
 
               <div>
                 <p className="text-[10px] text-slate-400 font-bold uppercase">{t.totalPrice}</p>
-                <p className="text-lg font-black text-emerald-700">৳{row.total_price || 0}</p>
+                <p className="text-lg font-black text-emerald-700">₹{row.total_price || 0}</p>
               </div>
             </div>
           </div>

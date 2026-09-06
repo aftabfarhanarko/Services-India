@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Login — Rajseba",
-  description: "Sign in to your Rajseba account to manage bookings, track services, and access your dashboard. Secure OTP-based authentication.",
-  keywords: ["rajseba login", "sign in rajseba", "home service account login", "OTP login Bangladesh"],
+  title: "Login — Rajseba Kolkata",
+  description: "Sign in to your Rajseba account to manage home service bookings in Kolkata, West Bengal, India. Secure OTP-based authentication.",
+  keywords: ["rajseba login Kolkata", "sign in rajseba India", "home service account login Kolkata", "OTP login Kolkata"],
   alternates: { canonical: "https://rajseba.com/login" },
   openGraph: {
-    title: "Login — Rajseba",
-    description: "Sign in to your Rajseba account securely with OTP authentication.",
+    title: "Login — Rajseba Kolkata",
+    description: "Sign in to your Rajseba account securely with OTP authentication in Kolkata, India.",
     url: "https://rajseba.com/login",
     type: "website",
   },

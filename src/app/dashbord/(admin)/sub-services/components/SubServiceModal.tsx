@@ -123,7 +123,7 @@ export default function SubServiceModal({
           {/* Price */}
           <div>
             <label className="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1">
-              Price (৳) *
+              Price (₹) *
             </label>
             <Input
               type="number"

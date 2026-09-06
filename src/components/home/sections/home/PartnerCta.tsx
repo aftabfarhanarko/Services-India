@@ -62,7 +62,7 @@ export default function PartnerCta() {
                 <p className="text-slate-400 font-medium mb-6">Master Plumber</p>
                 <div className="w-full bg-slate-900/80 rounded-2xl p-4 text-center border border-slate-700 backdrop-blur-sm">
                   <p className="text-slate-400 text-sm mb-1 font-medium">Monthly Earnings</p>
-                  <p className="text-[#FF6014] font-extrabold text-2xl">৳ 45,000+</p>
+                  <p className="text-[#FF6014] font-extrabold text-2xl">₹ 45,000+</p>
                 </div>
              </div>
           </div>

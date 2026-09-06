@@ -51,21 +51,21 @@ export default function AgentDashboard() {
     },
     {
       label: "Total Order Volume",
-      value: `৳${totalOrderVolume.toLocaleString()}`,
+      value: `₹${totalOrderVolume.toLocaleString()}`,
       desc: "Lifetime booking value",
       icon: Zap,
       color: "text-amber-600 bg-amber-50",
     },
     {
       label: "Est. Commission",
-      value: `৳${totalCommission.toLocaleString()}`,
+      value: `₹${totalCommission.toLocaleString()}`,
       desc: "Total potential earnings",
       icon: DollarSign,
       color: "text-emerald-600 bg-emerald-50",
     },
     {
       label: "Wallet Balance",
-      value: `৳${authUser?.wallet_balance || 0}`,
+      value: `₹${authUser?.wallet_balance || 0}`,
       desc: "Available for withdrawal",
       icon: Clock,
       color: "text-indigo-600 bg-indigo-50",
@@ -79,8 +79,8 @@ export default function AgentDashboard() {
       id: `RS-${b.id}`,
       customer: b.user?.name || "Unknown",
       service: b.service?.name || "Custom Service",
-      amount: `৳${b.total_price}`,
-      commission: `৳${
+      amount: `₹${b.total_price}`,
+      commission: `₹${
         (Number(b.total_price || 0) *
           Number(b.service?.agent_commission_percentage || authUser?.commission_percentage || 0)) /
         100

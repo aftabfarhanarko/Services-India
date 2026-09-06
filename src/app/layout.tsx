@@ -13,20 +13,27 @@ const baiJamjuree = Bai_Jamjuree({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://rajseba.com"),
+  metadataBase: new URL("https://rajseba.in"),
   title: {
-    default: "Rajseba — Expert Care for Your Premium Home",
-    template: "%s | Rajseba",
+    default: "Rajseba — India's Premier Household Services in Kolkata | Trusted Home Experts",
+    template: "%s | Rajseba Kolkata",
   },
   description:
-    "Book trusted home services in Bangladesh — AC repair, cleaning, plumbing, electrical, and more. Verified experts, instant booking, guaranteed quality.",
+    "Rajseba is India's leading household service provider in Kolkata, West Bengal. Book verified experts for AC repair, deep house cleaning, home shifting, plumbing, electrical maintenance & appliance repair in Kolkata.",
   keywords: [
-    "Rajseba", "home services Bangladesh", "AC repair", "home cleaning",
-    "plumbing Bangladesh", "electrical repair", "professional home care",
-    "verified home experts", "book home services online",
+    "Rajseba",
+    "India best household services Kolkata",
+    "top home service provider Kolkata",
+    "AC repair Kolkata",
+    "deep house cleaning Kolkata",
+    "packers and movers Kolkata",
+    "electrician Kolkata",
+    "plumbing services Kolkata",
+    "verified home experts West Bengal India",
+    "household maintenance Kolkata",
   ],
-  authors: [{ name: "Rajseba", url: "https://rajseba.com" }],
-  creator: "Rajseba",
+  authors: [{ name: "Rajseba", url: "https://rajseba.in" }],
+  creator: "Rajseba India",
   publisher: "Rajseba",
   robots: {
     index: true,
@@ -35,22 +42,37 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: "website",
-    locale: "en_US",
-    url: "https://rajseba.com",
-    siteName: "Rajseba",
-    title: "Rajseba — Expert Care for Your Premium Home",
-    description: "Book trusted home services in Bangladesh with verified experts.",
-    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "Rajseba — Professional Home Services" }],
+    locale: "en_IN",
+    url: "https://rajseba.in",
+    siteName: "Rajseba — India's Premier Household Services in Kolkata",
+    title: "Rajseba — India's Premier Household Services in Kolkata, West Bengal",
+    description: "Kolkata's most trusted household service provider! Book verified experts in Kolkata for AC repair, house cleaning, home shifting, plumbing & electrician services.",
+    images: [
+      {
+        url: "/og-image.png?v=2",
+        width: 1200,
+        height: 630,
+        type: "image/png",
+        alt: "Rajseba — India's Premier Household Services in Kolkata",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
+    title: "Rajseba — India's Premier Household Services in Kolkata",
+    description: "Kolkata's #1 Household Service Provider in India. Book verified experts for AC repair, cleaning, shifting & maintenance.",
     site: "@rajseba",
     creator: "@rajseba",
-    images: ["/og-image.jpg"],
+    images: ["/og-image.png?v=2"],
   },
   icons: {
-    icon: "/favicon.ico",
-    apple: "/apple-touch-icon.png",
+    icon: [
+      { url: "/icon.svg?v=2", type: "image/svg+xml" },
+      { url: "/favicon.ico?v=2", sizes: "any" },
+      { url: "/icon.png?v=2", type: "image/png" },
+    ],
+    shortcut: "/icon.svg?v=2",
+    apple: "/apple-touch-icon.png?v=2",
   },
   category: "Home Services",
 };

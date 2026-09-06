@@ -138,7 +138,7 @@ export default function PackageFormModal({
           {/* Price */}
           <div>
             <label className="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1">
-              মূল্য (৳)
+              মূল্য (₹)
             </label>
             <Input
               type="number"
@@ -246,7 +246,7 @@ export default function PackageFormModal({
                         <span className="truncate">{ns.name}</span>
                         {ns.starting_price != null && (
                           <span className="ml-auto text-xs text-slate-400 font-medium shrink-0">
-                            ৳{ns.starting_price.toLocaleString()}
+                            ₹{ns.starting_price.toLocaleString()}
                           </span>
                         )}
                       </button>

@@ -66,7 +66,7 @@ export default function PackageTable({
       render: (item: Package) => (
         <span className="inline-flex items-center gap-1 bg-emerald-50 text-emerald-700 font-bold text-xs px-2.5 py-1 rounded-xl border border-emerald-100/50">
           <DollarSign size={12} />
-          {item.price != null ? `৳${item.price.toLocaleString()}` : "ফ্রি"}
+          {item.price != null ? `₹${item.price.toLocaleString()}` : "ফ্রি"}
         </span>
       ),
     },

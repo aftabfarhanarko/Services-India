@@ -164,7 +164,7 @@ export default function ClientBookingDetailsPage() {
               <p className="text-[10px] font-extrabold text-slate-400 uppercase tracking-wider mb-1">
                 {lang === "bn" ? "মোট পরিমাণ" : "Total Amount"}
               </p>
-              <p className="text-2xl font-black text-slate-800">৳{booking.total_price}</p>
+              <p className="text-2xl font-black text-slate-800">₹{booking.total_price}</p>
             </div>
           </div>
         </div>

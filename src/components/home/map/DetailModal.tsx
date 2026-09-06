@@ -144,7 +144,7 @@ export default function DetailModal({ expert, onClose }: DetailModalProps) {
             <div className="p-4 sm:p-6 border-t border-slate-100 flex items-center justify-between bg-slate-50">
               <div>
                 <span className="text-[9px] sm:text-[10px] text-slate-400 font-bold block uppercase">Pricing</span>
-                <span className="text-xs sm:text-lg font-black text-slate-900">৳{expert.price.toLocaleString()}+</span>
+                <span className="text-xs sm:text-lg font-black text-slate-900">₹{expert.price.toLocaleString()}+</span>
               </div>
 
               <div className="flex gap-2 sm:gap-3">

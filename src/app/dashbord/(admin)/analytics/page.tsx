@@ -266,7 +266,7 @@ export default function AnalyticsPage() {
                   {item.serviceTitle}
                 </span>
                 <span className="bg-orange-100/80 text-[#FF6014] font-black px-2.5 py-0.5 rounded-lg text-[11px] border border-orange-200/60">
-                  ৳{Number(item.amount || 2500).toLocaleString()}
+                  ₹{Number(item.amount || 2500).toLocaleString()}
                 </span>
                 <span className="text-slate-400 text-[10px] font-medium">{item.timeAgo || "2 mins ago"}</span>
               </div>
@@ -291,7 +291,7 @@ export default function AnalyticsPage() {
             </div>
           </div>
           <h2 className="text-2xl font-black text-slate-900 mt-2">
-            ৳{(periodRevenue || 0).toLocaleString()}
+            ₹{(periodRevenue || 0).toLocaleString()}
           </h2>
           <div className="flex items-center gap-1 text-[11px] font-bold text-emerald-600 mt-1">
             <ArrowUpRight size={14} />
@@ -338,7 +338,7 @@ export default function AnalyticsPage() {
             </div>
           </div>
           <h2 className="text-2xl font-black text-slate-900 mt-2">
-            ৳{(avgOrderValue || 2450).toLocaleString()}
+            ₹{(avgOrderValue || 2450).toLocaleString()}
           </h2>
           <div className="flex items-center gap-1 text-[11px] font-bold text-amber-600 mt-1">
             <Flame size={14} className="text-amber-500" />
@@ -432,7 +432,7 @@ export default function AnalyticsPage() {
               </div>
               <div>
                 <p className="text-[10px] font-black uppercase text-slate-400">Total Sales</p>
-                <p className="text-sm font-black text-slate-900">৳{(periodRevenue || 0).toLocaleString()}</p>
+                <p className="text-sm font-black text-slate-900">₹{(periodRevenue || 0).toLocaleString()}</p>
               </div>
             </div>
 
@@ -443,7 +443,7 @@ export default function AnalyticsPage() {
               <div>
                 <p className="text-[10px] font-black uppercase text-slate-400">Daily Average</p>
                 <p className="text-sm font-black text-slate-900">
-                  ৳{revenueTrend.length > 0 ? Math.round(periodRevenue / revenueTrend.length).toLocaleString() : 0}
+                  ₹{revenueTrend.length > 0 ? Math.round(periodRevenue / revenueTrend.length).toLocaleString() : 0}
                 </p>
               </div>
             </div>
@@ -454,7 +454,7 @@ export default function AnalyticsPage() {
               </div>
               <div>
                 <p className="text-[10px] font-black uppercase text-slate-400">Peak Volume</p>
-                <p className="text-sm font-black text-slate-900">৳{maxRevenue.toLocaleString()}</p>
+                <p className="text-sm font-black text-slate-900">₹{maxRevenue.toLocaleString()}</p>
               </div>
             </div>
           </div>
@@ -464,15 +464,15 @@ export default function AnalyticsPage() {
             {/* Background Axis Grid Lines */}
             <div className="absolute inset-0 flex flex-col justify-between pointer-events-none opacity-40">
               <div className="border-b border-dashed border-orange-200/80 flex justify-between items-center text-[9px] font-extrabold text-slate-400 pb-1">
-                <span>৳{maxRevenue.toLocaleString()}</span>
+                <span>₹{maxRevenue.toLocaleString()}</span>
                 <span>MAX PEAK</span>
               </div>
               <div className="border-b border-dashed border-orange-200/50 flex justify-between items-center text-[9px] font-extrabold text-slate-400 pb-1">
-                <span>৳{Math.round(maxRevenue / 2).toLocaleString()}</span>
+                <span>₹{Math.round(maxRevenue / 2).toLocaleString()}</span>
                 <span>MID AVG</span>
               </div>
               <div className="border-b border-orange-200 flex justify-between items-center text-[9px] font-extrabold text-slate-400 pb-1">
-                <span>৳0</span>
+                <span>₹0</span>
                 <span>BASE</span>
               </div>
             </div>
@@ -583,7 +583,7 @@ export default function AnalyticsPage() {
                             className="absolute -top-12 left-1/2 -translate-x-1/2 bg-slate-900/95 backdrop-blur-xl border border-orange-500/30 text-white p-2 rounded-xl shadow-xl z-30 whitespace-nowrap text-center"
                           >
                             <p className="text-[10px] font-black text-orange-400 uppercase tracking-wider">{pt.label}</p>
-                            <p className="text-xs font-black text-white">৳{pt.amount.toLocaleString()}</p>
+                            <p className="text-xs font-black text-white">₹{pt.amount.toLocaleString()}</p>
                           </motion.div>
                         )}
 
@@ -630,7 +630,7 @@ export default function AnalyticsPage() {
                           className="absolute -top-11 bg-slate-900 text-white text-[10px] font-black px-3 py-1.5 rounded-xl shadow-xl z-20 whitespace-nowrap border border-orange-500/30"
                         >
                           <p className="text-orange-400 text-[9px] uppercase tracking-wider">{pt.label}</p>
-                          <p className="font-extrabold text-xs">৳{pt.amount.toLocaleString()}</p>
+                          <p className="font-extrabold text-xs">₹{pt.amount.toLocaleString()}</p>
                         </motion.div>
                       )}
 
@@ -767,7 +767,7 @@ export default function AnalyticsPage() {
                 <div className="text-right">
                   <span className="text-xs font-black text-[#FF6014] flex items-center justify-end gap-0.5">
                     <Wallet size={12} className="text-[#FF6014]" />
-                    ৳{vendor.totalEarned ? vendor.totalEarned.toLocaleString() : "45,000"}
+                    ₹{vendor.totalEarned ? vendor.totalEarned.toLocaleString() : "45,000"}
                   </span>
                   <span className="text-[10px] text-slate-400 font-semibold block flex items-center justify-end gap-1.5 mt-0.5">
                     <span className="flex items-center gap-0.5">
@@ -849,7 +849,7 @@ export default function AnalyticsPage() {
                   </span>
                   <span className="text-[10px] text-slate-400 font-semibold block flex items-center justify-end gap-1 mt-0.5">
                     <Wallet size={10} className="text-slate-400" />
-                    Commission: ৳{(agent.commissions || 12000).toLocaleString()}
+                    Commission: ₹{(agent.commissions || 12000).toLocaleString()}
                   </span>
                 </div>
               </motion.div>
@@ -909,7 +909,7 @@ export default function AnalyticsPage() {
                 <div className="text-right shrink-0">
                   <span className="text-xs font-black text-slate-900 flex items-center justify-end gap-0.5">
                     <Wallet size={12} className="text-slate-700" />
-                    ৳{svc.totalRevenue ? svc.totalRevenue.toLocaleString() : "50,000"}
+                    ₹{svc.totalRevenue ? svc.totalRevenue.toLocaleString() : "50,000"}
                   </span>
                   <span className="text-[10px] text-slate-400 font-semibold block flex items-center justify-end gap-1 mt-0.5">
                     <ShoppingBag size={10} className="text-slate-400" />
@@ -979,7 +979,7 @@ export default function AnalyticsPage() {
                 <div className="text-right shrink-0">
                   <span className="text-xs font-black text-[#FF6014] flex items-center justify-end gap-0.5">
                     <Wallet size={12} className="text-[#FF6014]" />
-                    ৳{Number(b.totalPrice || 0).toLocaleString()}
+                    ₹{Number(b.totalPrice || 0).toLocaleString()}
                   </span>
                   <span className="text-[10px] text-slate-400 font-medium block flex items-center justify-end gap-1 mt-0.5">
                     <Calendar size={10} className="text-slate-400" />

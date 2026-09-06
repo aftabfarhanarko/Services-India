@@ -59,7 +59,7 @@ export default function CouponModal({
               label="Discount Type *"
               options={[
                 { value: "percentage", label: "Percentage (%)" },
-                { value: "fixed", label: "Fixed Amount (৳)" },
+                { value: "fixed", label: "Fixed Amount (₹)" },
               ]}
               value={form.discount_type}
               onChange={(val) =>
@@ -81,7 +81,7 @@ export default function CouponModal({
             {form.discount_type === "percentage" && (
               <div>
                 <label className="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1">
-                  Max Discount (৳)
+                  Max Discount (₹)
                 </label>
                 <Input
                   type="number"
@@ -93,7 +93,7 @@ export default function CouponModal({
             )}
             <div>
               <label className="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1">
-                Min Order Amount (৳)
+                Min Order Amount (₹)
               </label>
               <Input
                 type="number"

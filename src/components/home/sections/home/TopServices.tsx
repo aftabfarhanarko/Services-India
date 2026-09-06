@@ -282,10 +282,10 @@ export default function TopServices() {
                         <>
                           <span className="text-[10px] text-slate-400 font-bold block uppercase tracking-wider">Starting at</span>
                           <div className="flex items-baseline gap-1.5 mt-0.5">
-                            <span className="text-base font-black text-slate-900">৳{price.toLocaleString()}</span>
+                            <span className="text-base font-black text-slate-900">₹{price.toLocaleString()}</span>
                             {originalPrice && (
                               <span className="text-[11px] text-slate-400 font-medium line-through">
-                                ৳{originalPrice.toLocaleString()}
+                                ₹{originalPrice.toLocaleString()}
                               </span>
                             )}
                           </div>

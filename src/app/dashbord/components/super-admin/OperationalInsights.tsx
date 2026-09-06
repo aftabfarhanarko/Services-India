@@ -101,7 +101,7 @@ export default function OperationalInsights({
                     </div>
                     <p className="text-[10px] text-[#FF6014] font-bold mt-0.5 flex items-center justify-end gap-0.5">
                       <Tag size={9} className="text-[#FF6014]" />
-                      ৳{vendor.min_starting_price || 400}+
+                      ₹{vendor.min_starting_price || 400}+
                     </p>
                   </div>
                 </motion.div>

@@ -155,7 +155,7 @@ export default function PrivacyClientPage() {
                       At Rajseba, operated officially by Rajseba IT Limited, we hold your trust as our highest priority. This Privacy Policy details how we collect, process, manage, and safeguard your personal details when you interact with our home services marketplace, mobile application, and website.
                     </p>
                     <p>
-                      Our system is designed strictly in compliance with the Digital Security Act of Bangladesh and standard global data protection frameworks. We guarantee that your personal information is never sold, leased, or distributed to third-party marketing companies for promotional gains.
+                      Our system is designed strictly in compliance with the Information Technology (IT) Act of India and standard global data protection frameworks. We guarantee that your personal information is never sold, leased, or distributed to third-party marketing companies for promotional gains.
                     </p>
                     <p>
                       By registering an account, booking home care services, or navigating our portal, you explicitly consent to the collection, tracking, and processing of your details as detailed in this policy document.
@@ -268,7 +268,7 @@ export default function PrivacyClientPage() {
                         <strong className="text-slate-700">Secure Payment Gateways:</strong> Sharing transaction details with gateway partners (SSLCommerz, bKash, Nagad) to authorize debit card or digital wallet checkout charges.
                       </li>
                       <li>
-                        <strong className="text-slate-700">Legal Directives:</strong> If requested by official regulatory bodies, courts, or law enforcement units under Bangladesh legal framework during fraud prevention audits.
+                        <strong className="text-slate-700">Legal Directives:</strong> If requested by official regulatory bodies, courts, or law enforcement units under Indian legal framework during fraud prevention audits.
                       </li>
                     </ul>
                   </div>
@@ -331,7 +331,7 @@ export default function PrivacyClientPage() {
                     <div className="bg-[#FFFDFB] border border-rose-100/30 rounded-xl p-3 text-[11px] font-semibold text-slate-600 space-y-1">
                       <p>📧 Email: <span className="text-[#FF6014]">info@rajseba.com</span></p>
                       <p>📞 Hotline: <span className="text-[#FF6014]">01813-333373</span></p>
-                      <p>📍 Address: Rajshahi High-tech Park, Rajshahi, Bangladesh</p>
+                      <p>📍 Address: Kolkata, West Bengal, India</p>
                     </div>
                   </div>
                 </div>

@@ -98,22 +98,22 @@ export function MobileBookingDrawer({
                               <span className="w-5 text-center text-[10px] font-black text-slate-800">{item.quantity}</span>
                               <button type="button" onClick={() => onUpdateQuantity(item.id, 1)} className="w-5 h-5 rounded-md text-[#FF6014] flex items-center justify-center hover:bg-rose-50 transition cursor-pointer"><Plus size={10} strokeWidth={3} /></button>
                             </div>
-                            <span className="font-black text-slate-700 min-w-[3.5rem] text-right">৳{(Number(item.price) * item.quantity).toLocaleString()}</span>
+                            <span className="font-black text-slate-700 min-w-[3.5rem] text-right">₹{(Number(item.price) * item.quantity).toLocaleString()}</span>
                             <button type="button" onClick={() => onRemoveFromCart(item.id)} className="text-slate-400 hover:text-rose-500 transition cursor-pointer"><X size={12} /></button>
                           </div>
                         </div>
                       ))}
                     </div>
                     <div className="pt-2 border-t border-[#FF6014]/10 space-y-1.5 text-xs">
-                      <div className="flex justify-between text-slate-600 font-semibold"><span>Subtotal</span><span>৳{cartTotal.toLocaleString()}</span></div>
+                      <div className="flex justify-between text-slate-600 font-semibold"><span>Subtotal</span><span>₹{cartTotal.toLocaleString()}</span></div>
                       {appliedCoupon && (
                         <div className="flex justify-between text-emerald-600 font-bold">
                           <span>Coupon ({appliedCoupon.coupon.code})</span>
-                          <span>-৳{Number(appliedCoupon.discount_amount).toLocaleString()}</span>
+                          <span>-₹{Number(appliedCoupon.discount_amount).toLocaleString()}</span>
                         </div>
                       )}
                       <div className="flex justify-between items-center text-sm font-black text-slate-800 pt-1.5 border-t border-slate-100">
-                        <span>Total Price</span><span className="text-[#FF6014] text-base">৳{payableTotal.toLocaleString()}</span>
+                        <span>Total Price</span><span className="text-[#FF6014] text-base">₹{payableTotal.toLocaleString()}</span>
                       </div>
                     </div>
                   </div>

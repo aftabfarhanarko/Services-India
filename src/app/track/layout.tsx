@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Track Your Booking — Rajseba",
-  description: "Track the real-time status of your home service booking on Rajseba. Know when your expert is on the way and stay updated at every step.",
-  keywords: ["track booking rajseba", "booking status", "service tracking Bangladesh", "live booking update"],
+  title: "Track Your Booking — Rajseba Kolkata",
+  description: "Track the real-time status of your home service booking on Rajseba Kolkata, West Bengal, India. Know when your expert is on the way.",
+  keywords: ["track booking rajseba", "booking status Kolkata", "service tracking West Bengal India", "live booking update Kolkata"],
   alternates: { canonical: "https://rajseba.com/track" },
   openGraph: {
-    title: "Track Your Booking — Rajseba",
-    description: "Track the real-time status of your home service booking on Rajseba.",
+    title: "Track Your Booking — Rajseba Kolkata",
+    description: "Track the real-time status of your home service booking on Rajseba Kolkata, West Bengal, India.",
     url: "https://rajseba.com/track",
     type: "website",
   },

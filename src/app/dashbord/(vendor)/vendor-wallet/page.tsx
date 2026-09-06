@@ -76,7 +76,7 @@ export default function VendorWalletPage() {
       header: "অ্যামাউন্ট",
       render: (item: Withdraw) => (
         <span className="inline-flex items-center gap-1 bg-emerald-50 text-emerald-700 font-bold text-xs px-2.5 py-1 rounded-xl border border-emerald-100/50">
-          ৳{(item.amount || 0).toLocaleString()}
+          ₹{(item.amount || 0).toLocaleString()}
         </span>
       ),
     },
@@ -138,7 +138,7 @@ export default function VendorWalletPage() {
     {
       key: "total_price",
       header: "মোট মূল্য",
-      render: (item: any) => <span className="text-slate-600">৳{Number(item.total_price || 0).toLocaleString()}</span>,
+      render: (item: any) => <span className="text-slate-600">₹{Number(item.total_price || 0).toLocaleString()}</span>,
     },
     {
       key: "earnings",
@@ -153,7 +153,7 @@ export default function VendorWalletPage() {
           const vendorSharePct = 100 - Number(platformCut);
           amount = Number(item.total_price || 0) * (vendorSharePct / 100);
         }
-        return <span className="text-emerald-600 font-bold">৳{amount.toLocaleString()}</span>;
+        return <span className="text-emerald-600 font-bold">₹{amount.toLocaleString()}</span>;
       },
     },
     {
@@ -215,7 +215,7 @@ export default function VendorWalletPage() {
           <p className="text-xs font-bold text-slate-400 uppercase tracking-wider relative z-10">
             বর্তমান ওয়ালেট ব্যালেন্স
           </p>
-          <p className="text-4xl font-black mt-2 relative z-10">৳{state.walletBalance.toLocaleString()}</p>
+          <p className="text-4xl font-black mt-2 relative z-10">₹{state.walletBalance.toLocaleString()}</p>
         </div>
         <div className="bg-white rounded-2xl border border-slate-100 shadow-sm p-5">
           <p className="text-xs font-bold text-slate-400 uppercase tracking-wider">কমিশন রেট</p>
@@ -224,11 +224,11 @@ export default function VendorWalletPage() {
         </div>
         <div className="bg-white rounded-2xl border border-slate-100 shadow-sm p-5">
           <p className="text-xs font-bold text-slate-400 uppercase tracking-wider">অপেক্ষমান উইথড্র</p>
-          <p className="text-3xl font-bold text-amber-600 mt-1">৳{state.totalPending.toLocaleString()}</p>
+          <p className="text-3xl font-bold text-amber-600 mt-1">₹{state.totalPending.toLocaleString()}</p>
         </div>
         <div className="bg-white rounded-2xl border border-slate-100 shadow-sm p-5">
           <p className="text-xs font-bold text-slate-400 uppercase tracking-wider">মোট অনুমোদিত (লাইফটাইম)</p>
-          <p className="text-3xl font-bold text-emerald-600 mt-1">৳{state.totalWithdrawn.toLocaleString()}</p>
+          <p className="text-3xl font-bold text-emerald-600 mt-1">₹{state.totalWithdrawn.toLocaleString()}</p>
         </div>
       </div>
 

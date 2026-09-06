@@ -48,7 +48,7 @@ export default function RevenueChart({ data }: { data?: { month: string; value: 
   }, [chartDataToUse]);
 
   const formatVal = (v: number) =>
-    v >= 1000 ? `৳${(v / 1000).toFixed(0)}k` : `৳${v}`;
+    v >= 1000 ? `₹${(v / 1000).toFixed(0)}k` : `₹${v}`;
 
   const prevVal = (i: number) => (i === 0 ? chartDataToUse[0].value : chartDataToUse[i - 1].value);
   const pctChange = (i: number) => {
@@ -221,7 +221,7 @@ export default function RevenueChart({ data }: { data?: { month: string; value: 
         >
           <div className="bg-slate-900 text-white rounded-2xl shadow-2xl px-4 py-3 min-w-[120px]">
             <div className="text-[10px] text-slate-400 font-semibold uppercase tracking-wider mb-1">{tooltip.month} 2026</div>
-            <div className="text-base font-bold leading-tight">৳{tooltip.value.toLocaleString()}</div>
+            <div className="text-base font-bold leading-tight">₹{tooltip.value.toLocaleString()}</div>
             {tooltip.pct !== 0 && (
               <div className={`text-[11px] font-semibold mt-1 flex items-center gap-1 ${tooltip.pct > 0 ? "text-emerald-400" : "text-red-400"}`}>
                 {tooltip.pct > 0 ? "▲" : "▼"} {Math.abs(tooltip.pct)}% vs prev

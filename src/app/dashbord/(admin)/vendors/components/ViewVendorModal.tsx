@@ -61,7 +61,7 @@ export default function ViewVendorModal({ selectedUser, setSelectedUser }: ViewV
           <div className="flex justify-between items-center py-2 border-b border-slate-50">
             <span className="text-sm text-slate-500 font-medium">Wallet Balance</span>
             <span className="text-sm font-bold text-emerald-600">
-              ৳{(selectedUser.wallet_balance || 0).toLocaleString()}
+              ₹{(selectedUser.wallet_balance || 0).toLocaleString()}
             </span>
           </div>
           <div className="flex justify-between items-center py-2 border-b border-slate-50">

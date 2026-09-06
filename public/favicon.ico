@@ -1,0 +1,40 @@
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512' width='512' height='512'>
+  <defs>
+    <linearGradient id='grad' x1='0%' y1='0%' x2='100%' y2='100%'>
+      <stop offset='0%' stop-color='#FF7A00' />
+      <stop offset='100%' stop-color='#FF4500' />
+    </linearGradient>
+    <filter id='dropShadow' x='-10%' y='-10%' width='120%' height='120%'>
+      <feDropShadow dx='0' dy='8' stdDeviation='12' flood-color='#FF6014' flood-opacity='0.35'/>
+    </filter>
+  </defs>
+
+  <!-- Outer background circle -->
+  <circle cx='256' cy='256' r='240' fill='url(#grad)' filter='url(#dropShadow)' />
+  
+  <!-- Double concentric ring -->
+  <circle cx='256' cy='256' r='205' fill='none' stroke='#FFFFFF' stroke-width='16' opacity='0.95' />
+  <circle cx='256' cy='256' r='180' fill='none' stroke='#FFFFFF' stroke-width='6' opacity='0.7' />
+
+  <!-- Center Roofline Overlay & Letter R Emblem -->
+  <g transform='translate(0, -5)'>
+    <!-- Sleek Stylized Letter R integrated with Roof Motifs -->
+    <text x='256' y='325' 
+          font-family='system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif' 
+          font-weight='900' 
+          font-size='220' 
+          fill='#FFFFFF' 
+          text-anchor='middle' 
+          letter-spacing='-5'>R</text>
+
+    <!-- Roof Curve Line Over the R -->
+    <path d='M 135 240 C 190 175, 260 150, 375 195' 
+          fill='none' 
+          stroke='#FFFFFF' 
+          stroke-width='22' 
+          stroke-linecap='round' />
+
+    <!-- Roof Chimney / Service Dot -->
+    <circle cx='345' cy='160' r='14' fill='#FFFFFF' />
+  </g>
+</svg>

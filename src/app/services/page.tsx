@@ -7,20 +7,20 @@ import { Metadata } from 'next';
 import { Suspense } from 'react';
 
 export const metadata: Metadata = {
-  title: "Professional Home Services Directory — Rajseba",
-  description: "Browse and book from our comprehensive list of verified home services including cleaning, appliance repair, plumbing, electrical, and painting in Bangladesh.",
-  keywords: ["home service list Bangladesh", "AC service", "home cleaning services", "plumbing service", "electrical work Bangladesh", "Dhaka services", "Rajseba services"],
+  title: "Professional Home Services in Kolkata, West Bengal — Rajseba",
+  description: "Browse and book from our comprehensive list of verified home services including AC repair, house cleaning, plumbing, electrical, and painting in Kolkata, West Bengal, India.",
+  keywords: ["home services Kolkata", "AC service Kolkata", "house cleaning services Kolkata", "plumbing service Kolkata", "electrician in Kolkata", "Kolkata home care", "Rajseba Kolkata"],
   alternates: { canonical: "https://rajseba.com/services" },
   openGraph: {
-    title: "Professional Home Services Directory — Rajseba",
-    description: "Browse and book from our comprehensive list of verified home services in Bangladesh.",
+    title: "Professional Home Services in Kolkata, West Bengal — Rajseba",
+    description: "Browse and book from our comprehensive list of verified home services in Kolkata, West Bengal, India.",
     url: "https://rajseba.com/services",
-    siteName: "Rajseba",
-    locale: "en_US",
+    siteName: "Rajseba Kolkata",
+    locale: "en_IN",
     type: "website",
-    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "Rajseba Services" }],
+    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "Rajseba Services Kolkata" }],
   },
-  twitter: { card: "summary_large_image", title: "Professional Home Services Directory — Rajseba", description: "Browse verified home services in Bangladesh.", images: ["/og-image.jpg"] },
+  twitter: { card: "summary_large_image", title: "Professional Home Services in Kolkata — Rajseba", description: "Browse verified home services in Kolkata, West Bengal, India.", images: ["/og-image.jpg"] },
 };
 
 const Services = () => {

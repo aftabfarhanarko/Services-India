@@ -86,7 +86,7 @@ export default function FilterSidebar({
           <div className="space-y-1">
             <span className="text-[10px] text-slate-400 font-bold block">MIN</span>
             <div className="relative">
-              <span className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-xs font-semibold">৳</span>
+              <span className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-xs font-semibold">₹</span>
               <input
                 type="number"
                 value={tempPriceRange.min}
@@ -99,7 +99,7 @@ export default function FilterSidebar({
           <div className="space-y-1">
             <span className="text-[10px] text-slate-400 font-bold block">MAX</span>
             <div className="relative">
-              <span className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-xs font-semibold">৳</span>
+              <span className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-xs font-semibold">₹</span>
               <input
                 type="number"
                 value={tempPriceRange.max}

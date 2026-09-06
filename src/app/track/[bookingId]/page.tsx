@@ -271,7 +271,7 @@ export default function TrackingPage() {
             </div>
             <div>
               <h3 className="text-xs font-black text-slate-400 uppercase tracking-widest mb-2">Total Amount</h3>
-              <p className="text-[#FF6014] font-black text-2xl">৳{Number(booking.total_price || 0).toLocaleString()}</p>
+              <p className="text-[#FF6014] font-black text-2xl">₹{Number(booking.total_price || 0).toLocaleString()}</p>
               {booking.payment_status && (
                  <p className="text-xs font-bold text-slate-500 capitalize mt-0.5">Payment: {booking.payment_status}</p>
               )}

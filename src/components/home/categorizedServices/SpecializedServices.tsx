@@ -386,7 +386,7 @@ export function SpecializedServices({
                         Starting Price
                       </span>
                       <div className="text-[#FF6014] font-black text-lg sm:text-xl">
-                        ৳{Number(service.price).toLocaleString()}
+                        ₹{Number(service.price).toLocaleString()}
                       </div>
                     </div>
                   ) : null}
@@ -462,7 +462,7 @@ export function SpecializedServices({
                                   </div>
                                 ) : (
                                   <div className="text-[#FF6014] text-xs sm:text-sm font-black mt-0.5">
-                                    ৳{Number(sub.price).toLocaleString()}
+                                    ₹{Number(sub.price).toLocaleString()}
                                   </div>
                                 )}
                               </div>

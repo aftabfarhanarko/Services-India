@@ -443,9 +443,9 @@ export default function CustomShiftingDetailsPage({ params }: { params: Promise<
             {isSuperAdmin ? (
               <div className="space-y-4">
                 <div className="space-y-2">
-                  <label className="text-[10px] font-extrabold text-slate-400 uppercase tracking-wider">{lang === "bn" ? "সার্ভিস মূল্য নির্ধারণ করুন (৳)" : "Set Service Price (৳)"}</label>
+                  <label className="text-[10px] font-extrabold text-slate-400 uppercase tracking-wider">{lang === "bn" ? "সার্ভিস মূল্য নির্ধারণ করুন (₹)" : "Set Service Price (₹)"}</label>
                   <div className="relative">
-                    <span className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 font-extrabold text-sm">৳</span>
+                    <span className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 font-extrabold text-sm">₹</span>
                     <input
                       type="number"
                       placeholder={lang === "bn" ? "টাকার পরিমাণ লিখুন..." : "Enter amount..."}
@@ -472,7 +472,7 @@ export default function CustomShiftingDetailsPage({ params }: { params: Promise<
                   <p className="text-[9px] font-black text-[#FF6014] uppercase tracking-wider">{lang === "bn" ? "শিফটিং খরচ" : "Shifting Cost"}</p>
                   <p className="text-lg font-black text-slate-800 mt-1">
                     {shifting.price 
-                      ? (lang === "bn" ? `৳${Number(shifting.price).toLocaleString('bn-BD')}` : `৳${Number(shifting.price).toLocaleString('en-US')}`) 
+                      ? (lang === "bn" ? `₹${Number(shifting.price).toLocaleString('bn-BD')}` : `₹${Number(shifting.price).toLocaleString('en-US')}`) 
                       : (lang === "bn" ? "মূল্যায়ন পেন্ডিং" : "Pending Evaluation")}
                   </p>
                 </div>

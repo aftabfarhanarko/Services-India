@@ -588,7 +588,7 @@ export function Navbar() {
                           </div>
                           <div className="text-right pr-2">
                             <span className="text-xs font-bold text-slate-700 bg-slate-50 border border-slate-100 rounded-lg px-2 py-1 group-hover:text-[#FF6014] group-hover:bg-[#FF6014]/5 group-hover:border-[#FF6014]/10 transition-colors">
-                              {service.price ? `৳${service.price}` : 'Quote'}
+                              {service.price ? `₹${service.price}` : 'Quote'}
                             </span>
                           </div>
                         </Link>
@@ -860,7 +860,7 @@ export function Navbar() {
                               <div>
                                 <h4 className="font-bold text-slate-800 text-xs group-hover:text-[#FF6014] transition-colors duration-200">{service.name}</h4>
                                 <p className="text-[10px] text-slate-500 font-medium">
-                                  {service.category?.name || 'Service'} • {service.price ? `৳${service.price}` : 'Price varies'}
+                                  {service.category?.name || 'Service'} • {service.price ? `₹${service.price}` : 'Price varies'}
                                 </p>
                               </div>
                             </Link>

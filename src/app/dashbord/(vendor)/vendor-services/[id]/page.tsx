@@ -181,7 +181,7 @@ export default function ServiceDetailsPage() {
                     )}
                     <div className="mt-auto pt-4 border-t border-slate-200/60">
                       <span className="text-xs font-semibold text-slate-400 uppercase tracking-wide block mb-1">মূল্য</span>
-                      <span className="text-lg font-black text-brand-primary">৳{pkg.price}</span>
+                      <span className="text-lg font-black text-brand-primary">₹{pkg.price}</span>
                     </div>
                   </div>
                 ))}
@@ -217,7 +217,7 @@ export default function ServiceDetailsPage() {
                       <div className="mt-auto pt-3 border-t border-slate-100 flex items-center justify-between">
                         <span className="text-[10px] font-bold text-slate-400 uppercase">শুরুর মূল্য</span>
                         <span className="text-sm font-black text-brand-primary">
-                          {ns.starting_price ? `৳${ns.starting_price}` : "পরিবর্তনশীল"}
+                          {ns.starting_price ? `₹${ns.starting_price}` : "পরিবর্তনশীল"}
                         </span>
                       </div>
                       {ns.subServices && ns.subServices.length > 0 && (
@@ -227,7 +227,7 @@ export default function ServiceDetailsPage() {
                             {ns.subServices.map((sub: any) => (
                               <li key={sub.id} className="flex justify-between items-center text-xs">
                                 <span className="text-slate-600">{sub.name}</span>
-                                <span className="font-bold text-brand-primary">৳{sub.price}</span>
+                                <span className="font-bold text-brand-primary">₹{sub.price}</span>
                               </li>
                             ))}
                           </ul>

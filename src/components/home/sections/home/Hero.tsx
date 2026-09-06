@@ -12,7 +12,7 @@ const HERO_CONTENT = {
   titleText: "Expert Home",
   accentTitleText: "Services,",
   subtitleText: "Simplified.",
-  description: "Premium marketplace for all your household needs in Bangladesh.",
+  description: "Premium marketplace for all your household needs in Kolkata, West Bengal, India.",
   bgImage: "/cleaner-hero.png",
   bgAlt: "Expert home services background",
   searchButtonText: "Search",

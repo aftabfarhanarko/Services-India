@@ -7,7 +7,7 @@ import { toast } from "sonner";
 import InvoiceTemplate1 from "@/components/manual-invoice/InvoiceTemplate1";
 import InvoiceTemplate2 from "@/components/manual-invoice/InvoiceTemplate2";
 
-const API = process.env.NEXT_PUBLIC_API_URL || "https://home-services-backend-b6v4.onrender.com";
+const API = process.env.NEXT_PUBLIC_API_URL || "https://www.api.rajseba.in";
 
 export default function InvoiceViewPage() {
   const { id } = useParams<{ id: string }>();

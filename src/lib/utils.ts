@@ -5,12 +5,12 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
 }
 
-const DEFAULT_API_URL = process.env.NEXT_PUBLIC_API_URL || "https://home-services-backend-b6v4.onrender.com";
+const DEFAULT_API_URL = process.env.NEXT_PUBLIC_API_URL || "https://www.api.rajseba.in";
 
 /**
  * Rewrites any backend image URL to point to the active API server.
  * Handles:
- *  - Old onrender, sslip.io, api.rajseba.com hosts
+ *  - Old onrender, sslip.io, api.rajseba.com, api.rajseba.in hosts
  *  - rajapi.jevxo.com without www
  *  - Relative paths that look like backend uploads (e.g. /uploads/...)
  */
@@ -20,9 +20,9 @@ export function formatImageUrl(url?: string): string {
   // Already points to the correct host — return as-is
   if (url.startsWith(DEFAULT_API_URL)) return url;
 
-  // Replace any known old backend hosts (matches any sslip.io, onrender, api.rajseba.com, or non-www rajapi.jevxo.com)
+  // Replace any known old backend hosts (matches any sslip.io, onrender, api.rajseba.com, rajseba.in, or non-www rajapi.jevxo.com)
   const replaced = url.replace(
-    /https?:\/\/(?:[a-z0-9.-]+\.)?(?:sslip\.io|onrender\.com|api\.rajseba\.com|rajapi\.jevxo\.com)(?::\d+)?/gi,
+    /https?:\/\/(?:[a-z0-9.-]+\.)?(?:sslip\.io|onrender\.com|api\.rajseba\.com|rajseba\.in|rajapi\.jevxo\.com)(?::\d+)?/gi,
     DEFAULT_API_URL
   );
 

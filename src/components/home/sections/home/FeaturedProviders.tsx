@@ -107,11 +107,11 @@ export default function FeaturedProviders() {
       : [];
 
     if (p.min_starting_price && !isNaN(Number(p.min_starting_price))) {
-      services.push(`From ৳${Number(p.min_starting_price).toLocaleString()}`);
+      services.push(`From ₹${Number(p.min_starting_price).toLocaleString()}`);
     }
 
     const rawLoc =
-      p.area?.name ?? p.district?.name ?? p.devision?.name ?? p.location ?? "Bangladesh";
+      p.area?.name ?? p.district?.name ?? p.devision?.name ?? p.location ?? "Kolkata, India";
     const location = String(rawLoc)
       .split(/[,\s]+/)
       .map((w: string) => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase())

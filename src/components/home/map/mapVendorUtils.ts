@@ -1,6 +1,6 @@
 import { Expert, ExpertIcon } from "./types";
 
-const BANGLADESH_CENTER = { lat: 23.8103, lng: 90.4125 };
+const KOLKATA_CENTER = { lat: 22.5726, lng: 88.3639 };
 
 const CATEGORY_ICON_MAP: Record<string, ExpertIcon> = {
   "ac repair": "ac",
@@ -140,7 +140,7 @@ export function resolveVendorLocation(
 
   const address = cleanAddress(locationText, district, division, area);
   const locationParts = [address, area, district, division].filter(Boolean);
-  const location = locationParts.join(", ") || locationText || "Bangladesh";
+  const location = locationParts.join(", ") || locationText || "Kolkata, India";
 
   return { area, district, division, districtBangla, divisionBangla, address, location };
 }
@@ -182,8 +182,8 @@ export function getProfileCoordinates(
 
   const id = Number(profile.id) || 0;
   return {
-    lat: BANGLADESH_CENTER.lat + ((id * 7) % 50) / 500,
-    lng: BANGLADESH_CENTER.lng + ((id * 13) % 50) / 500,
+    lat: KOLKATA_CENTER.lat + ((id * 7) % 50) / 500,
+    lng: KOLKATA_CENTER.lng + ((id * 13) % 50) / 500,
   };
 }
 

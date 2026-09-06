@@ -235,7 +235,7 @@ export default function ServiceListing({
         categoryId: catId,
         categoryLabel: catLabel,
         price: priceVal,
-        priceDisplay: priceVal > 0 ? `৳${priceVal.toLocaleString()}` : "Contact for price",
+        priceDisplay: priceVal > 0 ? `₹${priceVal.toLocaleString()}` : "Contact for price",
         done,
         bookingsCount,
         rating,
@@ -400,7 +400,7 @@ export default function ServiceListing({
               <span className="text-[#FF6014]">{categoryName}</span>
             </p>
             <p className="text-xs text-slate-400 font-medium mt-1">
-              Verified professionals ready to serve you in Dhaka, Bangladesh.
+              Verified professionals ready to serve you in Kolkata, West Bengal, India.
             </p>
           </div>
         )}

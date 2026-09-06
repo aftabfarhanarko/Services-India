@@ -112,7 +112,7 @@ export default function HelpClientPage() {
             title: "Issue: 'Service Not Available in My Area' Warning",
             problem: "You receive a message saying we cannot deliver services to your selected address.",
             steps: [
-              "Rajseba currently delivers premium home care inside designated zones in Rajshahi, Bangladesh (e.g., Rajshahi High-tech Park, local regions).",
+              "Rajseba currently delivers premium home care inside designated zones in Kolkata and West Bengal, India.",
               "Check our Service Areas page or the live map to verify if your location falls within active coverage.",
               "If you are just outside the boundary, reach out to our custom support desk to check if special scheduling is possible.",
             ],

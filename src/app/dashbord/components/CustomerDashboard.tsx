@@ -49,7 +49,7 @@ export default function CustomerDashboard() {
     },
     {
       label: "Total Spent",
-      value: `৳${totalSpent.toLocaleString()}`,
+      value: `₹${totalSpent.toLocaleString()}`,
       desc: "Lifetime expenditure",
       icon: DollarSign,
       color: "text-teal-600 bg-teal-50",
@@ -69,7 +69,7 @@ export default function CustomerDashboard() {
       id: `RS-${b.id}`,
       service: b.service?.name || "Custom Service",
       provider: b.vendor?.name || "Pending Assignment",
-      amount: `৳${b.total_price || 0}`,
+      amount: `₹${b.total_price || 0}`,
       date: new Date(b.createdAt).toLocaleDateString(),
       status: b.status,
       vendorId: b.vendor?.id,
@@ -304,7 +304,7 @@ export default function CustomerDashboard() {
           <div className="space-y-4">
             {[
               { code: "ACCOOL20", discount: "20% OFF", service: "Valid on AC Repairs", expiry: "Exp: June 30" },
-              { code: "CLEANHOMY", discount: "৳500 OFF", service: "Valid on Deep Cleaning", expiry: "Exp: July 05" },
+              { code: "CLEANHOMY", discount: "₹500 OFF", service: "Valid on Deep Cleaning", expiry: "Exp: July 05" },
             ].map((promo, i) => (
               <div key={i} className="p-4 bg-[#FFF8F4] border border-[#FFF0EB]/50 rounded-2xl relative overflow-hidden">
                 <div className="absolute right-0 top-0 w-16 h-16 bg-[#FF6014]/5 rounded-bl-full flex items-center justify-center font-bold text-[#FF6014] text-xs">

@@ -38,7 +38,7 @@ function OpportunityPageContent() {
               <Sparkles className="w-3.5 h-3.5" />Partnership Opportunities
             </div>
             <h1 className="text-xl md:text-3xl lg:text-4xl font-medium text-slate-900 tracking-tight leading-tight">Join <span className="text-[#FF6014]">Rajseba</span> Platform</h1>
-            <p className="text-slate-400 text-sm md:text-base font-semibold max-w-xl mx-auto leading-relaxed">Partner with Bangladesh's leading home service marketplace and grow your business or operations network.</p>
+            <p className="text-slate-400 text-sm md:text-base font-semibold max-w-xl mx-auto leading-relaxed">Partner with Kolkata & India's leading home service marketplace and grow your business or operations network.</p>
           </div>
           <div className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
             {[
@@ -79,7 +79,7 @@ function OpportunityPageContent() {
                   <Sparkles className="w-3 h-3" />Onboarding Step {step} of 2
                 </div>
                 <h2 className="text-xl md:text-2xl lg:text-3xl font-medium text-slate-900 leading-tight mb-3">Join as {selectedRole === "Vendor" ? "a Vendor" : "an Agent"}</h2>
-                <p className="text-slate-500 text-sm font-semibold max-w-md leading-relaxed">Complete your registration information to launch your service profile on Bangladesh's leading marketplace.</p>
+                <p className="text-slate-500 text-sm font-semibold max-w-md leading-relaxed">Complete your registration information to launch your service profile on Kolkata & India's leading marketplace.</p>
               </div>
             </div>
             <div className="space-y-5 my-6">

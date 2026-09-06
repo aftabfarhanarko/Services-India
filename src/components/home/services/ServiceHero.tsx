@@ -167,7 +167,7 @@ const ServiceHero = () => {
           Find the best home <span className="text-[#FF6014]">services</span>
         </h1>
         <p className="text-sm md:text-base text-slate-500 max-w-xl mx-auto mb-5 md:mb-8 font-medium leading-relaxed">
-          Premium, reliable, and effortless solutions for your urban lifestyle in Bangladesh.
+          Premium, reliable, and effortless solutions for your urban lifestyle in Kolkata, West Bengal, India.
         </p>
 
         {/* Floating Search Bar Card */}

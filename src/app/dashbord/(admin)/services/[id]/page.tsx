@@ -181,7 +181,7 @@ export default function ServiceDetailsPage() {
                     )}
                     <div className="mt-auto pt-4 border-t border-slate-200/60">
                       <span className="text-xs font-semibold text-slate-400 uppercase tracking-wide block mb-1">Price</span>
-                      <span className="text-lg font-black text-brand-primary">৳{pkg.price}</span>
+                      <span className="text-lg font-black text-brand-primary">₹{pkg.price}</span>
                     </div>
                   </div>
                 ))}
@@ -217,7 +217,7 @@ export default function ServiceDetailsPage() {
                       <div className="mt-auto pt-3 border-t border-slate-100 flex items-center justify-between">
                         <span className="text-[10px] font-bold text-slate-400 uppercase">Starting Price</span>
                         <span className="text-sm font-black text-brand-primary">
-                          {ns.starting_price ? `৳${ns.starting_price}` : "Variable"}
+                          {ns.starting_price ? `₹${ns.starting_price}` : "Variable"}
                         </span>
                       </div>
                       {ns.subServices && ns.subServices.length > 0 && (
@@ -227,7 +227,7 @@ export default function ServiceDetailsPage() {
                             {ns.subServices.map((sub: any) => (
                               <div key={sub.id} className="flex flex-col bg-slate-50 border border-slate-100 rounded-xl p-3 hover:border-brand-primary/20 transition-colors">
                                 <span className="text-xs font-bold text-slate-700 leading-tight mb-1">{sub.name}</span>
-                                <span className="text-sm font-black text-brand-primary">৳{sub.price}</span>
+                                <span className="text-sm font-black text-brand-primary">₹{sub.price}</span>
                               </div>
                             ))}
                           </div>

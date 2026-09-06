@@ -47,7 +47,7 @@ export default function WithdrawDetailModal({
             { label: "Booking ID", value: selectedItem.booking?.id ? `#${selectedItem.booking.id}` : "Manual Request" },
             { label: "Vendor Name", value: selectedItem.vendor?.name || "—" },
             { label: "Vendor Email", value: selectedItem.vendor?.email || "—" },
-            { label: "Amount", value: `৳${(selectedItem.amount || 0).toLocaleString()}` },
+            { label: "Amount", value: `₹${(selectedItem.amount || 0).toLocaleString()}` },
             { label: "Status", value: selectedItem.status.toUpperCase() },
             { label: "Admin Note", value: selectedItem.admin_note },
             {

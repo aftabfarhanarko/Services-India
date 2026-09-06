@@ -11,7 +11,7 @@ import { CheckCircle2, MapPin } from "lucide-react";
 
 export const vendorBenefits = [
   { val: "90%", title: "Keep 90% of Your Earnings", desc: "We only charge a flat 10% platform commission on completed jobs. You keep the remaining 90% of the revenue." },
-  { val: "৳0", title: "Free Setup & Zero Monthly Fees", desc: "Registration is completely free. We do not charge subscription fees for listing services or accepting leads." },
+  { val: "₹0", title: "Free Setup & Zero Monthly Fees", desc: "Registration is completely free. We do not charge subscription fees for listing services or accepting leads." },
   { icon: CheckCircle2, title: "Weekly Verified Payouts", desc: "Earnings are settled directly into your bank account or Mobile Wallet (bKash/Nagad) securely every week." },
 ];
 

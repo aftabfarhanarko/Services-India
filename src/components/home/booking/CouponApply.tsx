@@ -88,7 +88,7 @@ export function CouponApply({
       setApplied(result);
       onApplied(result);
       setCode(couponCode.toUpperCase());
-      toast.success(`Coupon applied! You save ৳${Number(result.discount_amount).toLocaleString()}`);
+      toast.success(`Coupon applied! You save ₹${Number(result.discount_amount).toLocaleString()}`);
     } catch (err: any) {
       toast.error(err?.data?.message || "Invalid or expired coupon");
       setApplied(null);
@@ -152,7 +152,7 @@ export function CouponApply({
 
       {applied && (
         <p className="text-xs font-semibold text-emerald-600">
-          {applied.coupon.code} applied — ৳{Number(applied.discount_amount).toLocaleString()} off
+          {applied.coupon.code} applied — ₹{Number(applied.discount_amount).toLocaleString()} off
         </p>
       )}
 
@@ -182,7 +182,7 @@ export function CouponApply({
                     </span>
                     <span className="text-xs font-bold text-slate-700">
                       {coupon.description || (coupon.discount_type === "fixed"
-                        ? `Get ৳${coupon.discount_value} discount`
+                        ? `Get ₹${coupon.discount_value} discount`
                         : `Get ${coupon.discount_value}% discount`
                       )}
                     </span>

@@ -30,7 +30,7 @@ export default function LoginLeftPanel({ lottieAnimation }: LoginLeftPanelProps)
       <div className="relative z-10 flex flex-col items-center text-center px-10">
         <div className="inline-flex items-center gap-2 bg-[#FF6014]/10 border border-[#FF6014]/25 text-[#FF6014] px-4 py-1.5 rounded-full text-xs font-bold mb-6">
           <span className="w-1.5 h-1.5 rounded-full bg-[#FF6014] animate-pulse" />
-          Bangladesh's #1 Home Service Platform
+          Kolkata & India's #1 Home Service Platform
         </div>
 
         <div className="w-full max-w-[420px] xl:max-w-[480px] aspect-square flex items-center justify-center">

@@ -54,7 +54,7 @@ export default function VirtualCard({ profileData, totalExpense, walletBalance, 
           {lang === "bn" ? "মোট খরচ" : "Total Expenses"}
         </span>
         <div className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tight text-white flex items-baseline gap-1.5 sm:gap-2">
-          <span className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl opacity-90">৳</span>
+          <span className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl opacity-90">₹</span>
           <span className="drop-shadow-lg">
             {Number(totalExpense).toLocaleString("en-BD", { minimumFractionDigits: 2 })}
           </span>
@@ -77,7 +77,7 @@ export default function VirtualCard({ profileData, totalExpense, walletBalance, 
             {lang === "bn" ? "চলতি ব্যালেন্স" : "Current Balance"}
           </span>
           <span className="text-xs font-bold text-white block mt-0.5 tracking-wide">
-            ৳ {Number(walletBalance).toLocaleString("en-BD", { minimumFractionDigits: 2 })}
+            ₹ {Number(walletBalance).toLocaleString("en-BD", { minimumFractionDigits: 2 })}
           </span>
         </div>
       </div>

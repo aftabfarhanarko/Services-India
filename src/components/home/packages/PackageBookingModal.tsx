@@ -173,13 +173,13 @@ export function PackageBookingModal({
               <span>{selectedPackage.title}</span>
               {selectedPackage.price && (
                 <span className="text-[#FF6014] text-base">
-                  ৳{packagePayableTotal.toLocaleString()}
+                  ₹{packagePayableTotal.toLocaleString()}
                 </span>
               )}
             </div>
             {appliedCoupon && (
               <p className="text-[10px] font-bold text-emerald-600">
-                Coupon {appliedCoupon.coupon.code} applied — saved ৳
+                Coupon {appliedCoupon.coupon.code} applied — saved ₹
                 {Number(appliedCoupon.discount_amount).toLocaleString()}
               </p>
             )}

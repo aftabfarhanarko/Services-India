@@ -75,7 +75,7 @@ export default function ExpertCard({ expert, onViewDetails }: ExpertCardProps) {
             Starting At
           </span>
           <span className="text-2xl md:text-3xl font-black text-slate-900 tracking-tight">
-            ৳{expert.price.toLocaleString()}
+            ₹{expert.price.toLocaleString()}
           </span>
         </div>
 

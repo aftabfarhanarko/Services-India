@@ -196,7 +196,7 @@ export default function EditNestedServicePage() {
             <div>
               <div className="flex items-center justify-between mb-1.5">
                 <label className="block text-xs font-semibold text-slate-500 uppercase tracking-wider">
-                  শুরুর মূল্য (Starting Price - ৳)
+                  শুরুর মূল্য (Starting Price - ₹)
                 </label>
                 <label className="inline-flex items-center gap-1.5 cursor-pointer text-xs font-bold text-[#FF6014] select-none bg-orange-50/80 px-2 py-0.5 rounded-lg border border-orange-100">
                   <input
@@ -286,7 +286,7 @@ export default function EditNestedServicePage() {
                       ) : (
                         <Input
                           type="number"
-                          placeholder="মূল্য (৳)"
+                          placeholder="মূল্য (₹)"
                           value={sub.price}
                           onChange={(e) => {
                             const newSubs = [...subServices];

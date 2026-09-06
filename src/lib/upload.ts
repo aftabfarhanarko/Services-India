@@ -7,7 +7,7 @@
 import { formatImageUrl } from "@/lib/utils";
 
 const IMGBB_API_KEY = process.env.NEXT_PUBLIC_IMGBB_API_KEY || "a6c948ab64f7987bbf9e5477cde3a1cb";
-const API_URL = process.env.NEXT_PUBLIC_API_URL || "https://home-services-backend-b6v4.onrender.com";
+const API_URL = process.env.NEXT_PUBLIC_API_URL || "https://www.api.rajseba.in";
 
 export const uploadImage = async (file: File): Promise<string> => {
   // 1. Try uploading to ImgBB first

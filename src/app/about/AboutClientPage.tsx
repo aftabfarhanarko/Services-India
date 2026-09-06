@@ -37,10 +37,10 @@ export default function AboutClientPage() {
               <span className="w-1.5 h-1.5 rounded-full bg-[#FF6014] animate-pulse" />Our Story — Since 2023
             </div>
             <h1 className="text-2xl md:text-3xl lg:text-4xl font-medium text-slate-900 tracking-[-0.03em] leading-[1.1] mb-5">
-              Bangladesh's Most <span className="text-[#FF6014]">Trusted</span> Home Service Platform
+              Kolkata's Most <span className="text-[#FF6014]">Trusted</span> Home Service Platform
             </h1>
             <p className="text-[14px] text-slate-500 font-medium leading-[1.8] max-w-lg mb-6">
-              Rajseba was built with a single mission — to bring reliable, transparent, and affordable home services to every household in Bangladesh.
+              Rajseba was built with a single mission — to bring reliable, transparent, and affordable home services to every household in Kolkata, West Bengal, and across India.
             </p>
             <div className="flex flex-wrap gap-3">
               <Link href="/services"><Button variant="outline" className="border-[#FF6014] text-[#FF6014] hover:bg-[#FF6014]/5 font-bold px-6 py-3 h-auto rounded-xl text-sm flex items-center gap-2">Explore Services<ArrowRight className="w-4 h-4" /></Button></Link>
@@ -99,7 +99,7 @@ export default function AboutClientPage() {
           <RevealSection className="text-center mb-10">
             <span className="inline-flex items-center gap-1.5 text-[10px] font-extrabold text-[#FF6014] uppercase tracking-[.12em] bg-[#FFF4EE] px-3.5 py-1.5 rounded-full border border-[#FF6014]/20 mb-4"><Target className="w-3.5 h-3.5" />The Rajseba Standard</span>
             <h2 className="text-lg md:text-xl lg:text-2xl font-medium text-slate-900 tracking-tight mb-3">What Makes Us Different</h2>
-            <p className="text-[13px] text-slate-400 font-medium max-w-md mx-auto leading-relaxed">We've set the highest standards for professional home care in Bangladesh.</p>
+            <p className="text-[13px] text-slate-400 font-medium max-w-md mx-auto leading-relaxed">We've set the highest standards for professional home care in Kolkata, West Bengal, India.</p>
           </RevealSection>
           <RevealSection variants={stagger}>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -120,7 +120,7 @@ export default function AboutClientPage() {
         <div className="max-w-7xl mx-auto px-4 md:px-6 grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
           <RevealSection variants={fadeLeft}>
             <span className="inline-flex items-center gap-1.5 text-[10px] font-extrabold text-[#FF6014] uppercase tracking-[.12em] bg-[#FFF4EE] px-3.5 py-1.5 rounded-full border border-[#FF6014]/20 mb-5"><Users className="w-3 h-3" />Our Mission</span>
-            <h2 className="text-lg md:text-xl lg:text-2xl font-medium text-slate-900 tracking-tight leading-tight mb-5">Empowering Every Home in Bangladesh</h2>
+            <h2 className="text-lg md:text-xl lg:text-2xl font-medium text-slate-900 tracking-tight leading-tight mb-5">Empowering Every Home in Kolkata & India</h2>
             <p className="text-[13px] font-medium text-slate-500 leading-[1.8] mb-6">We believe everyone deserves access to high-quality, affordable home maintenance. By creating economic opportunities for skilled technicians, we are transforming the urban service economy.</p>
             <div className="space-y-3.5">
               {["Reducing unemployment for skilled trades in urban areas", "Creating a transparent, tech-driven service economy", "Ensuring safety and quality standards in every household", "Building a trusted community for clients and vendors alike"].map((item, i) => (

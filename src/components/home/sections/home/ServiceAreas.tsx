@@ -76,7 +76,7 @@ export default function ServiceAreas() {
 
           <h2 className="text-lg md:text-xl lg:text-2xl font-medium text-slate-900 tracking-tight leading-tight flex items-center justify-center gap-2">
             <Globe className="w-5 h-5 md:w-6 md:h-6 text-[#FF6014]" />
-            We Serve Across <span className="text-[#FF6014]">Bangladesh</span>
+            We Serve Across <span className="text-[#FF6014]">Kolkata & India</span>
           </h2>
 
           <p className="text-xs md:text-sm text-slate-500 font-semibold max-w-xl mx-auto leading-relaxed">

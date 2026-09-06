@@ -8,7 +8,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   try {
     const { slug } = await params;
-    const apiBase = process.env.NEXT_PUBLIC_API_URL || "https://home-services-backend-b6v4.onrender.com";
+    const apiBase = process.env.NEXT_PUBLIC_API_URL || "https://www.api.rajseba.in";
     const allRes = await fetch(`${apiBase}/services/public`, {
       next: { revalidate: 3600 },
     });
@@ -29,27 +29,41 @@ export async function generateMetadata({
 
     if (!service) {
       return {
-        title: "Category Details - Rajseba",
-        description: "Professional service category details.",
+        title: "Service Category Details in Kolkata | Rajseba",
+        description: "Professional service category details in Kolkata, West Bengal, India.",
       };
     }
 
+    const title = `${service.name} in Kolkata, West Bengal | Rajseba`;
+    const description = service.description || `Book expert ${service.name} services in Kolkata, West Bengal, India. Professional and trusted technicians at your service with guaranteed quality.`;
+
     return {
-      title: `${service.name} - Expert Service Category | Rajseba`,
-      description: service.description || `Book expert ${service.name} services in Bangladesh. Professional and trusted technicians at your service.`,
+      title,
+      description,
+      keywords: [
+        service.name,
+        `${service.name} Kolkata`,
+        `${service.name} West Bengal`,
+        `${service.name} India`,
+        "home services Kolkata",
+        "Rajseba Kolkata",
+      ],
+      alternates: {
+        canonical: `https://rajseba.com/categories/service/${slug}`,
+      },
       openGraph: {
-        title: `${service.name} - Rajseba`,
-        description: service.description || `Book expert ${service.name} services in Bangladesh.`,
+        title,
+        description,
         url: `https://rajseba.com/categories/service/${slug}`,
-        siteName: "Rajseba",
-        locale: "en_US",
+        siteName: "Rajseba Kolkata",
+        locale: "en_IN",
         type: "website",
       },
     };
   } catch {
     return {
-      title: "Category Details - Rajseba",
-      description: "Professional service category details.",
+      title: "Service Category Details in Kolkata | Rajseba",
+      description: "Professional service category details in Kolkata, West Bengal, India with Rajseba.",
     };
   }
 }

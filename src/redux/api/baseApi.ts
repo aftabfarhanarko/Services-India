@@ -2,7 +2,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import type { BaseQueryFn, FetchArgs, FetchBaseQueryError } from '@reduxjs/toolkit/query';
 import { getAccessToken, getRefreshToken, setTokens, clearTokens } from '@/lib/token';
 
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || "https://home-services-backend-b6v4.onrender.com";
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || "https://www.api.rajseba.in";
 
 // Background ping to keep Render backend warm and eliminate 50s cold-start delays
 if (typeof window !== "undefined") {

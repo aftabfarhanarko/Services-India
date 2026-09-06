@@ -140,7 +140,7 @@ export default function UserDetailsPage({ params }: { params: Promise<{ id: stri
               </div>
               <div>
                 <p className="text-xs font-bold text-slate-400 uppercase tracking-wider">Total Expense</p>
-                <p className="text-2xl font-black text-slate-900">৳{totalExpense.toFixed(2)}</p>
+                <p className="text-2xl font-black text-slate-900">₹{totalExpense.toFixed(2)}</p>
               </div>
             </div>
             <div className="bg-white rounded-3xl border border-slate-100 p-5 shadow-sm flex items-center gap-4">
@@ -189,7 +189,7 @@ export default function UserDetailsPage({ params }: { params: Promise<{ id: stri
                     </div>
                     <div className="flex flex-col sm:items-end gap-2">
                       <span className="font-black text-slate-900 bg-white px-3 py-1 rounded-lg border border-slate-100 shadow-sm">
-                        ৳{booking.total_price || 0}
+                        ₹{booking.total_price || 0}
                       </span>
                       <span className={`inline-flex items-center px-2.5 py-1 rounded-md text-[10px] font-bold uppercase tracking-wider ${
                         booking.status === 'completed' ? 'bg-emerald-100 text-emerald-700' :

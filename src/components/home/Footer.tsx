@@ -116,11 +116,11 @@ export default function Footer() {
   const rawFooterLogo = branding?.footerLogoUrl || branding?.logoUrl || "/logo.png";
   const footerLogo = formatImageUrl(rawFooterLogo);
   const companyName = branding?.companyName || "Rajseba";
-  const footerDesc = branding?.footerDescription || "Bangladesh's leading service marketplace, connecting you with verified professionals for shifting, cleaning, and home maintenance. Fast, safe, and reliable.";
+  const footerDesc = branding?.footerDescription || "Kolkata & India's leading home service marketplace, connecting you with verified professionals for shifting, cleaning, and home maintenance in Kolkata and West Bengal. Fast, safe, and reliable.";
 
   const mapUrl = branding?.address 
     ? `https://maps.google.com/?q=${encodeURIComponent(`${branding.address}${branding.cityLocation ? `, ${branding.cityLocation}` : ""}`)}`
-    : "https://maps.google.com/?q=Rajshahi+High-tech+Park";
+    : "https://maps.google.com/?q=Kolkata+West+Bengal+India";
 
   const dynamicQuickLinks = [
     { label: "Home", href: "/" },
@@ -390,7 +390,7 @@ export default function Footer() {
                 if (navigator.share) {
                   navigator.share({
                     title: "Rajseba",
-                    text: "Premium Home Services in Bangladesh",
+                    text: "Premium Home Services in Kolkata, West Bengal, India",
                     url: window.location.origin,
                   });
                 } else {

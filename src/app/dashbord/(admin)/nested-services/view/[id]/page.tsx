@@ -93,7 +93,7 @@ export default function ViewNestedServicePage() {
               <label className="block text-xs font-semibold text-slate-500 uppercase mb-1">শুরুর মূল্য</label>
               <div className="inline-flex items-center gap-1 bg-emerald-50 text-emerald-700 font-bold text-xs px-2.5 py-1 rounded-xl border border-emerald-100/50">
                 <DollarSign size={12} />
-                {nested.starting_price != null ? `৳${nested.starting_price.toLocaleString()}` : "Variable"}
+                {nested.starting_price != null ? `₹${nested.starting_price.toLocaleString()}` : "Variable"}
               </div>
             </div>
 
@@ -145,7 +145,7 @@ export default function ViewNestedServicePage() {
                   </h4>
                   <div className="inline-flex items-center gap-1 bg-emerald-50 text-emerald-700 font-bold text-sm px-3 py-1.5 rounded-xl border border-emerald-100/50">
                     <DollarSign size={14} />
-                    ৳{Number(sub.price || 0).toLocaleString()}
+                    ₹{Number(sub.price || 0).toLocaleString()}
                   </div>
                 </div>
 

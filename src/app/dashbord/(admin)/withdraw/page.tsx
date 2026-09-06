@@ -93,7 +93,7 @@ export default function AdminWithdrawPage() {
     },
     {
       label: "Total Paid Out",
-      value: `৳${totalAmount.toLocaleString()}`,
+      value: `₹${totalAmount.toLocaleString()}`,
       icon: TrendingUp,
       gradient: "from-indigo-500/10 to-transparent",
       bgLight: "bg-indigo-50 border-indigo-100/80 text-indigo-600",
@@ -258,7 +258,7 @@ export default function AdminWithdrawPage() {
                 <div className="p-5 space-y-3.5">
                   <div className="flex items-center justify-between p-3.5 bg-white rounded-2xl border border-slate-200 shadow-xs">
                     <span className="text-xs text-slate-500 font-bold">Payout Amount</span>
-                    <span className="text-lg font-black text-emerald-600">৳{(item.amount || 0).toLocaleString()}</span>
+                    <span className="text-lg font-black text-emerald-600">₹{(item.amount || 0).toLocaleString()}</span>
                   </div>
 
                   <div className="grid grid-cols-2 gap-2 text-xs">

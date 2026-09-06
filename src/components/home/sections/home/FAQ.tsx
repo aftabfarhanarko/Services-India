@@ -28,7 +28,7 @@ const faqs = [
   {
     icon: Award,
     question: "How does Rajseba guarantee service quality and safety?",
-    answer: "We back every service with our 7-Day Service Warranty and up to ৳10,000 Damage Protection. Our technicians use genuine spare parts, standardized pricing, and strict safety guidelines for every home task."
+    answer: "We back every service with our 7-Day Service Warranty and up to ₹10,000 Damage Protection. Our technicians use genuine spare parts, standardized pricing, and strict safety guidelines for every home task."
   }
 ];
 

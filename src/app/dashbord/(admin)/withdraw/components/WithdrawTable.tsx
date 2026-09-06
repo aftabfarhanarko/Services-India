@@ -75,7 +75,7 @@ export default function WithdrawTable({ withdraws, setSelectedItem, setActionMod
       header: "Amount",
       render: (item: Withdraw) => (
         <span className="inline-flex items-center gap-1 bg-emerald-50 text-emerald-700 font-bold text-xs px-2.5 py-1 rounded-xl border border-emerald-100/50">
-          ৳{(item.amount || 0).toLocaleString()}
+          ₹{(item.amount || 0).toLocaleString()}
         </span>
       ),
     },

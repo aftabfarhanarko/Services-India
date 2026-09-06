@@ -266,7 +266,7 @@ export default function FilterPanel({
                     Price Range limit
                   </h4>
                   <span className="text-[11px] font-extrabold text-[#FF6014] bg-[#FFF8F4] px-2.5 py-1 rounded-lg">
-                    ৳{PRICE_FLOOR.toLocaleString()} – ৳{priceMax.toLocaleString()}
+                    ₹{PRICE_FLOOR.toLocaleString()} – ₹{priceMax.toLocaleString()}
                   </span>
                 </div>
                 <div className="px-1.5 pt-2">
@@ -294,8 +294,8 @@ export default function FilterPanel({
                     />
                   </div>
                   <div className="flex justify-between text-[10px] text-slate-400 font-extrabold uppercase">
-                    <span>৳{PRICE_FLOOR.toLocaleString()}</span>
-                    <span>৳{PRICE_CEIL.toLocaleString()}</span>
+                    <span>₹{PRICE_FLOOR.toLocaleString()}</span>
+                    <span>₹{PRICE_CEIL.toLocaleString()}</span>
                   </div>
                 </div>
               </section>
@@ -540,7 +540,7 @@ export function FilterPanelDesktop({
             Price Range
           </h4>
           <span className="text-[11px] font-extrabold text-[#FF6014] bg-[#FFF8F4] px-2 py-0.5 rounded-lg">
-            ৳{PRICE_FLOOR} - ৳{priceMax}
+            ₹{PRICE_FLOOR} - ₹{priceMax}
           </span>
         </div>
         <div className="px-1 pt-1">
@@ -568,8 +568,8 @@ export function FilterPanelDesktop({
             />
           </div>
           <div className="flex justify-between text-[10px] text-slate-400 font-bold">
-            <span>৳{PRICE_FLOOR}</span>
-            <span>৳{PRICE_CEIL}</span>
+            <span>₹{PRICE_FLOOR}</span>
+            <span>₹{PRICE_CEIL}</span>
           </div>
         </div>
       </section>

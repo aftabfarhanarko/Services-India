@@ -15,7 +15,7 @@ export default function StatsGrid({ overview }: StatsGridProps) {
   const stats = [
     {
       label: "Total Revenue",
-      value: `৳${overview.revenue.total.toLocaleString()}`,
+      value: `₹${overview.revenue.total.toLocaleString()}`,
       sub: "All time",
       icon: DollarSign,
       subIcon: Calendar,
@@ -23,7 +23,7 @@ export default function StatsGrid({ overview }: StatsGridProps) {
     },
     {
       label: "Today's Revenue",
-      value: `৳${overview.revenue.today.toLocaleString()}`,
+      value: `₹${overview.revenue.today.toLocaleString()}`,
       sub: "Today",
       icon: TrendingUp,
       subIcon: Clock,
@@ -31,7 +31,7 @@ export default function StatsGrid({ overview }: StatsGridProps) {
     },
     {
       label: "Total Withdraws",
-      value: `৳${overview.withdraws.totalAmount.toLocaleString()}`,
+      value: `₹${overview.withdraws.totalAmount.toLocaleString()}`,
       sub: "All time",
       icon: Briefcase,
       subIcon: Calendar,
@@ -39,7 +39,7 @@ export default function StatsGrid({ overview }: StatsGridProps) {
     },
     {
       label: "Today's Withdraws",
-      value: `৳${overview.withdraws.todayAmount.toLocaleString()}`,
+      value: `₹${overview.withdraws.todayAmount.toLocaleString()}`,
       sub: "Today",
       icon: AlertCircle,
       subIcon: Clock,

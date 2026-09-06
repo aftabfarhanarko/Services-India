@@ -109,7 +109,7 @@ export default function MapClientPage() {
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-8 md:mb-10 items-center md:items-start text-center md:text-left">
               <div className="flex flex-col items-center md:items-start">
                 <h1 className="text-2xl md:text-3xl font-black text-slate-800 tracking-tight">Available Experts</h1>
-                <p className="text-slate-500 mt-2 text-xs md:text-sm font-semibold max-w-md">Discover verified vendors across Bangladesh on the live service map.</p>
+                <p className="text-slate-500 mt-2 text-xs md:text-sm font-semibold max-w-md">Discover verified vendors across Kolkata & West Bengal on the live service map.</p>
               </div>
               <div className="bg-slate-100 p-1 rounded-full flex items-center w-40 border border-slate-200/50 shadow-xs shrink-0">
                 <Button variant="ghost" onClick={() => setActiveTab("map")} className="flex-1 py-1.5 h-auto rounded-full text-xs font-bold transition-all flex items-center justify-center gap-1.5 cursor-pointer text-slate-500 hover:text-slate-800">

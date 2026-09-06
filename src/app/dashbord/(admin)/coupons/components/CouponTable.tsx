@@ -25,7 +25,7 @@ export default function CouponTable({ coupons, openEdit, setDeleteTarget }: Coup
         <span className="font-bold text-[#FF6014]">
           {item.discount_type === "percentage"
             ? `${item.discount_value}%`
-            : `৳${Number(item.discount_value).toLocaleString()}`}
+            : `₹${Number(item.discount_value).toLocaleString()}`}
         </span>
       ),
     },

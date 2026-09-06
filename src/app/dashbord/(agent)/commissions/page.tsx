@@ -25,7 +25,7 @@ export default function CommissionPage() {
     {
       key: "amount",
       header: lang === "bn" ? "পরিমাণ" : "Amount",
-      render: (w: any) => <span className="font-bold text-slate-800">৳{Number(w.amount).toLocaleString()}</span>,
+      render: (w: any) => <span className="font-bold text-slate-800">₹{Number(w.amount).toLocaleString()}</span>,
     },
     {
       key: "status",
@@ -81,13 +81,13 @@ export default function CommissionPage() {
         {/* Withdrawable Balance card */}
         <div className="bg-gradient-to-br from-rose-500 to-[#FF6014] text-white p-6 rounded-2xl shadow-lg shadow-[#FF6014]/10 flex flex-col justify-between relative overflow-hidden min-h-[200px]">
           <div className="absolute right-0 top-0 w-24 h-24 bg-white/5 rounded-bl-full flex items-center justify-center font-bold text-white/10 text-3xl">
-            ৳
+            ₹
           </div>
           <div>
             <span className="text-xs font-bold text-rose-100 uppercase tracking-widest block">
               {lang === "bn" ? "উত্তোলনযোগ্য ব্যালেন্স" : "Withdrawable Balance"}
             </span>
-            <h2 className="text-4xl font-black mt-2">৳{Number(state.walletBalance).toLocaleString()}</h2>
+            <h2 className="text-4xl font-black mt-2">₹{Number(state.walletBalance).toLocaleString()}</h2>
           </div>
           <p className="text-xs text-rose-100/80 font-medium">
             {lang === "bn"
@@ -105,7 +105,7 @@ export default function CommissionPage() {
           <form onSubmit={state.handleWithdraw} className="grid grid-cols-1 sm:grid-cols-3 gap-4 items-end">
             <div className="sm:col-span-1">
               <label className="block text-xs font-semibold text-slate-500 mb-1.5 uppercase">
-                {lang === "bn" ? "পরিমাণ (৳)" : "Amount (৳)"}
+                {lang === "bn" ? "পরিমাণ (₹)" : "Amount (₹)"}
               </label>
               <input
                 type="number"
