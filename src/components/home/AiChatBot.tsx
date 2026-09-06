@@ -283,95 +283,112 @@ export function AiChatBot() {
 
       </div>
 
-      {/* Chat Window */}
+      {/* Chat Window / Mobile Bottom Sheet Modal */}
       <AnimatePresence>
         {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: 50, scale: 0.9 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 50, scale: 0.9 }}
-            transition={{ type: "spring", stiffness: 300, damping: 25 }}
-            className="fixed bottom-[150px] right-3 md:bottom-28 md:right-8 w-[340px] sm:w-[380px] h-[480px] bg-white/95 backdrop-blur-md rounded-3xl border border-slate-100 shadow-2xl z-[998] flex flex-col overflow-hidden"
-          >
-            {/* Header */}
-            <div className="bg-gradient-to-r from-[#FF6014] to-[#FF7C71] p-4 text-white flex items-center justify-between shadow-sm">
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center">
-                  <Bot size={20} className="text-white" />
-                </div>
-                <div>
-                  <h3 className="font-extrabold text-sm flex items-center gap-1.5">
-                    Rajseba AI Assistant
-                    <Sparkles size={12} className="text-amber-200 animate-pulse" />
-                  </h3>
-                  <p className="text-[10px] text-white/80 font-semibold flex items-center gap-1 mt-0.5">
-                    <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full animate-ping" />
-                    Online & Ready
-                  </p>
-                </div>
+          <>
+            {/* Dark Blur Overlay (Mobile & Desktop Backdrop) */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setIsOpen(false)}
+              className="fixed inset-0 bg-slate-950/40 backdrop-blur-xs z-[997]"
+            />
+
+            <motion.div
+              initial={{ opacity: 0, y: "100%", scale: 0.95 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: "100%", scale: 0.95 }}
+              transition={{ type: "spring", stiffness: 340, damping: 28 }}
+              className="fixed inset-x-0 bottom-0 z-[998] md:inset-auto md:bottom-28 md:right-8 md:w-[380px] h-[85vh] max-h-[640px] md:h-[500px] bg-white rounded-t-[32px] md:rounded-3xl border border-slate-100 shadow-2xl flex flex-col overflow-hidden"
+            >
+              {/* Mobile Drawer Handle / Indicator */}
+              <div className="md:hidden w-full flex justify-center pt-2.5 pb-1 bg-gradient-to-r from-[#FF6014] to-[#FF7C71]">
+                <div className="w-12 h-1 bg-white/40 rounded-full" />
               </div>
-              <button
-                onClick={() => setIsOpen(false)}
-                className="text-white/80 hover:text-white hover:bg-white/10 p-1.5 rounded-lg transition"
-              >
-                <X size={16} />
-              </button>
-            </div>
 
-            {/* Message Area */}
-            <div className="flex-1 overflow-y-auto p-4 space-y-3 bg-[#FFF8F4]/30 [&::-webkit-scrollbar]:w-1 [&::-webkit-scrollbar-thumb]:bg-slate-200">
-              {messages.map((msg, i) => (
-                <div
-                  key={i}
-                  className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}
-                >
-                  <div
-                    className={`max-w-[80%] rounded-[20px] p-3.5 text-xs font-semibold leading-relaxed shadow-2xs whitespace-pre-wrap ${msg.role === "user"
-                      ? "bg-[#FF6014] text-white rounded-tr-none"
-                      : "bg-white text-slate-700 border border-slate-100/50 rounded-tl-none"
-                      }`}
-                  >
-                    {parseMessageText(msg.text)}
+              {/* Header */}
+              <div className="bg-gradient-to-r from-[#FF6014] to-[#FF7C71] px-5 py-3.5 text-white flex items-center justify-between shadow-sm">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-2xl bg-white/15 backdrop-blur-md flex items-center justify-center border border-white/20 shadow-2xs">
+                    <Bot size={22} className="text-white" />
+                  </div>
+                  <div>
+                    <h3 className="font-extrabold text-base flex items-center gap-1.5 leading-none">
+                      Rajseba AI Assistant
+                      <Sparkles size={14} className="text-amber-200 animate-pulse" />
+                    </h3>
+                    <p className="text-[11px] text-white/90 font-bold flex items-center gap-1.5 mt-1">
+                      <span className="w-2 h-2 bg-emerald-400 rounded-full animate-ping" />
+                      Online & Ready
+                    </p>
                   </div>
                 </div>
-              ))}
-              {isLoading && (
-                <div className="flex justify-start">
-                  <div className="bg-white border border-slate-100 rounded-[20px] rounded-tl-none p-3.5 flex items-center gap-1.5 shadow-2xs">
-                    <Loader2 size={12} className="animate-spin text-[#FF6014]" />
-                    <span className="text-[10px] text-slate-400 font-extrabold uppercase tracking-wider">AI is typing...</span>
-                  </div>
-                </div>
-              )}
-              <div ref={messagesEndRef} />
-            </div>
-
-            {/* Input Area */}
-            <div className="p-3 border-t border-slate-100 bg-white">
-              <form
-                onSubmit={(e) => {
-                  e.preventDefault();
-                  handleSend();
-                }}
-                className="flex items-center gap-2 bg-slate-50 border border-slate-100 rounded-2xl p-1.5 pr-2 focus-within:bg-white focus-within:border-[#FF6014]/30 focus-within:ring-4 focus-within:ring-[#FFF8F4] transition-all"
-              >
-                <input
-                  type="text"
-                  value={inputValue}
-                  onChange={(e) => setInputValue(e.target.value)}
-                  placeholder="Type your message here..."
-                  className="flex-1 bg-transparent text-xs font-semibold text-slate-800 placeholder:text-slate-400 focus:outline-none px-2"
-                />
                 <button
-                  type="submit"
-                  disabled={!inputValue.trim() || isLoading}
-                  className="w-8 h-8 rounded-xl bg-[#FF6014] hover:bg-[#E0530A] text-white flex items-center justify-center transition disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer shrink-0"
+                  onClick={() => setIsOpen(false)}
+                  className="text-white/80 hover:text-white bg-white/10 hover:bg-white/20 p-2 rounded-xl transition cursor-pointer"
+                  aria-label="Close Chat"
                 >
-                  <Send size={14} />
+                  <X size={18} />
                 </button>
-              </form>
-            </div>
-          </motion.div>
+              </div>
+
+              {/* Message Area */}
+              <div className="flex-1 overflow-y-auto p-4 md:p-5 space-y-3.5 bg-[#FFF9F6]/50 [&::-webkit-scrollbar]:w-1 [&::-webkit-scrollbar-thumb]:bg-slate-200">
+                {messages.map((msg, i) => (
+                  <div
+                    key={i}
+                    className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}
+                  >
+                    <div
+                      className={`max-w-[85%] sm:max-w-[80%] rounded-[22px] p-3.5 md:p-4 text-xs sm:text-sm font-semibold leading-relaxed shadow-2xs whitespace-pre-wrap ${msg.role === "user"
+                        ? "bg-[#FF6014] text-white rounded-tr-none"
+                        : "bg-white text-slate-800 border border-slate-200/60 rounded-tl-none shadow-sm"
+                        }`}
+                    >
+                      {parseMessageText(msg.text)}
+                    </div>
+                  </div>
+                ))}
+                {isLoading && (
+                  <div className="flex justify-start">
+                    <div className="bg-white border border-slate-200/60 rounded-[22px] rounded-tl-none p-3.5 flex items-center gap-2 shadow-2xs">
+                      <Loader2 size={14} className="animate-spin text-[#FF6014]" />
+                      <span className="text-xs text-slate-500 font-extrabold uppercase tracking-wider">AI is typing...</span>
+                    </div>
+                  </div>
+                )}
+                <div ref={messagesEndRef} />
+              </div>
+
+              {/* Input Area */}
+              <div className="p-3.5 border-t border-slate-100 bg-white pb-[calc(1rem+env(safe-area-inset-bottom,0px))]">
+                <form
+                  onSubmit={(e) => {
+                    e.preventDefault();
+                    handleSend();
+                  }}
+                  className="flex items-center gap-2 bg-slate-50/90 border border-slate-200 rounded-2xl p-1.5 pr-2 focus-within:bg-white focus-within:border-[#FF6014]/40 focus-within:ring-4 focus-within:ring-[#FFF4EE] transition-all"
+                >
+                  <input
+                    type="text"
+                    value={inputValue}
+                    onChange={(e) => setInputValue(e.target.value)}
+                    placeholder="Ask AI anything about home services..."
+                    className="flex-1 bg-transparent text-xs sm:text-sm font-semibold text-slate-800 placeholder:text-slate-400 focus:outline-none px-3 py-1.5"
+                  />
+                  <button
+                    type="submit"
+                    disabled={!inputValue.trim() || isLoading}
+                    className="w-9 h-9 rounded-xl bg-[#FF6014] hover:bg-[#E0530A] text-white flex items-center justify-center transition disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer shrink-0 shadow-sm"
+                  >
+                    <Send size={15} />
+                  </button>
+                </form>
+              </div>
+            </motion.div>
+          </>
         )}
       </AnimatePresence>
     </>
