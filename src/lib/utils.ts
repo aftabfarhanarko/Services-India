@@ -6,33 +6,33 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 const DEFAULT_API_URL = process.env.NEXT_PUBLIC_API_URL || "https://api.rajseba.in";
+const CDN_URL = process.env.NEXT_PUBLIC_CDN_URL || "http://ys5u1ge5eguiimbv9s2bkxrg.200.141.14.181.sslip.io";
 
 /**
- * Rewrites any backend image URL to point to the active API server.
- * Handles:
- *  - Old onrender, sslip.io, api.rajseba.com, api.rajseba.in hosts
- *  - rajapi.jevxo.com without www
- *  - Relative paths that look like backend uploads (e.g. /uploads/...)
+ * Formats image URLs for display across the application.
+ * Fixes HTTP mixed content issues for HTTPS production site.
  */
 export function formatImageUrl(url?: string): string {
   if (!url) return "";
 
-  // Already points to the correct host — return as-is
-  if (url.startsWith(DEFAULT_API_URL)) return url;
+  let formatted = url.trim();
 
-  // Replace any known old backend hosts (matches any sslip.io, onrender, api.rajseba.com, rajseba.in, or non-www rajapi.jevxo.com)
-  const replaced = url.replace(
-    /https?:\/\/(?:[a-z0-9.-]+\.)?(?:sslip\.io|onrender\.com|api\.rajseba\.com|rajseba\.in|rajapi\.jevxo\.com)(?::\d+)?/gi,
-    DEFAULT_API_URL
-  );
-
-  // If replacement happened, return it
-  if (replaced !== url) return replaced;
-
-  // If it's a relative backend path like /uploads/... rewrite to absolute
-  if (url.startsWith("/uploads/") || url.startsWith("/static/")) {
-    return `${DEFAULT_API_URL}${url}`;
+  // Force HTTPS on CDN links to prevent Mixed Content blocking in Production
+  if (formatted.startsWith("http://ys5u1ge5eguiimbv9s2bkxrg") || formatted.includes(".sslip.io")) {
+    formatted = formatted.replace(/^http:\/\//i, "https://");
   }
 
-  return url;
+  // If it's a full CDN or absolute URL, return formatted
+  if (formatted.startsWith("https://") || formatted.startsWith("http://")) {
+    return formatted;
+  }
+
+  // If it's a relative backend path like /uploads/... rewrite to absolute API URL
+  if (formatted.startsWith("/uploads/") || formatted.startsWith("/static/")) {
+    return `${DEFAULT_API_URL}${formatted}`;
+  }
+
+  return formatted;
 }
+
+
