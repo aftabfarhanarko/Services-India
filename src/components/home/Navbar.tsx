@@ -494,30 +494,31 @@ export function Navbar() {
                                   )}
                                 </div>
 
-                                {/* Right Panel: Featured Interactive Promo Card */}
-                                <div className="w-[250px] bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 text-white rounded-2.5xl p-5.5 flex flex-col justify-between relative overflow-hidden shrink-0 shadow-2xl border border-slate-800">
-                                  <div className="absolute -top-10 -right-10 w-36 h-36 bg-[#FF6014]/25 rounded-full blur-2xl pointer-events-none" />
+                                {/* Right Panel: Featured Interactive Promo Card (Brand Primary Theme) */}
+                                <div className="w-[250px] bg-gradient-to-br from-[#FF6014] via-[#FF7328] to-[#E0530A] text-white rounded-2.5xl p-5.5 flex flex-col justify-between relative overflow-hidden shrink-0 shadow-xl shadow-[#FF6014]/25 border border-[#FF6014]/30">
+                                  <div className="absolute -top-10 -right-10 w-36 h-36 bg-white/20 rounded-full blur-2xl pointer-events-none" />
+                                  <div className="absolute -bottom-10 -left-10 w-32 h-32 bg-black/10 rounded-full blur-xl pointer-events-none" />
                                   <div className="relative z-10">
-                                    <div className="inline-flex items-center gap-1.5 text-[9px] font-black uppercase tracking-widest text-[#FF6014] bg-[#FF6014]/15 border border-[#FF6014]/30 px-3 py-1 rounded-full mb-3.5">
-                                      <Sparkles className="w-3 h-3 text-[#FF6014]" /> Rajseba Certified
+                                    <div className="inline-flex items-center gap-1.5 text-[9px] font-black uppercase tracking-widest text-white bg-white/20 backdrop-blur-md border border-white/30 px-3 py-1 rounded-full mb-3.5 shadow-2xs">
+                                      <Sparkles className="w-3 h-3 text-white" /> Rajseba Certified
                                     </div>
                                     <h4 className="text-base font-black text-white leading-tight mb-2 tracking-tight">
                                       Custom Home Solutions
                                     </h4>
-                                    <p className="text-[11px] text-slate-300 leading-relaxed font-medium">
+                                    <p className="text-[11px] text-white/90 leading-relaxed font-medium">
                                       Connect with 250+ background-verified technicians for instant home maintenance & repairs.
                                     </p>
-                                    <div className="mt-3.5 flex items-center gap-2 pt-3 border-t border-slate-800/80">
+                                    <div className="mt-3.5 flex items-center gap-2 pt-3 border-t border-white/20">
                                       <div className="flex -space-x-2">
                                         {[
                                           "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80",
                                           "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&auto=format&fit=crop&q=80",
                                           "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&auto=format&fit=crop&q=80"
                                         ].map((img, idx) => (
-                                          <img key={idx} src={img} alt="expert" className="w-6 h-6 rounded-full border-2 border-slate-900 object-cover" />
+                                          <img key={idx} src={img} alt="expert" className="w-6 h-6 rounded-full border-2 border-[#FF6014] object-cover" />
                                         ))}
                                       </div>
-                                      <span className="text-[10px] font-bold text-slate-300">250+ Experts Active</span>
+                                      <span className="text-[10px] font-bold text-white/95">250+ Experts Active</span>
                                     </div>
                                   </div>
 
@@ -525,17 +526,17 @@ export function Navbar() {
                                     <Link
                                       href="/services"
                                       onClick={() => setShowServicesDropdown(false)}
-                                      className="w-full flex items-center justify-center gap-2 bg-[#FF6014] hover:bg-[#E0530A] text-white text-xs font-black tracking-wide py-3 px-4 rounded-xl transition-all shadow-[0_6px_20px_rgba(255,96,20,0.35)] hover:shadow-[0_8px_25px_rgba(255,96,20,0.5)] hover:-translate-y-0.5 cursor-pointer border-none"
+                                      className="w-full flex items-center justify-center gap-2 bg-white hover:bg-slate-50 text-[#FF6014] text-xs font-black tracking-wide py-3 px-4 rounded-xl transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5 cursor-pointer border-none"
                                     >
                                       <span>Get Instant Quote</span>
-                                      <ArrowRight className="w-4 h-4" />
+                                      <ArrowRight className="w-4 h-4 text-[#FF6014]" />
                                     </Link>
                                     <a
                                       href="tel:01813333373"
-                                      className="w-full flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 border border-white/15 text-white text-xs font-bold py-2.5 px-4 rounded-xl transition-all text-decoration-none"
+                                      className="w-full flex items-center justify-center gap-2 bg-black/15 hover:bg-black/25 border border-white/20 text-white text-xs font-bold py-2.5 px-4 rounded-xl transition-all text-decoration-none"
                                     >
                                       <span>Call Hotline</span>
-                                      <Phone className="w-3.5 h-3.5 text-[#FF6014]" />
+                                      <Phone className="w-3.5 h-3.5 text-white" />
                                     </a>
                                   </div>
                                 </div>
