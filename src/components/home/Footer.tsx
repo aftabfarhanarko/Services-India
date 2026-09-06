@@ -156,7 +156,6 @@ export default function Footer() {
     { label: "Book History", href: "/bookings", icon: CalendarCheck },
     { label: "Coverage Area Map", href: mapUrl, icon: MapPin },
     { label: "Opportunity", href: "/opportunity", icon: Rocket },
-    { label: "Custom Shifting", href: "/home-shifting", icon: Truck },
     { label: "Contact Us", href: "/contact", icon: PhoneCall },
   ];
 
