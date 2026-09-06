@@ -77,16 +77,36 @@ const Hero = () => {
 
   const slides = heroes.length > 0
     ? heroes.flatMap((hero: any) => {
-      const imgs = Array.isArray(hero.images)
-        ? hero.images
-        : typeof hero.images === 'string'
-          ? hero.images.split(',').filter(Boolean)
-          : [];
-      return imgs.map((img: string) => ({
-        image: img,
-        hero: hero,
-      }));
-    })
+        let rawImgs: string[] = [];
+        if (Array.isArray(hero.images)) {
+          rawImgs = hero.images;
+        } else if (typeof hero.images === 'string') {
+          try {
+            const parsed = JSON.parse(hero.images);
+            if (Array.isArray(parsed)) {
+              rawImgs = parsed;
+            } else {
+              rawImgs = hero.images.split(',').filter(Boolean);
+            }
+          } catch {
+            rawImgs = hero.images.split(',').filter(Boolean);
+          }
+        } else if (hero.image) {
+          rawImgs = [hero.image];
+        }
+
+        const cleaned = rawImgs
+          .map((img: any) => {
+            if (typeof img !== 'string') return '';
+            return img.trim().replace(/^["'\[\s]+|["'\]\s]+$/g, "");
+          })
+          .filter(Boolean);
+
+        return cleaned.map((img: string) => ({
+          image: img,
+          hero: hero,
+        }));
+      })
     : [{ image: HERO_CONTENT.bgImage, hero: null }];
 
   const [[currentSlideIndex, direction], setSlideState] = useState([0, 0]);
@@ -130,6 +150,11 @@ const Hero = () => {
   useEffect(() => {
     if (activeImage) {
       setIsImageLoading(true);
+      const timer = setTimeout(() => {
+        setIsImageLoading(false);
+        setHasInitialLoaded(true);
+      }, 800);
+      return () => clearTimeout(timer);
     }
   }, [activeImage]);
 
@@ -244,6 +269,10 @@ const Hero = () => {
                   onClick={handleSlideClick}
                   loading="eager"
                   onLoad={() => {
+                    setIsImageLoading(false);
+                    setHasInitialLoaded(true);
+                  }}
+                  onError={() => {
                     setIsImageLoading(false);
                     setHasInitialLoaded(true);
                   }}
