@@ -4,6 +4,7 @@ import React, { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { MessageCircle, Phone, Send, X, Sparkles, Loader2, Bot } from "lucide-react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useAppSelector } from "@/redux/hooks";
 
 import { useGetPublicCompanyBrandingQuery } from "@/redux/features/landing/landingApi";
@@ -53,10 +54,13 @@ function saveSessionLog(sessionId: string, messages: Message[], user?: any) {
 }
 
 export function AiChatBot() {
+  const pathname = usePathname();
   const { user, isAuthenticated } = useAppSelector((state) => state.auth);
   const { data: brandingRes } = useGetPublicCompanyBrandingQuery();
   const companyPhone = brandingRes?.data?.phone || "01813-333373";
   const cleanPhone = companyPhone.replace(/[^0-9+]/g, '');
+
+  const isDashboard = pathname?.startsWith("/dashbord") || pathname?.startsWith("/dashboard");
 
   const [isOpen, setIsOpen] = useState(false);
   const [sessionId] = useState(() =>
@@ -184,6 +188,8 @@ export function AiChatBot() {
       setIsLoading(false);
     }
   };
+
+  if (isDashboard) return null;
 
   return (
     <>
