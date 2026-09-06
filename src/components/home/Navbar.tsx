@@ -408,7 +408,12 @@ export function Navbar() {
 
                                 {/* Left Panel: 3-Column Categories Grid */}
                                 <div className="flex-1 min-w-0">
-                                  <div className="flex items-center justify-between mb-4.5 px-1 pb-3 border-b border-slate-150">
+                                  <motion.div
+                                    initial={{ opacity: 0, y: -8 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ duration: 0.25, delay: 0.05 }}
+                                    className="flex items-center justify-between mb-4.5 px-1 pb-3 border-b border-slate-150"
+                                  >
                                     <div className="flex items-center gap-2">
                                       <span className="w-2 h-2 rounded-full bg-[#FF6014] animate-pulse" />
                                       <span className="text-xs font-black uppercase tracking-widest text-slate-800">
@@ -428,7 +433,7 @@ export function Navbar() {
                                         <ArrowRight className="w-3.5 h-3.5 group-hover/all:translate-x-0.5 transition-transform" />
                                       </Link>
                                     </div>
-                                  </div>
+                                  </motion.div>
 
                                   {apiCategories.length === 0 ? (
                                     <div className="grid grid-cols-3 gap-3">
@@ -445,8 +450,8 @@ export function Navbar() {
                                         show: {
                                           opacity: 1,
                                           transition: {
-                                            staggerChildren: 0.035,
-                                            delayChildren: 0.05,
+                                            staggerChildren: 0.03,
+                                            delayChildren: 0.08,
                                           },
                                         },
                                       }}
@@ -459,16 +464,16 @@ export function Navbar() {
                                           <motion.div
                                             key={cat.id}
                                             variants={{
-                                              hidden: { opacity: 0, y: 10, scale: 0.95 },
+                                              hidden: { opacity: 0, y: 12, scale: 0.94 },
                                               show: {
                                                 opacity: 1,
                                                 y: 0,
                                                 scale: 1,
-                                                transition: { type: "spring", stiffness: 350, damping: 25 },
+                                                transition: { type: "spring", stiffness: 360, damping: 24 },
                                               },
                                             }}
-                                            whileHover={{ scale: 1.02 }}
-                                            whileTap={{ scale: 0.98 }}
+                                            whileHover={{ scale: 1.025, y: -2 }}
+                                            whileTap={{ scale: 0.97 }}
                                           >
                                             <Link
                                               href={`/categories/${cat.id}`}
@@ -494,8 +499,13 @@ export function Navbar() {
                                   )}
                                 </div>
 
-                                {/* Right Panel: Featured Interactive Promo Card (Brand Primary Theme) */}
-                                <div className="w-[250px] bg-gradient-to-br from-[#FF6014] via-[#FF7328] to-[#E0530A] text-white rounded-2.5xl p-5.5 flex flex-col justify-between relative overflow-hidden shrink-0 shadow-xl shadow-[#FF6014]/25 border border-[#FF6014]/30">
+                                {/* Right Panel: Featured Interactive Promo Card (Brand Primary Theme with Framer Motion Entrance) */}
+                                <motion.div
+                                  initial={{ opacity: 0, x: 15, scale: 0.95 }}
+                                  animate={{ opacity: 1, x: 0, scale: 1 }}
+                                  transition={{ duration: 0.3, delay: 0.1, ease: "easeOut" }}
+                                  className="w-[250px] bg-gradient-to-br from-[#FF6014] via-[#FF7328] to-[#E0530A] text-white rounded-2.5xl p-5.5 flex flex-col justify-between relative overflow-hidden shrink-0 shadow-xl shadow-[#FF6014]/25 border border-[#FF6014]/30"
+                                >
                                   <div className="absolute -top-10 -right-10 w-36 h-36 bg-white/20 rounded-full blur-2xl pointer-events-none" />
                                   <div className="absolute -bottom-10 -left-10 w-32 h-32 bg-black/10 rounded-full blur-xl pointer-events-none" />
                                   <div className="relative z-10">
@@ -539,7 +549,7 @@ export function Navbar() {
                                       <Phone className="w-3.5 h-3.5 text-white" />
                                     </a>
                                   </div>
-                                </div>
+                                </motion.div>
                               </motion.div>
                             </div>
                           )}
