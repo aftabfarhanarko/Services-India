@@ -188,7 +188,7 @@ export function AiChatBot() {
   return (
     <>
       {/* Floating Action Button Group */}
-      <div className="fixed bottom-[84px] right-4 md:bottom-6 md:right-6 z-[999] flex flex-col items-center gap-3">
+      <div className="fixed bottom-[88px] right-3.5 md:bottom-6 md:right-6 z-[999] flex flex-col items-center gap-2.5">
 
         {/* 📞 Call Option (Above) */}
         {!isOpen && (
@@ -203,7 +203,7 @@ export function AiChatBot() {
             }}
             whileTap={{ scale: 0.9 }}
             href={`tel:${cleanPhone}`}
-            className="group relative w-10 h-10 md:w-14 md:h-14 bg-slate-900 text-white rounded-full flex items-center justify-center shadow-lg cursor-pointer hover:bg-black transition-all duration-300"
+            className="group relative w-11 h-11 md:w-14 md:h-14 bg-slate-900 text-white rounded-full flex items-center justify-center shadow-lg shadow-black/20 cursor-pointer hover:bg-black transition-all duration-300 border border-white/20"
             aria-label={`Call Support ${companyPhone}`}
           >
             <Phone className="w-5 h-5 md:w-6 md:h-6 transition-transform duration-300 text-amber-400" />
@@ -228,7 +228,7 @@ export function AiChatBot() {
               repeat: Infinity,
               ease: "easeInOut",
             }}
-            className="absolute w-9 h-9 md:w-14 md:h-14 rounded-full bg-gradient-to-r from-[#FF6014] to-[#FF7C71] blur-md pointer-events-none z-[-1]"
+            className="absolute w-11 h-11 md:w-14 md:h-14 rounded-full bg-gradient-to-r from-[#FF6014] to-[#FF7C71] blur-md pointer-events-none z-[-1]"
           />
 
           <motion.button
@@ -239,7 +239,7 @@ export function AiChatBot() {
             }}
             whileTap={{ scale: 0.92 }}
             onClick={() => setIsOpen(!isOpen)}
-            className="w-9 h-9 md:w-14 md:h-14 bg-gradient-to-r from-[#FF6014] to-[#FF7C71] text-white rounded-full flex items-center justify-center shadow-lg shadow-[#FF6014]/25 cursor-pointer relative overflow-hidden transition-all duration-300"
+            className="w-11 h-11 md:w-14 md:h-14 bg-gradient-to-r from-[#FF6014] to-[#FF7C71] text-white rounded-full flex items-center justify-center shadow-lg shadow-[#FF6014]/25 cursor-pointer relative overflow-hidden transition-all duration-300 border border-white/30"
             aria-label="AI Assistant"
           >
             {/* Shimmer sweep effect */}
@@ -264,7 +264,7 @@ export function AiChatBot() {
           </motion.button>
 
           {!isOpen && (
-            <span className="absolute -top-0.5 -right-0.5 w-3 h-3 md:w-4 md:h-4 bg-emerald-500 rounded-full border-2 border-white animate-pulse z-10 pointer-events-none" />
+            <span className="absolute -top-0.5 -right-0.5 w-3.5 h-3.5 md:w-4 md:h-4 bg-emerald-500 rounded-full border-2 border-white animate-pulse z-10 pointer-events-none" />
           )}
 
           {/* Tooltip */}
@@ -274,7 +274,6 @@ export function AiChatBot() {
             </span>
           )}
         </div>
-
 
       </div>
 
@@ -286,7 +285,7 @@ export function AiChatBot() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 50, scale: 0.9 }}
             transition={{ type: "spring", stiffness: 300, damping: 25 }}
-            className="fixed bottom-[156px] right-4 md:bottom-24 md:right-6 w-[340px] sm:w-[380px] h-[480px] bg-white/95 backdrop-blur-md rounded-3xl border border-slate-100 shadow-2xl z-[998] flex flex-col overflow-hidden"
+            className="fixed bottom-[150px] right-3 md:bottom-24 md:right-6 w-[340px] sm:w-[380px] h-[480px] bg-white/95 backdrop-blur-md rounded-3xl border border-slate-100 shadow-2xl z-[998] flex flex-col overflow-hidden"
           >
             {/* Header */}
             <div className="bg-gradient-to-r from-[#FF6014] to-[#FF7C71] p-4 text-white flex items-center justify-between shadow-sm">
