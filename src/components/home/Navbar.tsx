@@ -394,27 +394,32 @@ export function Navbar() {
 
                         <AnimatePresence>
                           {showServicesDropdown && (
-                            <div className="absolute left-[-120px] top-full pt-[22px] z-50">
+                            <div className="absolute left-[-120px] top-full pt-[14px] z-50">
                               <motion.div
-                                initial={{ opacity: 0, y: 15, scale: 0.95 }}
+                                initial={{ opacity: 0, y: 12, scale: 0.97 }}
                                 animate={{ opacity: 1, y: 0, scale: 1 }}
-                                exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                                exit={{ opacity: 0, y: 8, scale: 0.97 }}
                                 transition={{ duration: 0.2, ease: "easeOut" }}
-                                className="w-[740px] bg-white/95 backdrop-blur-xl rounded-3xl border border-slate-200/80 shadow-[0_20px_50px_rgba(0,0,0,0.12)] p-5 flex gap-6 overflow-hidden"
+                                className="w-[780px] xl:w-[840px] bg-white rounded-3xl border border-slate-200/90 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.18)] p-6 flex gap-6 overflow-hidden relative"
                               >
                                 {/* Left Panel: Categories Grid */}
                                 <div className="flex-1">
-                                  <div className="text-[10px] font-extrabold uppercase tracking-widest text-slate-400 mb-3.5 px-1">
-                                    Explore Service Categories
+                                  <div className="flex items-center justify-between mb-4 px-1 pb-2 border-b border-slate-100">
+                                    <span className="text-[11px] font-black uppercase tracking-widest text-[#FF6014]">
+                                      Explore Service Categories
+                                    </span>
+                                    <span className="text-[10px] font-bold text-slate-400 bg-slate-100 px-2 py-0.5 rounded-full">
+                                      {apiCategories.length} Categories
+                                    </span>
                                   </div>
                                   {apiCategories.length === 0 ? (
                                     <div className="grid grid-cols-2 gap-3">
                                       {[1, 2, 3, 4, 5, 6].map((n) => (
-                                        <div key={n} className="h-14 bg-slate-50 rounded-2xl animate-pulse" />
+                                        <div key={n} className="h-14 bg-slate-100 rounded-2xl animate-pulse" />
                                       ))}
                                     </div>
                                   ) : (
-                                    <div className="grid grid-cols-2 gap-2 max-h-[360px] overflow-y-auto pr-1 scrollbar-thin">
+                                    <div className="grid grid-cols-2 gap-2.5 max-h-[380px] overflow-y-auto pr-2 custom-sidebar-scrollbar">
                                       {apiCategories.map((cat: any) => {
                                         const CatIcon = getCategoryIcon(cat.name);
                                         const subtitle = getCategorySubtitle(cat.name);
@@ -422,17 +427,17 @@ export function Navbar() {
                                           <Link
                                             key={cat.id}
                                             href={`/categories/${cat.id}`}
-                                            className="flex items-center gap-3 p-2.5 rounded-2xl border border-transparent hover:border-orange-100 hover:bg-[#FFF8F4] group/item transition-all duration-200 hover:shadow-sm"
+                                            className="flex items-center gap-3.5 p-3 rounded-2xl border border-slate-100/80 bg-slate-50/50 hover:border-[#FF6014]/40 hover:bg-[#FFF8F4] group/item transition-all duration-200 hover:shadow-md hover:-translate-y-0.5"
                                             onClick={() => setShowServicesDropdown(false)}
                                           >
-                                            <div className="w-10 h-10 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-center group-hover/item:bg-[#FF6014] group-hover/item:border-[#FF6014] transition-all duration-200 shrink-0">
-                                              <CatIcon className="w-5 h-5 text-slate-500 group-hover/item:text-white transition-colors duration-200" />
+                                            <div className="w-11 h-11 rounded-xl bg-white border border-slate-200 flex items-center justify-center group-hover/item:bg-[#FF6014] group-hover/item:border-[#FF6014] transition-all duration-200 shrink-0 shadow-2xs">
+                                              <CatIcon className="w-5.5 h-5.5 text-slate-700 group-hover/item:text-white transition-colors duration-200" />
                                             </div>
-                                            <div className="min-w-0">
-                                              <p className="font-bold text-xs text-slate-700 group-hover/item:text-[#FF6014] transition-colors leading-snug truncate">
+                                            <div className="min-w-0 flex-1">
+                                              <p className="font-extrabold text-xs text-slate-900 group-hover/item:text-[#FF6014] transition-colors leading-snug truncate">
                                                 {cat.name}
                                               </p>
-                                              <p className="text-[10px] text-slate-400 font-medium truncate mt-0.5">
+                                              <p className="text-[10px] text-slate-500 font-semibold truncate mt-0.5">
                                                 {subtitle}
                                               </p>
                                             </div>
@@ -443,34 +448,36 @@ export function Navbar() {
                                   )}
                                 </div>
 
-                                {/* Right Panel: Featured Card */}
-                                <div className="w-[220px] bg-gradient-to-br from-[#FFF9F6] to-[#FFF1E9] border border-orange-100/60 rounded-2xl p-5 flex flex-col justify-between relative overflow-hidden shrink-0">
-                                  <div className="absolute top-0 right-0 w-24 h-24 border-l border-b border-[#FF6014]/6 rounded-bl-full pointer-events-none" />
+                                {/* Right Panel: Featured Action Card */}
+                                <div className="w-[240px] bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white rounded-2xl p-5 flex flex-col justify-between relative overflow-hidden shrink-0 shadow-xl border border-slate-800">
+                                  <div className="absolute top-[-30px] right-[-30px] w-32 h-32 bg-[#FF6014]/20 rounded-full blur-2xl pointer-events-none" />
                                   <div className="relative z-10">
-                                    <div className="inline-flex items-center gap-1 text-[8px] font-black uppercase tracking-wider text-[#FF6014] bg-[#FFF4EE] border border-[#FF6014]/15 px-2.5 py-1 rounded-full mb-3">
-                                      <Sparkles className="w-2.5 h-2.5" /> Rajseba Standard
+                                    <div className="inline-flex items-center gap-1.5 text-[9px] font-black uppercase tracking-widest text-[#FF6014] bg-[#FF6014]/15 border border-[#FF6014]/30 px-3 py-1 rounded-full mb-4">
+                                      <Sparkles className="w-3 h-3 text-[#FF6014]" /> Rajseba Standard
                                     </div>
-                                    <h4 className="text-[13px] font-black text-slate-800 leading-snug mb-1">
+                                    <h4 className="text-sm font-black text-white leading-tight mb-2">
                                       Need Custom Service?
                                     </h4>
-                                    <p className="text-[10px] text-slate-400 leading-normal font-semibold">
+                                    <p className="text-[11px] text-slate-300 leading-relaxed font-medium">
                                       Get detailed quotes from background-verified professionals tailored to your needs.
                                     </p>
                                   </div>
 
-                                  <div className="mt-5 space-y-2 relative z-10">
+                                  <div className="mt-6 space-y-2.5 relative z-10">
                                     <Link
                                       href="/services"
                                       onClick={() => setShowServicesDropdown(false)}
-                                      className="w-full flex items-center justify-center gap-1.5 bg-[#FF6014] hover:bg-[#E0530A] text-white text-[10px] font-extrabold tracking-wider py-2.5 px-3 rounded-xl transition-all shadow-[0_4px_12px_rgba(255,96,20,0.2)] hover:shadow-[0_6px_16px_rgba(255,96,20,0.3)] hover:-translate-y-0.5"
+                                      className="w-full flex items-center justify-center gap-2 bg-[#FF6014] hover:bg-[#E0530A] text-white text-xs font-black tracking-wide py-3 px-4 rounded-xl transition-all shadow-[0_4px_16px_rgba(255,96,20,0.4)] hover:shadow-[0_6px_20px_rgba(255,96,20,0.5)] hover:-translate-y-0.5 cursor-pointer border-none"
                                     >
-                                      Get Free Quote <ArrowRight className="w-3.5 h-3.5" />
+                                      <span>Get Free Quote</span>
+                                      <ArrowRight className="w-4 h-4" />
                                     </Link>
                                     <a
                                       href="tel:01813333373"
-                                      className="w-full flex items-center justify-center gap-1.5 bg-white border border-orange-150 hover:bg-orange-50/50 text-[#FF6014] text-[10px] font-extrabold tracking-wider py-2.5 px-3 rounded-xl transition-all"
+                                      className="w-full flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 border border-white/15 text-white text-xs font-bold py-2.5 px-4 rounded-xl transition-all text-decoration-none"
                                     >
-                                      Call Hotline <Phone className="w-3 h-3" />
+                                      <span>Call Hotline</span>
+                                      <Phone className="w-3.5 h-3.5 text-[#FF6014]" />
                                     </a>
                                   </div>
                                 </div>
