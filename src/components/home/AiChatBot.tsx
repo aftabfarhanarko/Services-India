@@ -301,7 +301,7 @@ export function AiChatBot() {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: "100%", scale: 0.95 }}
               transition={{ type: "spring", stiffness: 340, damping: 28 }}
-              className="fixed inset-x-0 bottom-0 z-[998] md:inset-auto md:bottom-28 md:right-8 md:w-[380px] h-[85vh] max-h-[640px] md:h-[500px] bg-white rounded-t-[32px] md:rounded-3xl border border-slate-100 shadow-2xl flex flex-col overflow-hidden"
+              className="fixed left-3 right-3 bottom-3 z-[998] md:left-auto md:right-8 md:bottom-28 md:w-[380px] h-[82vh] max-h-[600px] md:h-[500px] bg-white rounded-3xl border border-slate-100 shadow-2xl flex flex-col overflow-hidden"
             >
               {/* Mobile Drawer Handle / Indicator */}
               <div className="md:hidden w-full flex justify-center pt-2.5 pb-1 bg-gradient-to-r from-[#FF6014] to-[#FF7C71]">
