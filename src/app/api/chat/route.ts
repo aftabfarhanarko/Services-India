@@ -2,8 +2,32 @@ import { NextRequest, NextResponse } from "next/server";
 
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || "https://www.api.rajseba.in";
 
+// Allowed production origins to prevent external websites / postman tab abuse
+const ALLOWED_ORIGINS = [
+  "https://rajseba.in",
+  "https://www.rajseba.in",
+  "http://localhost:3000",
+  "http://127.0.0.1:3000"
+];
+
 export async function POST(req: NextRequest) {
   try {
+    // 🛡️ Security Check: Validate Origin/Referer to block unauthorized external API requests
+    const origin = req.headers.get("origin");
+    const referer = req.headers.get("referer");
+
+    if (process.env.NODE_ENV === "production") {
+      const isAllowedOrigin = origin && ALLOWED_ORIGINS.some((allowed) => origin.startsWith(allowed));
+      const isAllowedReferer = referer && ALLOWED_ORIGINS.some((allowed) => referer.startsWith(allowed));
+
+      if (!isAllowedOrigin && !isAllowedReferer) {
+        return NextResponse.json(
+          { error: "Access Denied. Direct or cross-origin requests are forbidden." },
+          { status: 403 }
+        );
+      }
+    }
+
     const { messages, user } = await req.json();
 
     if (!messages || !Array.isArray(messages)) {
@@ -12,6 +36,12 @@ export async function POST(req: NextRequest) {
         { status: 400 }
       );
     }
+
+    // Limit context length (max last 10 messages) to prevent memory & credit exhaust
+    const sanitizedMessages = messages.slice(-10).map((m: any) => ({
+      role: m.role === "user" ? "user" : "assistant",
+      content: String(m.text || m.content || "").slice(0, 1000), // Max 1000 chars per message
+    }));
 
     // 1. Fetch Categories, Services, Districts, and Company Branding from Backend API
     let categoriesList = [];
@@ -204,10 +234,7 @@ Detailed Guidelines for Responses:
     // 5. Format message history for OpenRouter (OpenAI chat/completions format)
     const formattedMessages = [
       { role: "system", content: systemPrompt },
-      ...messages.map((m: any) => ({
-        role: m.role === "user" ? "user" : "assistant",
-        content: m.text || m.content || "",
-      }))
+      ...sanitizedMessages
     ];
 
     // 6. Call OpenRouter API using ultra-fast google/gemini-2.5-flash with token limit & timeout
