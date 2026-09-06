@@ -1,7 +1,5 @@
 node_modules
 .next
-out
-build
 .git
 .gitignore
 .dockerignore
@@ -9,3 +7,8 @@ Dockerfile
 docker-compose.yml
 README.md
 npm-debug.log
+.vscode
+.idea
+*.md
+scratch
+rajseba-invoice-downloader
