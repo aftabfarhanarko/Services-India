@@ -13,7 +13,7 @@ interface ServiceItem { id: number; name: string; rate: number; }
 interface LineItem { serviceName?: string; description: string; inceFit?: string; qty: number; rate: number; amount: number; }
 
 const EMPTY_ITEM: LineItem = { serviceName: "", description: "", inceFit: "", qty: 1, rate: 0, amount: 0 };
-const DEFAULT_PO = { accountName: "RAJSEBA.COM", accountNumber: "02433002451", bankName: "Bank Asia PLC", branch: "Rajshahi Branch", routingNumber: "070811937" };
+const DEFAULT_PO = { accountName: "RAJSEBA.IN", accountNumber: "02433002451", bankName: "HDFC Bank / ICICI Bank", branch: "Kolkata Branch", routingNumber: "IFSC000123" };
 
 function toWords(n: number): string {
   const ones = ["", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen", "Sixteen", "Seventeen", "Eighteen", "Nineteen"];

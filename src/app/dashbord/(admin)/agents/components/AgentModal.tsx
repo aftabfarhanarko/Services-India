@@ -86,7 +86,7 @@ export default function AgentModal({
                 type="tel"
                 required
                 className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-[#FF6014]/40 focus:ring-2 focus:ring-rose-100 transition-all"
-                placeholder="01XXXXXXXXX"
+                placeholder="+91 98765 43210"
               />
             </div>
             <div>
@@ -105,15 +105,15 @@ export default function AgentModal({
                   onClick={() => setShowPassword(!showPassword)}
                   className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 transition-colors"
                 >
-                  {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
+                  {showPassword ? <EyeOff size={16} /> : <Eye size={16} />}
                 </button>
               </div>
             </div>
-            <div className="pt-4 flex justify-end gap-3 border-t border-slate-100">
+            <div className="pt-2 flex justify-end gap-2">
               <button
                 type="button"
                 onClick={closeModal}
-                className="px-5 py-2.5 text-sm font-bold text-slate-600 bg-slate-100 hover:bg-slate-200 rounded-xl transition-all"
+                className="px-5 py-2.5 text-sm font-bold text-slate-600 hover:bg-slate-100 rounded-xl transition-all"
               >
                 Cancel
               </button>
@@ -135,17 +135,17 @@ export default function AgentModal({
                 type="text"
                 required
                 className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-[#FF6014]/40 focus:ring-2 focus:ring-rose-100 transition-all"
-                placeholder="Rahman Maintenance Services"
+                placeholder="Kolkata Maintenance Services"
               />
             </div>
             <div>
-              <label className="block text-xs font-semibold text-slate-500 mb-1.5 uppercase">National ID (NID) Number</label>
+              <label className="block text-xs font-semibold text-slate-500 mb-1.5 uppercase">Government ID (Aadhaar / Voter ID)</label>
               <input
                 name="nid_number"
                 type="text"
                 required
                 className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-[#FF6014]/40 focus:ring-2 focus:ring-rose-100 transition-all"
-                placeholder="199XXXXXXXXXX"
+                placeholder="XXXX XXXX XXXX"
               />
             </div>
 
@@ -218,13 +218,13 @@ export default function AgentModal({
               </div>
             </div>
 
-            {/* NID Images */}
+            {/* Government ID Images */}
             <div className="grid grid-cols-2 gap-3">
               <div>
-                <label className="block text-xs font-semibold text-slate-500 mb-1.5 uppercase">NID Front Page (Max 6MB)</label>
+                <label className="block text-xs font-semibold text-slate-500 mb-1.5 uppercase">Govt ID Front (Max 6MB)</label>
                 <div className="relative border border-slate-200 bg-slate-50 hover:bg-white rounded-xl px-4 py-2.5 flex items-center justify-between cursor-pointer group transition-all">
                   <span className="text-xs font-bold text-slate-600 truncate max-w-[120px]">
-                    {nidFrontFile ? nidFrontFile.name : "NID Front"}
+                    {nidFrontFile ? nidFrontFile.name : "Govt ID Front"}
                   </span>
                   <span className="text-[10px] font-black uppercase text-[#FF6014] group-hover:underline">File</span>
                   <input
@@ -237,15 +237,15 @@ export default function AgentModal({
                 </div>
                 {nidFrontFile && (
                   <div className="mt-2 relative w-full aspect-video rounded-xl overflow-hidden border border-slate-200 shadow-xs">
-                    <img src={URL.createObjectURL(nidFrontFile)} alt="NID Front Preview" className="w-full h-full object-cover" />
+                    <img src={URL.createObjectURL(nidFrontFile)} alt="Govt ID Front Preview" className="w-full h-full object-cover" />
                   </div>
                 )}
               </div>
               <div>
-                <label className="block text-xs font-semibold text-slate-500 mb-1.5 uppercase">NID Back Page (Max 6MB)</label>
+                <label className="block text-xs font-semibold text-slate-500 mb-1.5 uppercase">Govt ID Back (Max 6MB)</label>
                 <div className="relative border border-slate-200 bg-slate-50 hover:bg-white rounded-xl px-4 py-2.5 flex items-center justify-between cursor-pointer group transition-all">
                   <span className="text-xs font-bold text-slate-600 truncate max-w-[120px]">
-                    {nidBackFile ? nidBackFile.name : "NID Back"}
+                    {nidBackFile ? nidBackFile.name : "Govt ID Back"}
                   </span>
                   <span className="text-[10px] font-black uppercase text-[#FF6014] group-hover:underline">File</span>
                   <input
@@ -258,7 +258,7 @@ export default function AgentModal({
                 </div>
                 {nidBackFile && (
                   <div className="mt-2 relative w-full aspect-video rounded-xl overflow-hidden border border-slate-200 shadow-xs">
-                    <img src={URL.createObjectURL(nidBackFile)} alt="NID Back Preview" className="w-full h-full object-cover" />
+                    <img src={URL.createObjectURL(nidBackFile)} alt="Govt ID Back Preview" className="w-full h-full object-cover" />
                   </div>
                 )}
               </div>

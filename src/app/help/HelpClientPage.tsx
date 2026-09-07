@@ -78,10 +78,10 @@ export default function HelpClientPage() {
             title: "Issue: OTP (Verification Code) Not Received",
             problem: "You didn't receive the SMS verification code to verify your phone number.",
             steps: [
-              "Ensure your mobile network is stable and you entered the correct phone number (with prefix +880).",
+              "Ensure your mobile network is stable and you entered the correct phone number (with prefix +91).",
               "Wait 60 seconds for the countdown timer to finish and click 'Resend OTP'.",
               "Check if your SMS inbox is full or if you have blocked promo messages from your carrier.",
-              "If you still do not receive the OTP, contact our hotline at 01813-333373 for manual verification.",
+              "If you still do not receive the OTP, contact our hotline at +91 1788775100 for manual verification.",
             ],
           },
           {
@@ -517,10 +517,10 @@ export default function HelpClientPage() {
                 Drop us a line and we will reply within 4 hours.
               </p>
               <a
-                href="mailto:info@rajseba.com"
+                href="mailto:info@rajseba.in"
                 className="text-[10px] font-bold text-emerald-600 hover:underline flex items-center gap-0.5 mt-auto"
               >
-                info@rajseba.com
+                info@rajseba.in
                 <Mail className="w-3 h-3" />
               </a>
             </div>

@@ -16,7 +16,7 @@ import HomeMotionWrapper from "@/components/home/HomeMotionWrapper";
 import ScrollToTop from "@/components/home/ScrollToTop";
 import type { Metadata } from "next";
 
-const SITE_URL = "https://rajseba.com";
+const SITE_URL = "https://rajseba.in";
 const SITE_NAME = "Rajseba";
 const SITE_TAGLINE = "Expert Care for Your Premium Home";
 const OG_IMAGE = `${SITE_URL}/og-image.jpg`;
@@ -73,9 +73,9 @@ export async function generateMetadata(): Promise<Metadata> {
       ? categories.slice(0, 5).join(", ")
       : "AC repair, cleaning, plumbing, electrical";
 
-  const description = `Book trusted home services in Kolkata, West Bengal, India — ${categoryList}, and more. Verified experts, instant booking, guaranteed quality. Your home in Kolkata deserves the best care.`;
+  const description = `Book trusted home services in Kolkata (North Kolkata, New Town, Rajarhat, Salt Lake & South Kolkata) — ${categoryList}, and more. Verified experts, instant booking, guaranteed quality.`;
 
-  const title = `${SITE_NAME} — Premium Home Services in Kolkata, West Bengal, India`;
+  const title = `${SITE_NAME} — Kolkata's Trusted On-Demand Household Services`;
 
   return {
     title,

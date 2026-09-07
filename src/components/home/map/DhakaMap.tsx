@@ -17,7 +17,7 @@ import VendorLocationInfo from "./VendorLocationInfo";
 const KOLKATA_CENTER: [number, number] = [22.5726, 88.3639];
 const DEFAULT_ZOOM = 7;
 
-interface DhakaMapProps {
+interface KolkataMapProps {
   filteredExperts: Expert[];
   selectedExpertId: string;
   setSelectedExpertId: (id: string) => void;
@@ -219,12 +219,12 @@ function VendorMarker({
   );
 }
 
-export default function DhakaMap({
+export default function KolkataMap({
   filteredExperts,
   selectedExpertId,
   setSelectedExpertId,
   onViewDetails,
-}: DhakaMapProps) {
+}: KolkataMapProps) {
   const [resetToken, setResetToken] = React.useState(0);
   const selectedExpert = filteredExperts.find((expert) => expert.id === selectedExpertId);
 

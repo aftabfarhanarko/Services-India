@@ -78,47 +78,47 @@ export const metadata: Metadata = {
   category: "Home Services",
 };
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "HomeAndConstructionBusiness",
+  "name": "Rajseba",
+  "image": "https://rajseba.in/og-image.png",
+  "@id": "https://rajseba.in/#organization",
+  "url": "https://rajseba.in",
+  "telephone": "+916290257347",
+  "priceRange": "₹₹",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Ground floor, Seven Sky Apartment, Bimannagar, Kaikhali",
+    "addressLocality": "Kolkata",
+    "addressRegion": "West Bengal",
+    "postalCode": "700052",
+    "addressCountry": "IN"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 22.6318,
+    "longitude": 88.4357
+  },
+  "areaServed": [
+    { "@type": "AdministrativeArea", "name": "North Kolkata" },
+    { "@type": "AdministrativeArea", "name": "New Town" },
+    { "@type": "AdministrativeArea", "name": "Rajarhat" },
+    { "@type": "City", "name": "Kolkata" }
+  ],
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+    "opens": "08:00",
+    "closes": "22:00"
+  }
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "HomeAndConstructionBusiness",
-    "name": "Rajseba",
-    "image": "https://rajseba.in/og-image.png",
-    "@id": "https://rajseba.in/#organization",
-    "url": "https://rajseba.in",
-    "telephone": "+916290257347",
-    "priceRange": "₹₹",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "Ground floor, Seven Sky Apartment, Bimannagar, Kaikhali",
-      "addressLocality": "Kolkata",
-      "addressRegion": "West Bengal",
-      "postalCode": "700052",
-      "addressCountry": "IN"
-    },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": 22.6318,
-      "longitude": 88.4357
-    },
-    "areaServed": [
-      { "@type": "AdministrativeArea", "name": "North Kolkata" },
-      { "@type": "AdministrativeArea", "name": "New Town" },
-      { "@type": "AdministrativeArea", "name": "Rajarhat" },
-      { "@type": "City", "name": "Kolkata" }
-    ],
-    "openingHoursSpecification": {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-      "opens": "08:00",
-      "closes": "22:00"
-    }
-  };
-
   return (
     <html lang="en" className={`${baiJamjuree.variable} antialiased`}>
       <head>

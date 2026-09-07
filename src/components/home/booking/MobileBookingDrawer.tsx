@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { X, Calendar, ShoppingCart, Minus, Plus, Loader2 } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 import { CouponApply } from "@/components/home/booking/CouponApply";
@@ -50,6 +50,11 @@ export function MobileBookingDrawer({
   appliedCoupon, setAppliedCoupon, bookingDetails, setBookingDetails,
   isBooking, onSubmit, serviceId, onUpdateQuantity, onRemoveFromCart, onClearCart,
 }: MobileBookingDrawerProps) {
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = "hidden";
@@ -80,40 +85,86 @@ export function MobileBookingDrawer({
             <form onSubmit={onSubmit} className="flex-1 flex flex-col min-h-0 overflow-hidden">
               <div className="overflow-y-auto flex-1 p-5 space-y-5 [&::-webkit-scrollbar]:w-0.5">
                 {cartItems.length > 0 && (
-                  <div className="bg-[#FFF8F4] border border-[#FF6014]/10 rounded-2xl p-4 space-y-3">
-                    <div className="flex justify-between items-center text-xs font-bold text-[#FF6014] uppercase tracking-wider pb-2 border-b border-[#FF6014]/10">
-                      <span className="flex items-center gap-1"><ShoppingCart size={12} />Selected Services ({cartItemCount})</span>
-                      <button type="button" onClick={onClearCart} className="text-slate-400 hover:text-rose-500">Clear All</button>
+                  <div className="space-y-3">
+                    <div className="flex justify-between items-center text-xs font-black text-[#FF6014] uppercase tracking-wider pb-1">
+                      <span className="flex items-center gap-1.5"><ShoppingCart size={14} />Selected Services ({cartItemCount})</span>
+                      <button type="button" onClick={onClearCart} className="text-slate-400 hover:text-rose-500 font-bold">Clear All</button>
                     </div>
-                    <div className="space-y-3 max-h-36 overflow-y-auto pr-1">
+
+                    <div className="space-y-2.5 max-h-48 overflow-y-auto pr-1">
                       {cartItems.map((item: any) => (
-                        <div key={item.id} className="flex justify-between items-start gap-3 text-xs">
-                          <div className="min-w-0 flex-1">
-                            <p className="font-bold text-slate-700 truncate">{item.name}</p>
-                            <p className="text-slate-400 font-semibold truncate text-[10px]">{item.parentTitle}</p>
-                          </div>
-                          <div className="flex items-center gap-2 shrink-0">
-                            <div className="flex items-center gap-0.5 bg-white border border-slate-100 rounded-lg p-0.5">
-                              <button type="button" onClick={() => onUpdateQuantity(item.id, -1)} className="w-5 h-5 rounded-md text-[#FF6014] flex items-center justify-center hover:bg-rose-50 transition cursor-pointer"><Minus size={10} strokeWidth={3} /></button>
-                              <span className="w-5 text-center text-[10px] font-black text-slate-800">{item.quantity}</span>
-                              <button type="button" onClick={() => onUpdateQuantity(item.id, 1)} className="w-5 h-5 rounded-md text-[#FF6014] flex items-center justify-center hover:bg-rose-50 transition cursor-pointer"><Plus size={10} strokeWidth={3} /></button>
+                        <div
+                          key={item.id}
+                          className="group relative bg-gradient-to-r from-slate-50/90 to-orange-50/20 hover:from-white hover:to-orange-50/40 border border-slate-200/90 hover:border-[#FF6014]/40 rounded-2xl p-3 shadow-2xs transition-all duration-200 flex flex-col gap-2"
+                        >
+                          <div className="flex items-start justify-between gap-2">
+                            <div className="flex items-center gap-2 min-w-0">
+                              <div className="w-7 h-7 rounded-xl bg-gradient-to-br from-[#FF6014]/15 to-orange-100 text-[#FF6014] flex items-center justify-center shrink-0 font-bold text-xs shadow-3xs">
+                                🛠️
+                              </div>
+                              <div className="min-w-0">
+                                <h4 className="font-extrabold text-slate-800 text-xs truncate">
+                                  {item.name}
+                                </h4>
+                                <p className="text-[10px] font-bold text-slate-400 truncate">
+                                  {item.parentTitle}
+                                </p>
+                              </div>
                             </div>
-                            <span className="font-black text-slate-700 min-w-[3.5rem] text-right">₹{(Number(item.price) * item.quantity).toLocaleString()}</span>
-                            <button type="button" onClick={() => onRemoveFromCart(item.id)} className="text-slate-400 hover:text-rose-500 transition cursor-pointer"><X size={12} /></button>
+                            <button
+                              type="button"
+                              onClick={() => onRemoveFromCart(item.id)}
+                              className="text-slate-400 hover:text-rose-600 hover:bg-rose-50 p-1.5 rounded-xl transition-colors cursor-pointer shrink-0"
+                            >
+                              <X size={13} />
+                            </button>
+                          </div>
+
+                          <div className="flex items-center justify-between pt-1 border-t border-slate-100">
+                            <div className="flex items-center gap-1 bg-white border border-slate-200/90 rounded-xl p-0.5 shadow-3xs">
+                              <button
+                                type="button"
+                                onClick={() => onUpdateQuantity(item.id, -1)}
+                                className="w-5 h-5 rounded-lg text-[#FF6014] hover:bg-orange-50 flex items-center justify-center transition cursor-pointer"
+                              >
+                                <Minus size={10} strokeWidth={3} />
+                              </button>
+                              <span className="w-5 text-center text-xs font-black text-slate-800">
+                                {item.quantity}
+                              </span>
+                              <button
+                                type="button"
+                                onClick={() => onUpdateQuantity(item.id, 1)}
+                                className="w-5 h-5 rounded-lg text-[#FF6014] hover:bg-orange-50 flex items-center justify-center transition cursor-pointer"
+                              >
+                                <Plus size={10} strokeWidth={3} />
+                              </button>
+                            </div>
+
+                            <div className="text-right">
+                              <span className="text-[10px] text-slate-400 block font-bold">
+                                ₹{Number(item.price).toLocaleString()} × {item.quantity}
+                              </span>
+                              <span className="font-black text-[#FF6014] text-xs">
+                                ₹{(Number(item.price) * item.quantity).toLocaleString()}
+                              </span>
+                            </div>
                           </div>
                         </div>
                       ))}
                     </div>
-                    <div className="pt-2 border-t border-[#FF6014]/10 space-y-1.5 text-xs">
-                      <div className="flex justify-between text-slate-600 font-semibold"><span>Subtotal</span><span>₹{cartTotal.toLocaleString()}</span></div>
+
+                    <div className="bg-gradient-to-br from-[#FFF8F4] to-orange-50/40 rounded-2xl p-3.5 border border-[#FF6014]/20 space-y-1.5 text-xs shadow-2xs">
+                      <div className="flex justify-between text-slate-600 font-semibold"><span>Subtotal ({cartItemCount} item{cartItemCount === 1 ? "" : "s"})</span><span className="font-bold text-slate-800">₹{cartTotal.toLocaleString()}</span></div>
                       {appliedCoupon && (
-                        <div className="flex justify-between text-emerald-600 font-bold">
-                          <span>Coupon ({appliedCoupon.coupon.code})</span>
+                        <div className="flex justify-between text-emerald-600 font-bold bg-emerald-50 px-2 py-0.5 rounded-lg border border-emerald-200">
+                          <span>🎉 Coupon ({appliedCoupon.coupon.code})</span>
                           <span>-₹{Number(appliedCoupon.discount_amount).toLocaleString()}</span>
                         </div>
                       )}
-                      <div className="flex justify-between items-center text-sm font-black text-slate-800 pt-1.5 border-t border-slate-100">
-                        <span>Total Price</span><span className="text-[#FF6014] text-base">₹{payableTotal.toLocaleString()}</span>
+                      <div className="flex justify-between text-slate-600 font-semibold"><span>Inspection Fee</span><span className="text-emerald-600 font-bold">FREE</span></div>
+                      <div className="flex justify-between items-center text-sm font-black text-slate-900 pt-1.5 border-t border-slate-200/80">
+                        <span>Total Payable Amount</span><span className="text-[#FF6014] text-base font-black">₹{payableTotal.toLocaleString()}</span>
                       </div>
                     </div>
                   </div>

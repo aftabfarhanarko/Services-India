@@ -144,7 +144,7 @@ export default function Footer() {
   const rawFooterLogo = branding?.footerLogoUrl || branding?.logoUrl || "/logo.png";
   const footerLogo = formatImageUrl(rawFooterLogo);
   const companyName = branding?.companyName || "Rajseba";
-  const footerDesc = branding?.footerDescription || "Kolkata & India's leading home service marketplace, connecting you with verified professionals for shifting, cleaning, and home maintenance in Kolkata and West Bengal. Fast, safe, and reliable.";
+  const footerDesc = branding?.footerDescription || "Kolkata's premier home service marketplace, connecting you with verified professionals for shifting, cleaning, AC repair, and home maintenance across Kolkata. Fast, safe, and reliable.";
 
   const mapUrl = branding?.address 
     ? `https://maps.google.com/?q=${encodeURIComponent(`${branding.address}${branding.cityLocation ? `, ${branding.cityLocation}` : ""}`)}`
@@ -160,9 +160,9 @@ export default function Footer() {
   ];
 
   const dynamicContactInfo = [
-    ...(branding?.phone ? [{ icon: Phone, label: branding.phone, href: `tel:${branding.phone.replace(/[^0-9+]/g, "")}` }] : []),
-    ...(branding?.email ? [{ icon: Mail, label: branding.email, href: `mailto:${branding.email}` }] : []),
-    ...(branding?.address ? [{ icon: MapPin, label: cleanAddress(`${branding.address}${branding.cityLocation ? `, ${branding.cityLocation}` : ""}`), href: `https://maps.google.com/?q=${encodeURIComponent(branding.address)}` }] : []),
+    ...(branding?.phone ? [{ icon: Phone, label: branding.phone, href: `tel:${branding.phone.replace(/[^0-9+]/g, "")}` }] : [{ icon: Phone, label: "+91 1788775100", href: "tel:+911788775100" }]),
+    ...(branding?.email ? [{ icon: Mail, label: branding.email, href: `mailto:${branding.email}` }] : [{ icon: Mail, label: "info@rajseba.in", href: "mailto:info@rajseba.in" }]),
+    ...(branding?.address ? [{ icon: MapPin, label: cleanAddress(`${branding.address}${branding.cityLocation ? `, ${branding.cityLocation}` : ""}`), href: `https://maps.google.com/?q=${encodeURIComponent(branding.address)}` }] : [{ icon: MapPin, label: "Kolkata, West Bengal, India", href: "https://maps.google.com/?q=Kolkata+West+Bengal+India" }]),
   ];
 
   const dynamicSocials = [
@@ -407,7 +407,7 @@ export default function Footer() {
 
           <div className="flex items-center gap-2">
             <a
-              href="https://rajseba.com"
+              href="https://rajseba.in"
               target="_blank"
               aria-label="Visit website"
               className="w-8 h-8 bg-white border border-slate-100 rounded-xl flex items-center justify-center text-slate-400 hover:text-[#FF6014] hover:border-[#FF6014]/20 transition-all duration-200 shrink-0"

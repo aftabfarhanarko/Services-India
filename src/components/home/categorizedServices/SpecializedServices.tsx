@@ -100,6 +100,11 @@ export function SpecializedServices({
   const [createBooking] = useCreateBookingMutation();
   const [createCustomRequest] = useCreateCustomRequestMutation();
 
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   // User Info Modal for Contact / Manual Price Service
   const [contactModalData, setContactModalData] = useState<{
     isOpen: boolean;

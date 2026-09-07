@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { X, Plus, Minus, HelpCircle } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 

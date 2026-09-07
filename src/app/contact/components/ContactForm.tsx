@@ -45,7 +45,7 @@ export function ContactForm({
             <div className="grid md:grid-cols-2 gap-4">
               <div className="space-y-1.5">
                 <label htmlFor="phone" className="text-[10px] font-black text-slate-400 uppercase tracking-[.1em]">Phone <span className="normal-case tracking-normal font-medium text-slate-300">(optional)</span></label>
-                <input id="phone" name="phone" type="tel" placeholder="+880 17XXXXXXXX" value={form.phone} onChange={handleChange} className={inputNormal} />
+                <input id="phone" name="phone" type="tel" placeholder="+91 98765 43210" value={form.phone} onChange={handleChange} className={inputNormal} />
               </div>
               <div className="space-y-1.5">
                 <label className="text-[10px] font-black text-slate-400 uppercase tracking-[.1em]">Subject Topic <span className="text-[#FF6014]">*</span></label>

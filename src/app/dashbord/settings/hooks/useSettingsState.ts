@@ -14,9 +14,9 @@ export function useSettingsState() {
 
   // Form Fields State
   const [personalInfo, setPersonalInfo] = useState({
-    fullName: "Zayed Mansoor",
-    email: "zayed.mansoor@example.com",
-    phone: "+880 1712-345678",
+    fullName: "Rajesh Kumar",
+    email: "rajesh@example.com",
+    phone: "+91 98765-43210",
     location: "Salt Lake, Kolkata",
   });
 

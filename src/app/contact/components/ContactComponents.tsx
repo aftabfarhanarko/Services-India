@@ -17,7 +17,7 @@ export const TRUST_BARS = [
 
 export const FAQS = [
   { question: "How do I schedule a home service on Rajseba?", answer: "Browse our service directory, pick the task required, and choose your preferred date/time slot using our calendar. A verified Rajseba professional will be matched to your booking instantly." },
-  { question: "What verification procedures do professionals go through?", answer: "Every technician goes through a multi-tier vetting process, including biometric National ID verification, criminal background checks, and a practical skill examination at the Rajseba Academy." },
+  { question: "What verification procedures do professionals go through?", answer: "Every technician goes through a multi-tier vetting process, including biometric Aadhaar ID verification, criminal background checks, and a practical skill examination at the Rajseba Academy." },
   { question: "What happens if there is accidental damage during service?", answer: "Your satisfaction and safety are our priorities. All Rajseba appointments are protected under our service insurance, covering accidental damages up to ₹10,000." },
   { question: "Can I cancel or change my booking slot?", answer: "Yes, you can reschedule or cancel any scheduled booking up to 2 hours before the service slot begins directly through your dashboard without any cancellation penalty fee." },
   { question: "How does the warranty claim process work?", answer: "All completed services come with a 7-day Rajseba Service Warranty. If any issue reoccurs, submit a ticket or call us for a free follow-up inspection and fix." }
@@ -27,15 +27,15 @@ export function ContactChannelsList() {
   const { data: brandingRes } = useGetPublicCompanyBrandingQuery();
   const branding = brandingRes?.data;
 
-  const phone = branding?.phone || "+91 6290257347";
-  const email = branding?.email || "info@rajseba.com";
+  const phone = branding?.phone || "+91 1788775100";
+  const email = branding?.email || "info@rajseba.in";
   const rawAddress = branding?.address || "Ground floor, Seven Sky Apartment, Bimannagar, Kaikhali, Kolkata, West Bengal 700052";
   const address = cleanAddress(rawAddress);
 
   const channels = [
     { icon: Phone, label: "Call Support", primary: phone, href: `tel:${phone.replace(/[^0-9+]/g, '')}`, secondary: `Hotline: ${phone}`, badge: "24/7 Hotline" },
     { icon: Mail, label: "Email Support", primary: email, href: `mailto:${email}`, secondary: `Official: ${email}`, badge: "Replies in 4 hrs" },
-    { icon: MapPin, label: "Visit HQ", primary: address.split(',')[0], href: `https://maps.google.com/?q=${encodeURIComponent(address)}`, secondary: address, badge: "Sat – Thu (9AM-6PM)" },
+    { icon: MapPin, label: "Visit HQ", primary: address.split(',')[0], href: `https://maps.google.com/?q=${encodeURIComponent(address)}`, secondary: address, badge: "Mon – Sun (8AM-9PM)" },
   ];
 
   return (
@@ -76,7 +76,7 @@ export function SocialLinksBar() {
     { icon: FaFacebookF, href: social.facebook || "https://facebook.com/rajseba", label: "Facebook" },
     { icon: FaInstagram, href: social.instagram || "https://instagram.com/rajseba", label: "Instagram" },
     { icon: FaLinkedinIn, href: social.linkedin || "https://linkedin.com/company/rajseba", label: "LinkedIn" },
-    { icon: FaWhatsapp, href: social.whatsapp ? `https://wa.me/${social.whatsapp.replace(/[^0-9]/g, '')}` : "https://wa.me/880181333373", label: "WhatsApp" },
+    { icon: FaWhatsapp, href: social.whatsapp ? `https://wa.me/${social.whatsapp.replace(/[^0-9]/g, '')}` : "https://wa.me/911788775100", label: "WhatsApp" },
   ];
 
   return (
@@ -98,8 +98,8 @@ export function SocialLinksBar() {
 }
 
 export const OFFICE_HOURS = [
-  ["Saturday – Thursday", "9:00 AM – 6:00 PM"],
-  ["Friday Hotline Support", "10:00 AM – 2:00 PM"],
+  ["Monday – Sunday", "8:00 AM – 9:00 PM IST"],
+  ["Hotline & WhatsApp Support", "24/7 Available"],
   ["Emergency Services", "24/7 Dispatch"]
 ];
 

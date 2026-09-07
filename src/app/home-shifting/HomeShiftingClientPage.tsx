@@ -469,7 +469,7 @@ export default function HomeShiftingClientPage() {
 
                     {/* Name + Phone */}
                     <div className="grid sm:grid-cols-2 gap-4">
-                      {[{ n: "name", l: "Full Name *", pl: "Your full name", I: User, t: "text" }, { n: "phone", l: "Phone *", pl: "+880 1XXXXXXXXX", I: Phone, t: "tel" }].map(({ n, l, pl, I, t }) => (
+                      {[{ n: "name", l: "Full Name *", pl: "Your full name", I: User, t: "text" }, { n: "phone", l: "Phone *", pl: "+91 98765 43210", I: Phone, t: "tel" }].map(({ n, l, pl, I, t }) => (
                         <div key={n}>
                           <label className="text-xs font-black text-slate-500 uppercase tracking-wider mb-1.5 block">{l}</label>
                           <div className="relative">

@@ -204,7 +204,7 @@ export default function LoginPage() {
             </div>
 
             <a
-              href="https://api.rajseba.in/api/auth/google/callback"
+              href="https://api.rajseba.in/api/auth/google"
               className="w-full bg-white hover:bg-slate-50 border border-slate-200 text-slate-700 text-xs font-bold py-3.5 rounded-2xl shadow-xs transition-all flex items-center justify-center gap-3 cursor-pointer text-decoration-none group"
             >
               <svg className="w-5 h-5" viewBox="0 0 24 24">

@@ -191,10 +191,14 @@ export function useBookingCartState({ service, isLoading, nestedServices }: UseB
       sub_service_id: Number(item.id),
       quantity: Number(item.quantity),
     }));
+    const rawVendorId = service?.vendor?.id || service?.vendor_id || getFallbackVendorId(profilesRes);
+    const vendorIdNum = Number(rawVendorId);
+    const serviceIdNum = Number(service?.id);
+
     const payload = {
       user_id: Number(authUser?.id),
-      vendor_id: Number(service?.vendor?.id || service?.vendor_id || getFallbackVendorId(profilesRes)),
-      service_id: Number(service?.id),
+      vendor_id: !isNaN(vendorIdNum) && vendorIdNum > 0 ? vendorIdNum : undefined,
+      service_id: !isNaN(serviceIdNum) && serviceIdNum > 0 ? serviceIdNum : undefined,
       date: bookingDetails.date,
       time: bookingDetails.time || undefined,
       location: bookingDetails.location,

@@ -98,13 +98,13 @@ export function useOpportunityState() {
       toast.error("Please upload a picture."); return;
     }
     
-    // Validate NID for Agent role
+    // Validate Govt ID / Aadhaar for Agent role
     if (selectedRole === "Agent") {
       if (!formData.nid_number.trim()) {
-        toast.error("Please provide your NID number."); return;
+        toast.error("Please provide your Govt ID / Aadhaar number."); return;
       }
       if (!nidFrontFile || !nidBackFile) {
-        toast.error("Please upload both NID front and back images."); return;
+        toast.error("Please upload both Govt ID / Aadhaar front and back images."); return;
       }
       if (!shopImage1File || !shopImage2File) {
         toast.error("Please upload both Shop Image 1 and Shop Image 2."); return;

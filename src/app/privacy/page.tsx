@@ -5,11 +5,11 @@ export const metadata: Metadata = {
   title: "Privacy Policy — Rajseba Kolkata, India",
   description: "Read the Privacy Policy of Rajseba to understand how we collect, use, protect, and manage your personal data on Kolkata's top home services platform in West Bengal, India.",
   keywords: ["privacy policy rajseba", "data protection Kolkata India", "rajseba user privacy", "personal data policy West Bengal"],
-  alternates: { canonical: "https://rajseba.com/privacy" },
+  alternates: { canonical: "https://rajseba.in/privacy" },
   openGraph: {
     title: "Privacy Policy — Rajseba Kolkata, India",
     description: "Read our Privacy Policy to learn how we protect your personal information in Kolkata, West Bengal, India.",
-    url: "https://rajseba.com/privacy",
+    url: "https://rajseba.in/privacy",
     siteName: "Rajseba Kolkata",
     locale: "en_IN",
     type: "website",

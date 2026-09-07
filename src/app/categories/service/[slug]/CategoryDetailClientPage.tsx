@@ -45,6 +45,8 @@ import { Commitments } from '@/components/home/categorizedServices/Commitments';
 import { VendorProfile } from '@/components/home/categorizedServices/VendorProfile';
 import { ServiceReviews } from '@/components/home/categorizedServices/ServiceReviews';
 import { useGetPublicServiceByIdQuery, useGetPublicServicesQuery } from "@/redux/features/landing/landingApi";
+import { useAppSelector } from "@/redux/hooks";
+import { useGetAllBookingsQuery } from "@/redux/features/admin/booking";
 import { Loader2, ArrowLeft, ShoppingCart } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -66,6 +68,15 @@ export default function CategoryDetailClientPage({ slug }: { slug: string }) {
   );
   const service = serviceRes?.data;
 
+  const { isAuthenticated } = useAppSelector((state) => state.auth);
+  const { data: bookingsRes } = useGetAllBookingsQuery(undefined, {
+    skip: !isAuthenticated,
+    pollingInterval: 5000,
+  });
+  const activeBookings = (bookingsRes?.data || []).filter(
+    (b: any) => b.status === "pending" || b.status === "assigned" || b.status === "on_the_way"
+  );
+
   React.useEffect(() => {
     if (service) {
       const catName = service.category?.name?.toLowerCase() || "";
@@ -84,6 +95,15 @@ export default function CategoryDetailClientPage({ slug }: { slug: string }) {
   const isLoading = isPublicLoading || isServiceLoading;
 
   const state = useBookingCartState({ service, isLoading });
+
+  const cartCount = state.cartItemCount;
+  const activeCount = activeBookings.length;
+  const displayCount = cartCount > 0 ? cartCount : activeCount;
+  const activePriceSum = activeBookings.reduce((acc: number, b: any) => acc + (b.total_price || b.subtotal || 0), 0);
+  const displayPrice = cartCount > 0 ? state.payableTotal : activePriceSum;
+  const displayLabel = cartCount > 0
+    ? `${cartCount} item${cartCount === 1 ? "" : "s"}`
+    : `${activeCount} Booking${activeCount === 1 ? "" : "s"}`;
 
   if (isLoading) {
     return (
@@ -175,6 +195,25 @@ export default function CategoryDetailClientPage({ slug }: { slug: string }) {
 
             {/* Sidebar Column */}
             <div className="space-y-6 md:space-y-8 sticky top-[136px] z-20">
+              <DesktopBookingSidebar
+                cartItems={state.cartItems}
+                cartItemCount={state.cartItemCount}
+                cartTotal={state.cartTotal}
+                payableTotal={state.payableTotal}
+                appliedCoupon={state.appliedCoupon}
+                setAppliedCoupon={state.setAppliedCoupon}
+                bookingDetails={state.bookingDetails}
+                setBookingDetails={state.setBookingDetails}
+                isBooking={state.isBooking}
+                onSubmit={state.handleConfirmBooking}
+                serviceId={service.id}
+                serviceImage={service.image}
+                serviceName={service.name}
+                onUpdateQuantity={state.handleUpdateQuantity}
+                onRemoveFromCart={state.handleRemoveFromCart}
+                onClearCart={state.handleClearCart}
+              />
+
               <div id="vendor">
                 <VendorProfile vendor={service.vendor} serviceRating={rating} />
               </div>
@@ -203,33 +242,34 @@ export default function CategoryDetailClientPage({ slug }: { slug: string }) {
         </div>
       </div>
 
+      {/* Floating Right Edge E-Commerce Cart Badge Widget (Matched to User Screenshot) */}
       <AnimatePresence>
-        {state.cartItems.length > 0 && (
-          <motion.div
-            initial={{ y: 100, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            exit={{ y: 100, opacity: 0 }}
-            className="fixed bottom-[88px] md:bottom-6 left-0 right-0 z-40 px-4 pointer-events-none flex justify-center"
+        {displayCount > 0 && (
+          <motion.button
+            type="button"
+            onClick={() => state.setIsModalOpen(true)}
+            initial={{ x: 100, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            exit={{ x: 100, opacity: 0 }}
+            whileHover={{ scale: 1.05, x: -3 }}
+            whileTap={{ scale: 0.95 }}
+            className="fixed right-0 top-1/2 -translate-y-1/2 z-50 bg-[#FF6014] hover:bg-[#E0530A] text-white p-3 rounded-l-2xl shadow-[0_10px_35px_rgba(255,96,20,0.45)] flex flex-col items-center justify-center gap-1 min-w-[76px] cursor-pointer border-l border-y border-white/20 backdrop-blur-md transition-all group"
           >
-            <div className="pointer-events-auto bg-white/95 backdrop-blur-xl border border-slate-200/50 shadow-[0_12px_40px_rgba(255,96,20,0.15)] rounded-[24px] p-3 flex items-center justify-between gap-6 w-full max-w-md animate-none">
-              <div className="flex items-center gap-3 min-w-0 pl-1">
-                <div className="w-10 h-10 rounded-xl bg-[#FFF8F4] text-[#FF6014] flex items-center justify-center shrink-0 border border-[#FF6014]/10 animate-none">
-                  <ShoppingCart size={18} className="stroke-[2.5]" />
-                </div>
-                <div className="min-w-0">
-                  <p className="text-[10px] font-bold text-slate-400 leading-none">{state.cartItemCount} item{state.cartItemCount === 1 ? "" : "s"}</p>
-                  <p className="text-base font-black text-slate-900 mt-0.5 leading-none">₹{state.payableTotal.toLocaleString()}</p>
-                </div>
-              </div>
-              <button
-                type="button"
-                onClick={() => state.setIsModalOpen(true)}
-                className="px-6 py-3 rounded-xl text-xs font-black text-white bg-[#FF6014] hover:bg-[#E0530A] transition-all duration-250 shadow-md active:scale-95 shrink-0 cursor-pointer"
-              >
-                Proceed to Book
-              </button>
+            <div className="relative p-1">
+              <ShoppingCart className="w-6 h-6 stroke-[2.2] group-hover:scale-110 transition-transform text-white" />
+              <span className="absolute -top-1.5 -right-2.5 bg-white text-[#FF6014] font-black text-[11px] w-5 h-5 rounded-full flex items-center justify-center shadow-md border-2 border-[#FF6014]">
+                {displayCount}
+              </span>
             </div>
-          </motion.div>
+            <div className="text-center leading-tight">
+              <span className="text-[10px] font-extrabold block text-white/90 whitespace-nowrap">
+                {displayLabel}
+              </span>
+              <span className="text-xs font-black block text-white mt-0.5 whitespace-nowrap">
+                ₹{displayPrice.toLocaleString()}
+              </span>
+            </div>
+          </motion.button>
         )}
       </AnimatePresence>
 

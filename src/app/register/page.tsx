@@ -9,11 +9,11 @@ export const metadata: Metadata = {
     "agent sign up India", "join rajseba Kolkata", "become a service provider Kolkata",
     "rajseba partner registration India",
   ],
-  alternates: { canonical: "https://rajseba.com/register" },
+  alternates: { canonical: "https://rajseba.in/register" },
   openGraph: {
     title: "Register as Vendor or Agent — Rajseba Kolkata, India",
     description: "Join Rajseba as a service provider and reach thousands of customers across Kolkata, West Bengal, India.",
-    url: "https://rajseba.com/register",
+    url: "https://rajseba.in/register",
     siteName: "Rajseba Kolkata",
     locale: "en_IN",
     type: "website",

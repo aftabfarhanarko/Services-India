@@ -112,15 +112,15 @@ export default function AgentViewModal({ selectedUser, setSelectedUser }: AgentV
             </p>
           </div>
 
-          {/* NID Verification Details */}
+          {/* NID / Govt ID Verification Details */}
           <div className="bg-slate-50/50 p-4 rounded-2xl border border-slate-100/50 space-y-3">
             <div className="flex justify-between items-center border-b border-slate-200/50 pb-2">
-              <span className="text-[10px] text-slate-400 font-bold block uppercase tracking-wider">National ID (NID) Details</span>
+              <span className="text-[10px] text-slate-400 font-bold block uppercase tracking-wider">Government ID (Aadhaar / Voter ID) Details</span>
               <span className="text-xs font-black text-slate-800">No: {selectedUser.nid_number || "N/A"}</span>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <span className="text-[9px] text-slate-400 font-bold block mb-1">NID Card - Front Page</span>
+                <span className="text-[9px] text-slate-400 font-bold block mb-1">Government ID - Front Page</span>
                 {selectedUser.nid_front ? (
                   <a href={selectedUser.nid_front} target="_blank" rel="noopener noreferrer" className="block relative aspect-video border rounded-xl overflow-hidden group shadow-xs">
                     <img src={selectedUser.nid_front} alt="NID Front" className="w-full h-full object-cover group-hover:scale-105 transition-transform" />
@@ -130,10 +130,10 @@ export default function AgentViewModal({ selectedUser, setSelectedUser }: AgentV
                 )}
               </div>
               <div>
-                <span className="text-[9px] text-slate-400 font-bold block mb-1">NID Card - Back Page</span>
+                <span className="text-[9px] text-slate-400 font-bold block mb-1">Government ID - Back Page</span>
                 {selectedUser.nid_back ? (
                   <a href={selectedUser.nid_back} target="_blank" rel="noopener noreferrer" className="block relative aspect-video border rounded-xl overflow-hidden group shadow-xs">
-                    <img src={selectedUser.nid_back} alt="NID Back" className="w-full h-full object-cover group-hover:scale-105 transition-transform" />
+                    <img src={selectedUser.nid_back} alt="Government ID Back" className="w-full h-full object-cover group-hover:scale-105 transition-transform" />
                   </a>
                 ) : (
                   <span className="text-xs font-bold text-slate-400">No image uploaded</span>

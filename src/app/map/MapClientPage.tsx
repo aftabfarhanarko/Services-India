@@ -11,7 +11,7 @@ import DetailModal from "@/components/home/map/DetailModal";
 import { useMapState } from "@/app/map/hooks/useMapState";
 import "@/components/home/map/leaflet-custom.css";
 
-const DhakaMap = dynamic(() => import("@/components/home/map/DhakaMap"), {
+const KolkataMap = dynamic(() => import("@/components/home/map/DhakaMap"), {
   ssr: false,
   loading: () => (
     <div className="flex-1 min-h-[480px] md:min-h-[600px] md:h-full rounded-3xl border border-slate-200 bg-slate-100 flex items-center justify-center">
@@ -98,7 +98,7 @@ export default function MapClientPage() {
                 <SidebarList searchQuery={searchQuery} setSearchQuery={setSearchQuery} selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory} categories={categories} activeTab={activeTab} setActiveTab={setActiveTab} filteredExperts={filteredExperts} selectedExpertId={selectedExpertId} setSelectedExpertId={setSelectedExpertId} onOpenFilters={() => setShowFiltersModal(true)} onViewDetails={setDetailExpert} />
               </div>
               <div className="order-1 md:order-2 md:col-span-8 lg:col-span-8 md:sticky md:top-4 h-[380px] sm:h-[450px] md:h-[calc(100vh-140px)] min-h-[350px]">
-                <DhakaMap filteredExperts={filteredExperts} selectedExpertId={selectedExpertId} setSelectedExpertId={setSelectedExpertId} onViewDetails={setDetailExpert} />
+                <KolkataMap filteredExperts={filteredExperts} selectedExpertId={selectedExpertId} setSelectedExpertId={setSelectedExpertId} onViewDetails={setDetailExpert} />
               </div>
             </div>
           </div>

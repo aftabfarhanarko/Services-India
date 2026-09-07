@@ -87,7 +87,7 @@ export function ServiceDeliveryDetails() {
           <p className="text-[10px] text-slate-400 font-semibold mt-1">Talk to our service support team.</p>
         </div>
         <a
-          href="tel:+8809612444888"
+          href="tel:+911788775100"
           className="flex items-center gap-1.5 px-3 py-2 bg-white hover:bg-slate-50 text-slate-700 hover:text-[#FF6014] border border-slate-200 rounded-xl transition duration-200 shadow-xs text-[10px] font-bold shrink-0 cursor-pointer"
         >
           <Phone size={12} className="text-[#FF6014]" />

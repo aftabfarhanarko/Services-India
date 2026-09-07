@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 
-const BASE_URL = "https://rajseba.com";
+const BASE_URL = "https://rajseba.in";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL || "https://api.rajseba.in";
 

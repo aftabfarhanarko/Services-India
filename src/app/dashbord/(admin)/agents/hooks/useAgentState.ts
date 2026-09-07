@@ -138,11 +138,11 @@ export function useAgentState() {
       return;
     }
     if (!formData.get("nid_number")?.toString().trim()) {
-      toast.error("Please provide NID Number.");
+      toast.error("Please provide Govt ID / Aadhaar Number.");
       return;
     }
     if (!nidFrontFile || !nidBackFile) {
-      toast.error("Please upload NID Front and Back pages.");
+      toast.error("Please upload Govt ID / Aadhaar Front and Back pages.");
       return;
     }
     if (!shopImage1File || !shopImage2File) {

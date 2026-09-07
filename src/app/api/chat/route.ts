@@ -132,9 +132,9 @@ Use this time context to answer time/date-related queries or reference today's d
 `;
 
     const systemPrompt = `You are the official Rajseba AI Assistant, a highly intelligent, polite, and responsive customer support AI for Rajseba (${companyBranding?.companyName || "Rajseba"}). 
-Rajseba is Kolkata, West Bengal & India's leading premium home service marketplace. 
-Our official hotline number is ${companyBranding?.phone || "01813-333373"}.
-Our official support email is ${companyBranding?.email || "info@rajseba.com"}.
+Rajseba is Kolkata's premier home service marketplace. 
+Our official hotline number is ${companyBranding?.phone || "+91 1788775100"}.
+Our official support email is ${companyBranding?.email || "info@rajseba.in"}.
 Our head office & primary operational center is located at ${companyBranding?.address || "Kolkata, West Bengal, India"}.
 ${userContextPrompt}
 ${timePrompt}
@@ -199,7 +199,7 @@ Our Webpage Directory & Features:
    - Displays description of a service, listing all sub-services (nested services) and starting prices in ₹ (INR).
    - Users can choose dates/times and click "Book Now" to order.
 4. About Page (/about): Story, mission, and vision of Rajseba Kolkata, India.
-5. Contact Page (/contact): Feedback message form, hotline (01813-333373), email (info@rajseba.com), and location (Kolkata, West Bengal, India).
+5. Contact Page (/contact): Feedback message form, hotline (+91 1788775100), email (info@rajseba.in), and location (Kolkata, West Bengal, India).
 6. Partner Opportunities Page (/opportunity): Application portal to join as Vendor or Agent in Kolkata / India.
 7. Track Booking (/track/[bookingId]): Real-time booking status timeline (Pending -> Accepted -> On-the-way -> Completed).
 8. Interactive Map Page (/map): Visually locates available providers and service coverage in Kolkata and West Bengal.

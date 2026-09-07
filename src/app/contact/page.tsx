@@ -3,7 +3,7 @@ import ContactClientPage from "./ContactClientPage";
 
 export const metadata: Metadata = {
   title: "Contact Us — Rajseba Office Kaikhali, Kolkata (Bimannagar, 700052)",
-  description: "Get in touch with Rajseba. Visit our head office at Ground floor, Seven Sky Apartment, Bimannagar, Kaikhali, Kolkata, West Bengal 700052, India. Call our 24/7 customer support or email info@rajseba.com.",
+  description: "Get in touch with Rajseba. Visit our head office at Ground floor, Seven Sky Apartment, Bimannagar, Kaikhali, Kolkata, West Bengal 700052, India. Call our 24/7 customer support or email info@rajseba.in.",
   keywords: ["contact rajseba", "rajseba Kaikhali address", "Ground floor Seven Sky Apartment Bimannagar Kaikhali Kolkata 700052", "rajseba Kolkata phone number", "rajseba email", "rajseba office Kolkata", "home service customer support Kolkata India"],
   alternates: { canonical: "https://rajseba.in/contact" },
   openGraph: {

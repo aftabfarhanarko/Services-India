@@ -5,11 +5,11 @@ export const metadata: Metadata = {
   title: "Terms of Service — Rajseba Kolkata, India",
   description: "Read the Terms of Service of Rajseba to understand our user agreement, booking policies, warranty terms, and liability limitations in Kolkata, West Bengal, India.",
   keywords: ["terms of service rajseba", "terms and conditions Kolkata", "user agreement India", "booking policy rajseba Kolkata", "service warranty terms West Bengal"],
-  alternates: { canonical: "https://rajseba.com/terms" },
+  alternates: { canonical: "https://rajseba.in/terms" },
   openGraph: {
     title: "Terms of Service — Rajseba Kolkata, India",
     description: "Read our Terms of Service to understand user policies and booking agreements in Kolkata, West Bengal, India.",
-    url: "https://rajseba.com/terms",
+    url: "https://rajseba.in/terms",
     siteName: "Rajseba Kolkata",
     locale: "en_IN",
     type: "website",

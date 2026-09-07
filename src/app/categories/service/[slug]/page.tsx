@@ -49,12 +49,12 @@ export async function generateMetadata({
         "Rajseba Kolkata",
       ],
       alternates: {
-        canonical: `https://rajseba.com/categories/service/${slug}`,
+        canonical: `https://rajseba.in/categories/service/${slug}`,
       },
       openGraph: {
         title,
         description,
-        url: `https://rajseba.com/categories/service/${slug}`,
+        url: `https://rajseba.in/categories/service/${slug}`,
         siteName: "Rajseba Kolkata",
         locale: "en_IN",
         type: "website",

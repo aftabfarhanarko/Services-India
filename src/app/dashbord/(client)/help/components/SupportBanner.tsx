@@ -71,7 +71,7 @@ export default function SupportBanner() {
             </p>
           </div>
           <button className="bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold px-6 py-2.5 rounded-full active:scale-[0.98] transition-all w-fit mx-auto focus:outline-none cursor-pointer">
-            +880 1678 900000
+            +91 1788775100
           </button>
         </div>
       </div>

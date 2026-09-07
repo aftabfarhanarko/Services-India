@@ -38,7 +38,7 @@ function OpportunityPageContent() {
               <Sparkles className="w-3.5 h-3.5" />Partnership Opportunities
             </div>
             <h1 className="text-xl md:text-3xl lg:text-4xl font-medium text-slate-900 tracking-tight leading-tight">Join <span className="text-[#FF6014]">Rajseba</span> Platform</h1>
-            <p className="text-slate-400 text-sm md:text-base font-semibold max-w-xl mx-auto leading-relaxed">Partner with Kolkata & India's leading home service marketplace and grow your business or operations network.</p>
+            <p className="text-slate-400 text-sm md:text-base font-semibold max-w-xl mx-auto leading-relaxed">Partner with Kolkata's premier home service marketplace and grow your business or operations network.</p>
           </div>
           <div className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
             {[
@@ -79,7 +79,7 @@ function OpportunityPageContent() {
                   <Sparkles className="w-3 h-3" />Onboarding Step {step} of 2
                 </div>
                 <h2 className="text-xl md:text-2xl lg:text-3xl font-medium text-slate-900 leading-tight mb-3">Join as {selectedRole === "Vendor" ? "a Vendor" : "an Agent"}</h2>
-                <p className="text-slate-500 text-sm font-semibold max-w-md leading-relaxed">Complete your registration information to launch your service profile on Kolkata & India's leading marketplace.</p>
+                <p className="text-slate-500 text-sm font-semibold max-w-md leading-relaxed">Complete your registration information to launch your service profile on Kolkata's premier home service marketplace.</p>
               </div>
             </div>
             <div className="space-y-5 my-6">
@@ -174,24 +174,24 @@ function OpportunityPageContent() {
                     <div className="space-y-4">
                       <div className="space-y-1.5">
                         <label className="text-[10px] font-black text-slate-400 uppercase tracking-[.1em] flex items-center gap-1.5">
-                          <User size={13} className="text-[#FF6014]" /> NID Number
+                          <User size={13} className="text-[#FF6014]" /> Government ID (Aadhaar / Voter ID) Number
                         </label>
-                        <input type="text" name="nid_number" value={formData.nid_number} onChange={handleChange} required className={inputNormal} placeholder="e.g. 199XXXXXXXXXX" />
+                        <input type="text" name="nid_number" value={formData.nid_number} onChange={handleChange} required className={inputNormal} placeholder="e.g. 12-digit Aadhaar / Voter ID" />
                       </div>
 
                       <div className="space-y-1.5">
                         <label className="text-[10px] font-black text-slate-400 uppercase tracking-[.1em] flex items-center gap-1.5">
-                          <ImageIcon size={13} className="text-[#FF6014]" /> NID Page Images (Front & Back)
+                          <ImageIcon size={13} className="text-[#FF6014]" /> Government ID Images (Front & Back)
                         </label>
                         <div className="grid grid-cols-2 gap-3">
                           <div className="relative group border-2 border-dashed border-slate-200 hover:border-[#FF6014]/40 rounded-xl p-3 bg-slate-50/50 hover:bg-white transition-all flex flex-col items-center justify-center text-center cursor-pointer min-h-[90px]">
                             <ImageIcon className="h-5 w-5 text-slate-400 group-hover:text-[#FF6014] mb-1" />
-                            <span className="text-[10px] font-bold text-[#FF6014] truncate max-w-full px-1">{nidFrontFile ? nidFrontFile.name : "NID Front Page (Max 6MB)"}</span>
+                            <span className="text-[10px] font-bold text-[#FF6014] truncate max-w-full px-1">{nidFrontFile ? nidFrontFile.name : "Govt ID Front Page (Max 6MB)"}</span>
                             <input type="file" accept="image/*" onChange={(e) => { if (e.target.files && e.target.files.length > 0) setNidFrontFile(e.target.files[0]); }} required className="absolute inset-0 w-full h-full opacity-0 cursor-pointer" />
                           </div>
                           <div className="relative group border-2 border-dashed border-slate-200 hover:border-[#FF6014]/40 rounded-xl p-3 bg-slate-50/50 hover:bg-white transition-all flex flex-col items-center justify-center text-center cursor-pointer min-h-[90px]">
                             <ImageIcon className="h-5 w-5 text-slate-400 group-hover:text-[#FF6014] mb-1" />
-                            <span className="text-[10px] font-bold text-[#FF6014] truncate max-w-full px-1">{nidBackFile ? nidBackFile.name : "NID Back Page (Max 6MB)"}</span>
+                            <span className="text-[10px] font-bold text-[#FF6014] truncate max-w-full px-1">{nidBackFile ? nidBackFile.name : "Govt ID Back Page (Max 6MB)"}</span>
                             <input type="file" accept="image/*" onChange={(e) => { if (e.target.files && e.target.files.length > 0) setNidBackFile(e.target.files[0]); }} required className="absolute inset-0 w-full h-full opacity-0 cursor-pointer" />
                           </div>
                         </div>

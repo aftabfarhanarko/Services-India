@@ -128,17 +128,17 @@ export default function InvoiceTemplate1({ invoice }: InvoiceTemplateProps) {
 
             <div style={{ display: "flex", alignItems: "center", gap: "8px", margin: "6px 0" }}>
               <Phone size={13} style={{ color: "rgba(255, 255, 255, 0.85)" }} />
-              <span style={{ fontWeight: 500 }}>+8801813333373</span>
+              <span style={{ fontWeight: 500 }}>+91 1788775100</span>
             </div>
 
             <div style={{ display: "flex", alignItems: "center", gap: "8px", margin: "6px 0" }}>
               <Mail size={13} style={{ color: "rgba(255, 255, 255, 0.85)" }} />
-              <span style={{ fontWeight: 500 }}>info@rajseba.com</span>
+              <span style={{ fontWeight: 500 }}>info@rajseba.in</span>
             </div>
 
             <div style={{ display: "flex", alignItems: "flex-start", gap: "8px", margin: "6px 0" }}>
               <MapPin size={13} style={{ color: "rgba(255, 255, 255, 0.85)", marginTop: "3px", flexShrink: 0 }} />
-              <span style={{ fontWeight: 500 }}>5th floor, incubation center, Hi-tech park, Rajshahi</span>
+              <span style={{ fontWeight: 500 }}>Kaikhali, Kolkata, West Bengal 700052, India</span>
             </div>
           </div>
         </div>

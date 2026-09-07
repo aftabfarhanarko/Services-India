@@ -5,11 +5,11 @@ export const metadata: Metadata = {
   title: "Blog — Home Care Tips & Guides | Rajseba Kolkata",
   description: "Read expert home care tips, maintenance guides, AC repair advice, and the latest insights from Rajseba — Kolkata's most trusted home services platform in West Bengal, India.",
   keywords: ["rajseba blog Kolkata", "home care tips Kolkata India", "AC repair guide Kolkata", "cleaning tips West Bengal", "home maintenance Kolkata", "plumbing tips India"],
-  alternates: { canonical: "https://rajseba.com/blog" },
+  alternates: { canonical: "https://rajseba.in/blog" },
   openGraph: {
     title: "Blog — Home Care Tips & Guides | Rajseba Kolkata",
     description: "Expert home care tips, maintenance guides, and trusted insights from Rajseba Kolkata, India.",
-    url: "https://rajseba.com/blog",
+    url: "https://rajseba.in/blog",
     siteName: "Rajseba Kolkata",
     locale: "en_IN",
     type: "website",

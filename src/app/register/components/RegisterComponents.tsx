@@ -28,7 +28,7 @@ export const REGISTER_CONTENT = {
     emailLabel: "Email Address",
     emailPlaceholder: "john@example.com",
     phoneLabel: "Phone Number",
-    phonePlaceholder: "+880 1XXX XXXXXX",
+    phonePlaceholder: "+91 98765 43210",
     passLabel: "Password",
     passPlaceholder: "••••••••",
   },

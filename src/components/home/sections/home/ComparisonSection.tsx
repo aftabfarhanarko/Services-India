@@ -12,7 +12,7 @@ const COMPARISONS = [
   },
   {
     feature: "Technician Reliability",
-    rajseba: "100% NID & Police verified experts",
+    rajseba: "100% Aadhaar & Background verified experts",
     local: "Unverified technicians with zero checks",
   },
   {
@@ -48,7 +48,7 @@ export default function ComparisonSection() {
             Rajseba Standard <span className="text-[#FF6014]">vs Local Technicians</span>
           </h2>
           <p className="mt-3 text-slate-500 text-sm md:text-base max-w-2xl mx-auto leading-relaxed">
-            See why thousands of households across Kolkata & India trust Rajseba for guaranteed safety, quality, and transparent pricing.
+            See why households across Kolkata trust Rajseba for guaranteed safety, quality, and transparent pricing.
           </p>
         </div>
 

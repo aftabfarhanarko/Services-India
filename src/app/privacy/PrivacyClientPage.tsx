@@ -329,8 +329,8 @@ export default function PrivacyClientPage() {
                       If you decide to delete your account permanently, or wish to pull a full copy of your transaction logs, simply contact our support desk using the information below:
                     </p>
                     <div className="bg-[#FFFDFB] border border-rose-100/30 rounded-xl p-3 text-[11px] font-semibold text-slate-600 space-y-1">
-                      <p>📧 Email: <span className="text-[#FF6014]">info@rajseba.com</span></p>
-                      <p>📞 Hotline: <span className="text-[#FF6014]">+91 6290257347</span></p>
+                      <p>📧 Email: <span className="text-[#FF6014]">info@rajseba.in</span></p>
+                      <p>📞 Hotline: <span className="text-[#FF6014]">+91 1788775100</span></p>
                       <p>📍 Address: Kolkata, West Bengal, India</p>
                     </div>
                   </div>

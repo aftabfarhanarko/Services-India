@@ -9,11 +9,11 @@ export const metadata: Metadata = {
     "home service agent West Bengal", "rajseba jobs Kolkata", "freelance home services Kolkata",
     "become a vendor Kolkata", "service provider opportunity India",
   ],
-  alternates: { canonical: "https://rajseba.com/opportunity" },
+  alternates: { canonical: "https://rajseba.in/opportunity" },
   openGraph: {
     title: "Partner & Vendor Opportunities — Rajseba Kolkata, India",
     description: "Join Rajseba as a vendor or agent and grow your home service business in Kolkata, India.",
-    url: "https://rajseba.com/opportunity",
+    url: "https://rajseba.in/opportunity",
     siteName: "Rajseba Kolkata",
     locale: "en_IN",
     type: "website",

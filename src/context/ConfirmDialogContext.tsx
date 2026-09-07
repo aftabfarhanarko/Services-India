@@ -1,6 +1,6 @@
 "use client";
 
-import React, { createContext, useContext, useState, useRef } from "react";
+import React, { createContext, useContext, useState, useRef, useEffect } from "react";
 import { X, AlertTriangle } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -21,7 +21,11 @@ const ConfirmContext = createContext<ConfirmContextType | undefined>(undefined);
 export function ConfirmProvider({ children }: { children: React.ReactNode }) {
   const [isOpen, setIsOpen] = useState(false);
   const [options, setOptions] = useState<ConfirmOptions>({});
-  const resolveRef = useRef<(value: boolean) => void>(null);
+  const resolveRef = useRef<((value: boolean) => void) | null>(null);
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const confirm = (opts?: ConfirmOptions) => {
     setOptions(opts || {});
@@ -52,9 +56,9 @@ export function ConfirmProvider({ children }: { children: React.ReactNode }) {
   return (
     <ConfirmContext.Provider value={{ confirm }}>
       {children}
-      <AnimatePresence>
-        {isOpen && (
-          <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4">
+      {isOpen && (
+        <AnimatePresence>
+          <div className="fixed inset-0 z-[999999] flex items-center justify-center p-4">
             {/* Backdrop */}
             <motion.div
               initial={{ opacity: 0 }}
@@ -73,44 +77,50 @@ export function ConfirmProvider({ children }: { children: React.ReactNode }) {
               className="bg-white rounded-[24px] w-full max-w-md shadow-2xl border border-slate-100/80 overflow-hidden relative z-10 p-6 flex flex-col gap-5"
             >
               {/* Header */}
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-2.5">
-                  <div className={`p-2 rounded-xl flex items-center justify-center ${
-                    variant === "danger" 
-                      ? "bg-rose-50 text-rose-500" 
-                      : variant === "warning" 
-                        ? "bg-amber-50 text-amber-500" 
-                        : "bg-blue-50 text-blue-500"
-                  }`}>
+              <div className="flex items-start justify-between gap-4">
+                <div className="flex items-center gap-3">
+                  <div
+                    className={`w-11 h-11 rounded-2xl flex items-center justify-center shrink-0 ${
+                      variant === "danger"
+                        ? "bg-red-50 text-red-500 border border-red-100"
+                        : variant === "warning"
+                          ? "bg-amber-50 text-amber-500 border border-amber-100"
+                          : "bg-blue-50 text-blue-500 border border-blue-100"
+                    }`}
+                  >
                     <AlertTriangle size={20} />
                   </div>
-                  <h3 className="text-base font-extrabold text-slate-950 tracking-tight">
-                    {title}
-                  </h3>
+                  <div>
+                    <h3 className="text-base font-extrabold text-slate-900 leading-tight">
+                      {title}
+                    </h3>
+                  </div>
                 </div>
                 <button
+                  type="button"
                   onClick={handleCancel}
-                  className="p-1.5 hover:bg-slate-50 active:scale-95 rounded-lg text-slate-400 hover:text-slate-600 transition-all cursor-pointer"
+                  className="text-slate-400 hover:text-slate-600 hover:bg-slate-100 p-1.5 rounded-full transition cursor-pointer"
                 >
                   <X size={16} />
                 </button>
               </div>
 
               {/* Message */}
-              <div className="text-slate-500 text-xs font-semibold leading-relaxed">
+              <p className="text-xs text-slate-500 font-medium leading-relaxed">
                 {message}
-              </div>
+              </p>
 
-              {/* Buttons */}
-              <div className="flex justify-end gap-2.5 pt-2">
+              {/* Actions */}
+              <div className="flex items-center justify-end gap-3 pt-2">
                 <button
                   type="button"
                   onClick={handleCancel}
-                  className="px-4 py-2.5 text-xs font-bold text-slate-500 hover:bg-slate-50 rounded-xl transition-all cursor-pointer active:scale-98"
+                  className="px-4 py-2.5 text-xs font-bold text-slate-500 hover:bg-slate-100 border border-slate-200/80 rounded-xl transition cursor-pointer"
                 >
                   {cancelText}
                 </button>
                 <button
+                  type="button"
                   onClick={handleConfirm}
                   className={`text-white text-xs font-extrabold px-5 py-2.5 rounded-xl transition-all active:scale-[0.97] shadow-lg cursor-pointer ${
                     variant === "danger"
@@ -125,8 +135,8 @@ export function ConfirmProvider({ children }: { children: React.ReactNode }) {
               </div>
             </motion.div>
           </div>
-        )}
-      </AnimatePresence>
+        </AnimatePresence>
+      )}
     </ConfirmContext.Provider>
   );
 }

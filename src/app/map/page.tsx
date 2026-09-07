@@ -9,11 +9,11 @@ export const metadata: Metadata = {
     "AC repair near me Kolkata", "cleaning service near me Kolkata", "Rajseba Kolkata map",
     "home service providers Kolkata", "nearby home experts West Bengal India",
   ],
-  alternates: { canonical: "https://rajseba.com/map" },
+  alternates: { canonical: "https://rajseba.in/map" },
   openGraph: {
     title: "Find Service Experts Near You in Kolkata — Rajseba Map",
     description: "Explore verified home service professionals near your location in Kolkata, West Bengal, India.",
-    url: "https://rajseba.com/map",
+    url: "https://rajseba.in/map",
     siteName: "Rajseba Kolkata",
     locale: "en_IN",
     type: "website",

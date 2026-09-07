@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { Star, CheckCircle2, Calendar, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";

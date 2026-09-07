@@ -76,13 +76,13 @@ export default function ServiceAreas() {
 
           <h2 className="text-lg md:text-xl lg:text-2xl font-medium text-slate-900 tracking-tight leading-tight flex items-center justify-center gap-2">
             <Globe className="w-5 h-5 md:w-6 md:h-6 text-[#FF6014]" />
-            We Serve Across <span className="text-[#FF6014]">Kolkata & India</span>
+            Serving <span className="text-[#FF6014]">North Kolkata, New Town, Rajarhat & Kolkata</span>
           </h2>
 
           <p className="text-xs md:text-sm text-slate-500 font-semibold max-w-xl mx-auto leading-relaxed">
             {isLoading
               ? "Mapping our service coverage areas..."
-              : `Verified Rajseba service partners operate across ${activeCount} active divisions and ${totalDistricts} districts.`}
+              : `Verified Rajseba service partners operate across active Kolkata zones & districts.`}
           </p>
 
           {/* ── High-end Glassmorphic Coverage Summary Pill ── */}
@@ -90,15 +90,15 @@ export default function ServiceAreas() {
             <div className="inline-flex flex-wrap items-center justify-center gap-3 bg-white/90 backdrop-blur-xl border border-orange-100 p-2 sm:p-2.5 rounded-2xl shadow-sm mt-2">
               <span className="inline-flex items-center gap-1.5 text-xs font-extrabold text-slate-800 px-3 py-1 rounded-xl bg-orange-50/80 border border-orange-100">
                 <MapPin size={13} className="text-[#FF6014]" />
-                {activeCount} Active Divisions
+                Kolkata Focus Zones
               </span>
               <span className="inline-flex items-center gap-1.5 text-xs font-extrabold text-slate-800 px-3 py-1 rounded-xl bg-emerald-50/80 border border-emerald-100">
                 <Building2 size={13} className="text-emerald-600" />
-                {totalDistricts} Districts
+                Active Locations
               </span>
               <span className="inline-flex items-center gap-1.5 text-xs font-extrabold text-slate-800 px-3 py-1 rounded-xl bg-blue-50/80 border border-blue-100">
                 <ShieldCheck size={13} className="text-blue-600" />
-                500+ Verified Experts
+                Verified Local Experts
               </span>
             </div>
           )}

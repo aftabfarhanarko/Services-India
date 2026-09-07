@@ -5,9 +5,9 @@ import { motion } from 'framer-motion';
 import { useGetPublicStatsQuery } from '@/redux/features/landing/landingApi';
 
 const DEFAULT_STATS = [
-  { id: 1, label: 'Happy Customers', value: 50000, suffix: '+', display: '50,000+', icon: Users },
-  { id: 2, label: 'Services Completed', value: 120000, suffix: '+', display: '120,000+', icon: Wrench },
-  { id: 3, label: 'Verified Experts', value: 2500, suffix: '+', display: '2,500+', icon: ShieldCheck },
+  { id: 1, label: 'Happy Customers', value: 500, suffix: '+', display: '500+', icon: Users },
+  { id: 2, label: 'Services Completed', value: 1200, suffix: '+', display: '1,200+', icon: Wrench },
+  { id: 3, label: 'Verified Experts', value: 100, suffix: '+', display: '100+', icon: ShieldCheck },
   { id: 4, label: 'Average Rating', value: 4.8, suffix: '/5', display: '4.8/5', icon: Star, isDecimal: true },
 ];
 

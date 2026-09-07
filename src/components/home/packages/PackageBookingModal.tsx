@@ -58,6 +58,11 @@ export function PackageBookingModal({
     null
   );
 
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   // Disable body scroll when modal is open on mobile
   useEffect(() => {
     if (selectedPackage) {
@@ -70,7 +75,7 @@ export function PackageBookingModal({
     };
   }, [selectedPackage]);
 
-  if (!selectedPackage) return null;
+  if (!selectedPackage || !mounted) return null;
 
   const packageUnitPrice = selectedPackage.price
     ? Number(String(selectedPackage.price).replace(/,/g, ""))
@@ -95,11 +100,16 @@ export function PackageBookingModal({
       return;
     }
 
+    const rawVendorId = selectedPackage.vendorId || getFallbackVendorId(profilesRes);
+    const vendorIdNum = Number(rawVendorId);
+    const serviceIdNum = Number(selectedPackage.serviceId);
+    const packageIdNum = Number(selectedPackage.id);
+
     const payload = {
       user_id: Number(authUser?.id),
-      package_id: Number(selectedPackage.id),
-      service_id: Number(selectedPackage.serviceId),
-      vendor_id: Number(selectedPackage.vendorId || getFallbackVendorId(profilesRes)),
+      package_id: !isNaN(packageIdNum) && packageIdNum > 0 ? packageIdNum : undefined,
+      service_id: !isNaN(serviceIdNum) && serviceIdNum > 0 ? serviceIdNum : undefined,
+      vendor_id: !isNaN(vendorIdNum) && vendorIdNum > 0 ? vendorIdNum : undefined,
       quantity: packageQuantity,
       duration_months: packageDuration,
       coupon_code: appliedCoupon?.coupon.code,
@@ -123,8 +133,10 @@ export function PackageBookingModal({
     }
   };
 
+  if (!selectedPackage) return null;
+
   return (
-    <div className="fixed inset-0 z-[1000] flex items-end sm:items-center justify-center">
+    <div className="fixed inset-0 z-[100000] flex items-end sm:items-center justify-center">
       {/* Backdrop */}
       <motion.div
         initial={{ opacity: 0 }}

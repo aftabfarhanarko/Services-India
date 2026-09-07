@@ -76,7 +76,7 @@ export default function AgentTable({
     },
     {
       key: "nid_number",
-      header: "NID Number",
+      header: "Govt ID (Aadhaar)",
       render: (user: AgentItem) => <span className="font-bold text-slate-600 text-xs">{user.nid_number || "N/A"}</span>,
     },
     {

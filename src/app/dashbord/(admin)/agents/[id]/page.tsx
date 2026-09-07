@@ -86,7 +86,7 @@ export default function AgentDetailPage() {
               <BadgeCheck className="w-5 h-5 text-[#FF6014]" />
             </div>
             <p className="text-xs text-slate-400 mt-0.5 font-medium flex items-center gap-2">
-              <span>{lang === "bn" ? "এজেন্টের সব তথ্য ও ডকুমেন্ট যাচাই করুন।" : "Review full application details and NID credentials."}</span>
+              <span>{lang === "bn" ? "এজেন্টের সব তথ্য ও ডকুমেন্ট যাচাই করুন।" : "Review full application details and Government ID credentials."}</span>
               <span className="bg-slate-100 text-slate-700 font-extrabold px-2 py-0.5 rounded-md text-[11px] border border-slate-200">ID: {agent.id}</span>
             </p>
           </div>
@@ -246,34 +246,34 @@ export default function AgentDetailPage() {
           </div>
         )}
 
-        {/* 4. NID Card Verification Documents */}
+        {/* 4. Government ID Verification Documents */}
         <div className="space-y-3">
           <h3 className="text-xs font-black uppercase tracking-wider text-slate-400 flex items-center gap-2">
-            <CreditCard size={15} className="text-[#FF6014]" /> National ID (NID) Credentials
+            <CreditCard size={15} className="text-[#FF6014]" /> Government ID (Aadhaar / Voter ID) Credentials
           </h3>
           <div className="p-5 bg-slate-50/80 rounded-2xl border border-slate-100 space-y-4">
             <div className="flex justify-between items-center border-b border-slate-200/60 pb-2.5">
-              <span className="text-[11px] text-slate-500 font-bold">NID Registration Number</span>
+              <span className="text-[11px] text-slate-500 font-bold">Government ID Number</span>
               <span className="text-xs font-black text-[#FF6014] bg-orange-50 border border-orange-100 px-3 py-1 rounded-xl">
                 {agent.nid_number || "N/A"}
               </span>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <span className="text-[11px] text-slate-500 font-bold block mb-1.5">NID Card - Front Side</span>
+                <span className="text-[11px] text-slate-500 font-bold block mb-1.5">Government ID - Front Side</span>
                 {agent.nid_front ? (
                   <a href={agent.nid_front} target="_blank" rel="noopener noreferrer" className="block aspect-video border border-slate-200 rounded-2xl overflow-hidden group shadow-sm bg-white hover:border-[#FF6014] transition-all">
-                    <img src={agent.nid_front} alt="NID Front" className="w-full h-full object-cover group-hover:scale-105 transition-transform" />
+                    <img src={agent.nid_front} alt="Govt ID Front" className="w-full h-full object-cover group-hover:scale-105 transition-transform" />
                   </a>
                 ) : (
                   <div className="p-6 bg-white rounded-2xl border border-slate-200 text-center text-xs font-bold text-slate-400">No front image uploaded</div>
                 )}
               </div>
               <div>
-                <span className="text-[11px] text-slate-500 font-bold block mb-1.5">NID Card - Back Side</span>
+                <span className="text-[11px] text-slate-500 font-bold block mb-1.5">Government ID - Back Side</span>
                 {agent.nid_back ? (
                   <a href={agent.nid_back} target="_blank" rel="noopener noreferrer" className="block aspect-video border border-slate-200 rounded-2xl overflow-hidden group shadow-sm bg-white hover:border-[#FF6014] transition-all">
-                    <img src={agent.nid_back} alt="NID Back" className="w-full h-full object-cover group-hover:scale-105 transition-transform" />
+                    <img src={agent.nid_back} alt="Govt ID Back" className="w-full h-full object-cover group-hover:scale-105 transition-transform" />
                   </a>
                 ) : (
                   <div className="p-6 bg-white rounded-2xl border border-slate-200 text-center text-xs font-bold text-slate-400">No back image uploaded</div>

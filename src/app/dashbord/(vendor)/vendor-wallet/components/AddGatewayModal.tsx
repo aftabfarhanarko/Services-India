@@ -55,7 +55,7 @@ export default function AddGatewayModal({
             <label className="block text-sm font-bold text-slate-700 mb-2">Account Details</label>
             <input
               type="text"
-              placeholder="e.g. +88017XXXXXXXX or Account No."
+              placeholder="e.g. +919876543210 or Account No."
               value={newGatewayInfo}
               onChange={(e) => setNewGatewayInfo(e.target.value)}
               className="w-full bg-slate-50 border border-slate-200 text-slate-900 text-sm rounded-xl focus:ring-[#FF6014] focus:border-[#FF6014] block p-3 outline-none"

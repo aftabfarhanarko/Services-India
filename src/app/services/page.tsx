@@ -10,11 +10,11 @@ export const metadata: Metadata = {
   title: "Professional Home Services in Kolkata, West Bengal — Rajseba",
   description: "Browse and book from our comprehensive list of verified home services including AC repair, house cleaning, plumbing, electrical, and painting in Kolkata, West Bengal, India.",
   keywords: ["home services Kolkata", "AC service Kolkata", "house cleaning services Kolkata", "plumbing service Kolkata", "electrician in Kolkata", "Kolkata home care", "Rajseba Kolkata"],
-  alternates: { canonical: "https://rajseba.com/services" },
+  alternates: { canonical: "https://rajseba.in/services" },
   openGraph: {
     title: "Professional Home Services in Kolkata, West Bengal — Rajseba",
     description: "Browse and book from our comprehensive list of verified home services in Kolkata, West Bengal, India.",
-    url: "https://rajseba.com/services",
+    url: "https://rajseba.in/services",
     siteName: "Rajseba Kolkata",
     locale: "en_IN",
     type: "website",

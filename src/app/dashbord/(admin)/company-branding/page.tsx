@@ -330,7 +330,7 @@ export default function CompanyBrandingPage() {
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
-                  placeholder="info@rajseba.com"
+                  placeholder="info@rajseba.in"
                   className="w-full px-4 py-3 rounded-2xl border border-slate-200/90 bg-slate-50/50 text-slate-800 text-xs font-semibold outline-none focus:border-[#FF6014] focus:bg-white transition"
                 />
               </div>

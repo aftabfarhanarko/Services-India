@@ -9,11 +9,11 @@ export const metadata: Metadata = {
     "house moving service Kolkata", "professional movers Kolkata India", "rajseba shifting Kolkata",
     "furniture moving Kolkata", "packing and moving Kolkata",
   ],
-  alternates: { canonical: "https://rajseba.com/home-shifting" },
+  alternates: { canonical: "https://rajseba.in/home-shifting" },
   openGraph: {
     title: "Packers & Movers Kolkata — Home Shifting Service | Rajseba",
     description: "Professional home shifting and relocation service with trusted packers & movers in Kolkata, West Bengal, India.",
-    url: "https://rajseba.com/home-shifting",
+    url: "https://rajseba.in/home-shifting",
     siteName: "Rajseba Kolkata",
     locale: "en_IN",
     type: "website",
