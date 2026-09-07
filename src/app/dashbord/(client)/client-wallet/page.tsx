@@ -187,7 +187,7 @@ export default function WalletPage() {
                     <h4 className="text-xs font-extrabold text-slate-800">
                       {lang === "bn" ? "ব্যক্তিগত অ্যাকাউন্ট" : "Personal Account"}
                     </h4>
-                    <span className="text-[10px] text-slate-400 font-semibold block mt-0.5">017 **** 5678</span>
+                    <span className="text-[10px] text-slate-400 font-semibold block mt-0.5">+91 98765 ****</span>
                   </div>
                 </div>
                 <button className="p-2 bg-slate-50 hover:bg-[#FFF8F4] text-slate-400 hover:text-[#FF6014] rounded-xl transition-colors focus:outline-none cursor-pointer">

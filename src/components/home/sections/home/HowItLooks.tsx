@@ -113,7 +113,7 @@ export default function HowItLooks() {
                 href="tel:01813333373"
                 className="px-4.5 py-2.5 rounded-xl bg-slate-50 hover:bg-slate-100 border border-slate-200 text-slate-800 font-bold text-xs sm:text-sm transition-all"
               >
-                Call Hotline: 01813333373
+                Call Hotline: +91 6290257347
               </a>
             </div>
 

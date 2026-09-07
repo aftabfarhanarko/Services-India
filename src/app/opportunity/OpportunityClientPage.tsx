@@ -113,9 +113,9 @@ function OpportunityPageContent() {
               {step === 1 ? (
                 <form onSubmit={(e) => handleRegister(e, selectedRole)} className="space-y-4">
                   {[
-                    { name: "name", label: "Full Name", type: "text", placeholder: "e.g. Mahbubur Rahman", icon: User },
-                    { name: "phone", label: "Phone Number", type: "tel", placeholder: "e.g. 017XXXXXXXX", icon: Phone },
-                    { name: "email", label: "Email Address", type: "email", placeholder: "e.g. mahbub@example.com", icon: Mail },
+                    { name: "name", label: "Full Name", type: "text", placeholder: "e.g. Rahul Sharma", icon: User },
+                    { name: "phone", label: "Phone Number", type: "tel", placeholder: "e.g. +91 9876543210", icon: Phone },
+                    { name: "email", label: "Email Address", type: "email", placeholder: "e.g. rahul@example.com", icon: Mail },
                   ].map(({ name, label, type, placeholder, icon: Icon }) => (
                     <div key={name} className="space-y-1.5">
                       <label className="text-[10px] font-black text-slate-400 uppercase tracking-[.1em] flex items-center gap-1.5"><Icon size={13} className="text-[#FF6014]" />{label}</label>

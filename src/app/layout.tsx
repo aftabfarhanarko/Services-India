@@ -120,7 +120,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${baiJamjuree.variable} antialiased`}>
+    <html lang="en" data-scroll-behavior="smooth" className={`${baiJamjuree.variable} antialiased`}>
       <head>
         <script
           type="application/ld+json"

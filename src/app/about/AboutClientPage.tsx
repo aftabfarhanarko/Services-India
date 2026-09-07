@@ -174,9 +174,9 @@ export default function AboutClientPage() {
                   variants={fadeUp}
                   whileHover={{ y: -8 }}
                   transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                  className="group relative bg-white rounded-3xl border border-[#FF6014]/20 overflow-hidden shadow-[0_4px_25px_rgba(0,0,0,0.03)] hover:shadow-[0_20px_40px_rgba(255,96,20,0.12)] hover:border-[#FF6014] transition-all duration-300 flex flex-col justify-between"
+                  className="group relative bg-white rounded-3xl border border-slate-100/90 overflow-hidden shadow-[0_4px_25px_rgba(0,0,0,0.03)] hover:shadow-[0_20px_45px_rgba(255,96,20,0.12)] hover:border-[#FF6014]/40 transition-all duration-300 flex flex-col justify-between"
                 >
-                  {/* Top Image Container */}
+                  {/* Top Image Container with Gradient Overlay */}
                   <div className="relative h-72 sm:h-80 overflow-hidden bg-slate-900">
                     <Image
                       src={member.avatar}
@@ -185,21 +185,21 @@ export default function AboutClientPage() {
                       className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out opacity-95 group-hover:opacity-100"
                       sizes="(max-width: 768px) 100vw, 33vw"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/30 to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/25 to-transparent" />
                     
-                    {/* Role & Experience Floating Badges */}
+                    {/* Floating Badges */}
                     <div className="absolute top-4 left-4 right-4 flex items-center justify-between z-10">
                       <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/95 backdrop-blur-md text-[10px] font-black uppercase tracking-wider text-[#FF6014] shadow-sm border border-white/60">
                         <Sparkles size={11} className="fill-[#FF6014]" /> {member.role}
                       </span>
                       {member.experience && (
-                        <span className="inline-flex items-center px-2.5 py-1 rounded-full bg-black/50 backdrop-blur-md text-[10px] font-bold text-white border border-white/20">
+                        <span className="inline-flex items-center px-2.5 py-1 rounded-full bg-black/40 backdrop-blur-md text-[10px] font-bold text-white border border-white/20">
                           {member.experience}
                         </span>
                       )}
                     </div>
 
-                    {/* Member Name over Image Bottom */}
+                    {/* Member Name over Image */}
                     <div className="absolute bottom-4 left-4 right-4 z-10">
                       <h3 className="text-xl font-extrabold text-white leading-tight drop-shadow-sm group-hover:text-orange-200 transition-colors">
                         {member.name}
@@ -213,12 +213,9 @@ export default function AboutClientPage() {
                       {member.bio}
                     </p>
 
-                    {/* Verified Status & Social Connect Footer */}
+                    {/* Social Connect & Status Indicator Footer */}
                     <div className="pt-4 border-t border-slate-100 flex items-center justify-between">
-                      <div className="flex items-center gap-1.5 text-xs font-bold text-emerald-600">
-                        <CheckCircle2 size={14} className="text-emerald-500" />
-                        <span>Verified Executive</span>
-                      </div>
+                      <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider">Rajseba Leadership</span>
 
                       <div className="flex items-center gap-2">
                         <span className="w-2 h-2 rounded-full bg-[#FF6014] animate-pulse" />

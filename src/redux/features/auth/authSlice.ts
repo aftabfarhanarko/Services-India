@@ -124,7 +124,7 @@ export const getRoleName = (r: UserRole | null): string => {
     case "vendor":
       return "Vendor";
     case "client":
-      return "Client";
+      return "Customer";
     case "employee":
       return "Employee";
     default:

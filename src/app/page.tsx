@@ -203,9 +203,9 @@ export default function Home() {
             <FAQ />
           </HomeMotionWrapper>
 
-          <HomeMotionWrapper>
+          {/* <HomeMotionWrapper>
             <Testimonials />
-          </HomeMotionWrapper>
+          </HomeMotionWrapper> */}
         </div>
       </div>
       {/* <ScrollToTop /> */}

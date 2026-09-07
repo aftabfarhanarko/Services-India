@@ -119,9 +119,7 @@ function getCategorySubtitle(name: string): string {
 const LEFT_NAV_LINKS: NavLink[] = [
   { label: "Home", href: "/", icon: HomeIcon },
   { label: "Services", href: "/services", icon: LayoutGrid, hasDropdown: true },
-  { label: "Bookings", href: "/bookings", icon: CalendarCheck },
-  { label: "Map", href: "/map", icon: MapPin },
-  { label: "About Us", href: "/about", icon: Users },
+  { label: "My Bookings", href: "/bookings", icon: CalendarCheck },
   { label: "Contact", href: "/contact", icon: PhoneCall },
   { label: "Opportunity", href: "/opportunity", icon: Rocket },
 ];
@@ -133,7 +131,7 @@ const ALL_NAV_LINKS: NavLink[] = [...LEFT_NAV_LINKS, ...RIGHT_NAV_LINKS];
 const MOBILE_BOTTOM_LINKS: NavLink[] = [
   { label: "Home", href: "/", icon: HomeIcon },
   { label: "Services", href: "/services", icon: LayoutGrid },
-  { label: "Booking", href: "/bookings", icon: CalendarCheck },
+  { label: "My Bookings", href: "/bookings", icon: CalendarCheck },
   { label: "Opportunity", href: "/opportunity", icon: Rocket },
   { label: "Profile", href: "/profile", icon: User },
 ];

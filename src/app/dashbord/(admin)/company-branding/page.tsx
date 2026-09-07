@@ -345,7 +345,7 @@ export default function CompanyBrandingPage() {
                     name="phone"
                     value={formData.phone}
                     onChange={handleChange}
-                    placeholder="01813333373"
+                    placeholder="+91 9876543210"
                     className="w-full px-4 py-3 rounded-2xl border border-slate-200/90 bg-slate-50/50 text-slate-800 text-xs font-semibold outline-none focus:border-[#FF6014] focus:bg-white transition"
                   />
                 </div>
@@ -358,7 +358,7 @@ export default function CompanyBrandingPage() {
                     name="whatsappNumber"
                     value={formData.whatsappNumber}
                     onChange={handleChange}
-                    placeholder="01813333373"
+                    placeholder="+91 9876543210"
                     className="w-full px-4 py-3 rounded-2xl border border-slate-200/90 bg-slate-50/50 text-slate-800 text-xs font-semibold outline-none focus:border-[#FF6014] focus:bg-white transition"
                   />
                 </div>

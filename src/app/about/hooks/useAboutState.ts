@@ -8,28 +8,28 @@ import { useGetPublicStatsQuery } from "@/redux/features/landing/landingApi";
 
 const TEAM_MEMBERS_FALLBACK = [
   {
-    name: "Mahbubur Rahman",
+    name: "Rajesh Sharma",
     role: "Founder & CEO",
     bio: "Pioneering digital logistics for urban home maintenance, driven to establish job security and dignity for service professionals.",
-    avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=600&auto=format&fit=crop",
+    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=600&auto=format&fit=crop",
     linkedin: "https://linkedin.com",
     facebook: "https://facebook.com",
     experience: "10+ Yrs Exp",
   },
   {
-    name: "Farhana Yasmin",
+    name: "Priya Mukherjee",
     role: "Head of Customer Experience",
     bio: "Setting strict SLA protocols and service compliance measures to ensure every customer is delighted on every visit.",
-    avatar: "https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=600&auto=format&fit=crop",
+    avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=600&auto=format&fit=crop",
     linkedin: "https://linkedin.com",
     facebook: "https://facebook.com",
     experience: "8+ Yrs Exp",
   },
   {
-    name: "Asif Adnan",
+    name: "Amitav Banerjee",
     role: "Director of Operations",
     bio: "Leading verification audits and continuous skill training labs to verify only the top 5% of technicians join Rajseba.",
-    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=600&auto=format&fit=crop",
+    avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=600&auto=format&fit=crop",
     linkedin: "https://linkedin.com",
     facebook: "https://facebook.com",
     experience: "7+ Yrs Exp",
@@ -48,7 +48,10 @@ export function useAboutState() {
 
     const apiBase = process.env.NEXT_PUBLIC_API_URL || "https://www.api.rajseba.in";
     fetch(`${apiBase}/users`, { headers })
-      .then((res) => res.json())
+      .then((res) => {
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        return res.json();
+      })
       .then((json) => {
         const users = json.data || (Array.isArray(json) ? json : []);
         if (Array.isArray(users) && users.length > 0) {
@@ -75,7 +78,9 @@ export function useAboutState() {
           }
         }
       })
-      .catch((err) => console.error("Error fetching users for team:", err));
+      .catch(() => {
+        // Fallback silently if offline or endpoint unauthorized
+      });
   }, []);
 
   const displayStats = [

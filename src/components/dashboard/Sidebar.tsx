@@ -93,10 +93,8 @@ export function Sidebar({ open, onClose }: { open?: boolean; onClose?: () => voi
 
   const lang = useAppSelector((state) => state.lang.value);
 
-  // Helper for 3-way language label translation
+  // Helper for language label translation (Always English in Dashboard)
   const getLabel = (bn: string, hi: string, en: string) => {
-    if (lang === "bn") return bn;
-    if (lang === "hi") return hi;
     return en;
   };
 

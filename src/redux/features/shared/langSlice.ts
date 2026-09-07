@@ -13,7 +13,7 @@ const getInitialLanguage = (): Language => {
       return saved;
     }
   }
-  return 'bn'; // Default language is Bangla
+  return 'en'; // Default language is English
 };
 
 const initialState: LangState = {

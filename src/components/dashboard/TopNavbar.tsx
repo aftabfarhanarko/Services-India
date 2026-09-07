@@ -25,7 +25,7 @@ export function TopNavbar({ onMenuClick }: { onMenuClick?: () => void }) {
   const lang = useAppSelector((state) => state.lang.value);
   const dispatch = useAppDispatch();
   const router = useRouter();
-  const roleName = mounted ? getRoleName(role) : (lang === "bn" ? "ক্লায়েন্ট" : "Client");
+  const roleName = mounted ? getRoleName(role) : "Customer";
   const logout = () => dispatch(authLogout());
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
@@ -171,7 +171,7 @@ export function TopNavbar({ onMenuClick }: { onMenuClick?: () => void }) {
     { value: "superadmin", label: "Super Admin", desc: "System control", icon: Shield, color: "text-[#FF6014] bg-[#FFF8F4]" },
     { value: "agent", label: "Agent", desc: "Booking agent", icon: Briefcase, color: "text-emerald-500 bg-emerald-50" },
     { value: "vendor", label: "Vendor", desc: "Service professional", icon: HardHat, color: "text-teal-500 bg-teal-50" },
-    { value: "client", label: "Client", desc: "Client profile", icon: CircleUser, color: "text-indigo-500 bg-indigo-50" },
+    { value: "client", label: "Customer", desc: "Customer profile", icon: CircleUser, color: "text-indigo-500 bg-indigo-50" },
   ];
 
   // Derive display profile from real user data in Redux
@@ -309,8 +309,8 @@ export function TopNavbar({ onMenuClick }: { onMenuClick?: () => void }) {
       {/* Right Navbar Controls */}
       <div className="flex items-center gap-5">
 
-        {/* Language Switcher (3-Way Pill for EN / বাং / हिं) */}
-        <div className="flex items-center bg-slate-100/90 p-1 rounded-full border border-slate-200/80 shadow-2xs gap-0.5">
+        {/* Language Switcher (3-Way Pill for EN / বাং / हिं) - Hidden on mobile */}
+        <div className="hidden sm:flex items-center bg-slate-100/90 p-1 rounded-full border border-slate-200/80 shadow-2xs gap-0.5">
           <Languages size={14} className="text-[#FF6014] ml-1.5 mr-0.5 shrink-0" />
           <button
             onClick={() => dispatch(setLanguage("bn"))}
